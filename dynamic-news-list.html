@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI圈热点周报 - 动态列表</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1D2B64, #F8CDDA);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .loading {
+            text-align: center;
+            color: white;
+            padding: 50px;
+            font-size: 1.2em;
+        }
+
+        .error {
+            text-align: center;
+            color: #ff6b6b;
+            padding: 50px;
+            font-size: 1.1em;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 20px;
+            border-radius: 15px;
+        }
+
+        .controls {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 280px;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #1D2B64;
+            transform: translateY(-2px);
+        }
+
+        .refresh-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background: rgba(76, 175, 80, 0.8);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
+        }
+
+        .refresh-btn:hover {
+            background: rgba(76, 175, 80, 1);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        .weekly-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            align-items: start;
+        }
+
+        .weekly-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            border-left: 5px solid #1D2B64;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-height: 250px;
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .weekly-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .weekly-card.unpublished {
+            opacity: 0.6;
+            border-left-color: #999;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #1D2B64, #3949AB);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .weekly-title {
+            margin: 0 0 15px 0;
+            color: #1a3a4a;
+            font-size: 1.5em;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        .weekly-summary {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .weekly-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #1D2B64;
+            display: block;
+        }
+
+        .stat-text {
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #1D2B64;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: #2C387E;
+        }
+
+        .btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .no-results {
+            text-align: center;
+            color: white;
+            font-size: 1.2em;
+            margin-top: 50px;
+            opacity: 0.8;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .header .subtitle {
+                font-size: 1.1em;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                max-width: none;
+            }
+
+            .filter-buttons {
+                justify-content: center;
+            }
+
+            .weekly-list {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .weekly-card {
+                min-height: 200px;
+            }
+
+            .weekly-title {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 30px 15px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .container {
+                padding: 0 15px 30px;
+            }
+
+            .weekly-card {
+                padding: 20px;
+                border-radius: 12px;
+            }
+        }
+
+        /* 动画效果 */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .weekly-card:nth-child(1) { animation-delay: 0.1s; }
+        .weekly-card:nth-child(2) { animation-delay: 0.2s; }
+        .weekly-card:nth-child(3) { animation-delay: 0.3s; }
+        .weekly-card:nth-child(4) { animation-delay: 0.4s; }
+        .weekly-card:nth-child(5) { animation-delay: 0.5s; }
+        .weekly-card:nth-child(6) { animation-delay: 0.6s; }
+        .weekly-card:nth-child(7) { animation-delay: 0.7s; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AI 圈热点周报</h1>
+        <p class="subtitle">动态列表 - 自动更新</p>
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalWeeks">-</span>
+                <span class="stat-label">总期数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="totalNews">-</span>
+                <span class="stat-label">新闻总数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="latestDate">-</span>
+                <span class="stat-label">最新更新</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="搜索周报标题或日期..." id="searchInput">
+            <span class="search-icon">🔍</span>
+        </div>
+        <div class="filter-buttons" id="filterButtons">
+            <button class="filter-btn active" data-month="all">全部</button>
+        </div>
+        <button class="refresh-btn" onclick="loadWeeklies()">🔄 刷新</button>
+    </div>
+
+    <div class="container">
+        <div class="loading" id="loading">
+            ⏳ 正在加载周报数据...
+        </div>
+
+        <div class="weekly-list" id="weeklyList" style="display: none;">
+            <!-- 动态生成的周报卡片将显示在这里 -->
+        </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            未找到匹配的周报内容
+        </div>
+
+        <div class="error" id="errorMessage" style="display: none;">
+            ❌ 加载失败，请检查配置文件是否存在或网络连接
+        </div>
+    </div>
+
+    <script>
+        // 全局变量
+        let weeklyData = [];
+        let currentFilter = 'all';
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            loadWeeklies();
+            setupEventListeners();
+        });
+
+        // 设置事件监听器
+        function setupEventListeners() {
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', filterWeeklies);
+        }
+
+        // 加载周报数据
+        async function loadWeeklies() {
+            const loading = document.getElementById('loading');
+            const weeklyList = document.getElementById('weeklyList');
+            const errorMessage = document.getElementById('errorMessage');
+
+            try {
+                loading.style.display = 'block';
+                weeklyList.style.display = 'none';
+                errorMessage.style.display = 'none';
+
+                const response = await fetch('weekly-config.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                weeklyData = data.weeklies || [];
+
+                // 先按日期排序（最早的在前）以分配正确的序号
+                weeklyData.sort((a, b) => new Date(a.date) - new Date(b.date));
+
+                generateFilterButtons();
+                generateWeeklyCards();
+                updateStats();
+
+                loading.style.display = 'none';
+                weeklyList.style.display = 'grid';
+
+            } catch (error) {
+                console.error('Error loading weekly data:', error);
+                loading.style.display = 'none';
+                errorMessage.style.display = 'block';
+                errorMessage.innerHTML = `
+                    ❌ 加载失败: ${error.message}<br>
+                    <small>请确保 weekly-config.json 文件存在且格式正确</small>
+                `;
+            }
+        }
+
+        // 生成筛选按钮
+        function generateFilterButtons() {
+            const filterButtons = document.getElementById('filterButtons');
+            const months = [...new Set(weeklyData.map(item => item.date.substring(0, 7)))];
+
+            let buttonsHTML = '<button class="filter-btn active" data-month="all">全部</button>';
+            months.sort().reverse().forEach(month => {
+                const year = month.substring(0, 4);
+                const monthNum = month.substring(5, 7);
+                const monthName = `${year}年${parseInt(monthNum)}月`;
+                buttonsHTML += `<button class="filter-btn" data-month="${month}">${monthName}</button>`;
+            });
+
+            filterButtons.innerHTML = buttonsHTML;
+
+            // 添加事件监听器
+            filterButtons.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    filterButtons.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    currentFilter = this.dataset.month;
+                    filterWeeklies();
+                });
+            });
+        }
+
+        // 生成周报卡片
+        function generateWeeklyCards() {
+            const weeklyList = document.getElementById('weeklyList');
+
+            // 为每个周报分配序号（基于时间顺序）
+            const weeklyWithIssues = weeklyData.map((weekly, index) => ({
+                ...weekly,
+                issueNumber: index + 1  // 从1开始的序号
+            }));
+
+            // 按日期反向排序用于显示（最新的在前）
+            const sortedForDisplay = weeklyWithIssues.sort((a, b) => new Date(b.date) - new Date(a.date));
+
+            const cardsHTML = sortedForDisplay.map((weekly, displayIndex) => {
+                const startDate = formatDate(weekly.date);
+                const endDate = formatDate(weekly.endDate);
+                const unpublishedClass = weekly.published ? '' : ' unpublished';
+                const unpublishedText = weekly.published ? '' : ' <span style="color: #999; font-size: 0.8em;">(待发布)</span>';
+
+                // 使用预先分配的序号
+                const titleWithIssue = `AI圈热点周报 第${weekly.issueNumber}期`;
+
+                return `
+                    <div class="weekly-card${unpublishedClass}" data-date="${weekly.date}" data-filename="${weekly.filename}" style="animation-delay: ${(displayIndex + 1) * 0.1}s;">
+                        <div class="date-badge">${startDate} - ${endDate}</div>
+                        <h2 class="weekly-title">${titleWithIssue}${unpublishedText}</h2>
+                        <div class="weekly-summary">${weekly.summary}</div>
+                        <div class="weekly-stats">
+                            <div class="stat">
+                                <span class="stat-num">${weekly.newsCount || '-'}</span>
+                                <span class="stat-text">新闻条数</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-num">${weekly.toolCount || '-'}</span>
+                                <span class="stat-text">AI工具</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-num">${weekly.techCount || '-'}</span>
+                                <span class="stat-text">新发布</span>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            ${weekly.published ?
+                                `<a href="${weekly.filename}" class="btn btn-primary">查看详情</a>
+                                 <button class="btn btn-secondary" onclick="previewWeekly('${weekly.filename}')">预览</button>` :
+                                `<button class="btn btn-secondary" disabled>即将发布</button>`
+                            }
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            weeklyList.innerHTML = cardsHTML;
+        }
+
+        // 筛选功能
+        function filterWeeklies() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const weeklyCards = document.querySelectorAll('.weekly-card');
+            const noResults = document.getElementById('noResults');
+            const weeklyList = document.getElementById('weeklyList');
+            let visibleCount = 0;
+
+            weeklyCards.forEach(card => {
+                const title = card.querySelector('.weekly-title').textContent.toLowerCase();
+                const summary = card.querySelector('.weekly-summary').textContent.toLowerCase();
+                const date = card.dataset.date || '';
+
+                const matchesSearch = title.includes(searchTerm) ||
+                                    summary.includes(searchTerm) ||
+                                    date.includes(searchTerm);
+
+                const matchesFilter = currentFilter === 'all' ||
+                                    date.startsWith(currentFilter);
+
+                if (matchesSearch && matchesFilter) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // 显示/隐藏无结果提示
+            if (visibleCount === 0 && weeklyData.length > 0) {
+                noResults.style.display = 'block';
+                weeklyList.style.display = 'none';
+            } else {
+                noResults.style.display = 'none';
+                weeklyList.style.display = 'grid';
+            }
+        }
+
+        // 预览功能
+        function previewWeekly(filename) {
+            if (filename) {
+                window.open(filename, '_blank');
+            } else {
+                alert('文件链接不存在！');
+            }
+        }
+
+        // 更新统计数据
+        function updateStats() {
+            const publishedWeeklies = weeklyData.filter(w => w.published);
+            const totalNewsCount = publishedWeeklies.reduce((total, weekly) => {
+                return total + (weekly.newsCount || 0);
+            }, 0);
+
+            const latestDate = weeklyData.length > 0 ?
+                formatDate(weeklyData[weeklyData.length - 1].endDate, 'short') : '-';
+
+            document.getElementById('totalWeeks').textContent = weeklyData.length;
+            document.getElementById('totalNews').textContent = totalNewsCount;
+            document.getElementById('latestDate').textContent = latestDate;
+        }
+
+        // 日期格式化
+        function formatDate(dateStr, format = 'full') {
+            if (!dateStr) return '';
+
+            const date = new Date(dateStr);
+            const year = date.getFullYear();
+            const month = date.getMonth() + 1;
+            const day = date.getDate();
+
+            if (format === 'short') {
+                return `${year}.${month.toString().padStart(2, '0')}.${day.toString().padStart(2, '0')}`;
+            }
+
+            return `${year}年${month}月${day}日`;
+        }
+
+        // 键盘快捷键支持
+        document.addEventListener('keydown', function(e) {
+            // Ctrl/Cmd + R 刷新数据
+            if ((e.ctrlKey || e.metaKey) && e.key === 'r') {
+                e.preventDefault();
+                loadWeeklies();
+            }
+        });
+    </script>
+</body>
+</html>

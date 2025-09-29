@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI热点周报 (2025年9月1日-7日)</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            margin: 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #1D2B64, #F8CDDA);
+            color: #333;
+        }
+        .container { max-width: 900px; margin: 0 auto; }
+        h1 {
+            color: white; text-align: center; margin-bottom: 30px; font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
+        .date-range {
+            color: #eee; text-align: center; font-size: 1.2em;
+            margin-top: -20px; margin-bottom: 30px;
+        }
+        .news-card {
+            background-color: white; border-radius: 12px; padding: 25px; margin-bottom: 25px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+            border-left: 5px solid #1D2B64;
+        }
+        .news-card:hover { transform: translateY(-5px); box-shadow: 0 12px 24px rgba(0,0,0,0.25); }
+        .news-card h2 {
+            margin-top: 0; color: #1a3a4a; padding-bottom: 10px; display: flex; align-items: center;
+        }
+        .news-card h2 .news-index {
+            flex-shrink: 0; display: inline-block; background-color: #1D2B64; color: white;
+            border-radius: 50%; width: 30px; height: 30px; line-height: 30px; text-align: center;
+            margin-right: 15px; font-size: 16px;
+        }
+        .news-card .summary { font-size: 16px; line-height: 1.6; }
+        .news-card .analysis {
+            margin-top: 20px; padding: 15px; background-color: #f8f9fa;
+            border-left: 4px solid #1D2B64; border-radius: 4px;
+        }
+        .news-card .analysis h3 { margin-top: 0; color: #1a3a4a; font-size: 18px; }
+        .news-card .analysis p { margin-bottom: 0; font-size: 15px; line-height: 1.7; }
+        .tag {
+            display: inline-block; background-color: #e8eaf6; color: #1D2B64;
+            padding: 5px 12px; border-radius: 15px; font-size: 12px; font-weight: bold;
+            margin-right: 8px; margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI 圈热点周报</h1>
+        <p class="date-range">周期：2025年9月1日 - 9月7日</p>
+
+        <!-- 1 阿里 Qwen3-Max-Preview -->
+        <div class="news-card">
+            <h2>
+                <span class="news-index">1</span>阿里发布万亿参数大模型 Qwen3-Max-Preview，上线 API 与 Chat 体验
+            </h2>
+            <div class="summary">
+                <span class="tag">大模型</span>
+                <span class="tag">长上下文</span>
+                9 月 6 日，通义千问上线 Qwen3-Max-Preview（Instruct），官方称参数量<strong>超 1 万亿</strong>，在通用知识、数学推理、编程与偏好对齐等基准表现领先；阿里云百炼已开放 API，Qwen Chat 同步上新，支持直接体验。
+            </div>
+            <div class="analysis">
+                <h3>对普通人的价值分析</h3>
+                <p>
+                    <strong>提效：</strong> 适合“一次性处理超长资料包”（合同/论文/代码库），减少分段切片与拼接成本。<br>
+                    <strong>赚钱：</strong> ① 做<strong>长文档情报提炼/法务审阅</strong>服务（固定交付：要点/风险/行动清单）；② 给中小企业搭建<strong>知识库问答/客服助手</strong>（按席位或调用量计费）；③ 基于 API 打包<strong>投研速读工具</strong>（研报→结构化摘要→可视化结论）。
+                </p>
+            </div>
+        </div>
+
+        <!-- 2 Kimi K2-0905 -->
+        <div class="news-card">
+            <h2>
+                <span class="news-index">2</span>Kimi K2-0905 发布：256K 上下文、Agentic Coding 与高速 API 升级
+            </h2>
+            <div class="summary">
+                <span class="tag">编码智能</span>
+                <span class="tag">工具调用</span>
+                月之暗面宣布 K2 最新版 0905：上下文由 128K 升至 <strong>256K</strong>；真实工程任务（如 SWE-bench Verified）表现提升；提供 60–100 token/s 的高速 API；强调前端代码美观与可用性。社区评测显示，其在部分编码代理场景<strong>接近或对标</strong> Claude Sonnet-4（具体胜负视任务而定）。
+            </div>
+            <div class="analysis">
+                <h3>对普通人的价值分析</h3>
+                <p>
+                    <strong>提效：</strong> 适合“读库-改库-提 PR”的流水线，自动做重构建议、生成 Diff、补测试。<br>
+                    <strong>赚钱：</strong> ① 提供<strong>低成本 AI Coding 打磨</strong>套餐（样式统一/无副作用改造/测试补齐）；② 售卖<strong>IDE 插件/脚手架</strong>（一键生成页面、测试、Storybook）；③ 打造<strong>仓库体检 Agent</strong>（依赖安全/代码异味/复杂度报告）按项目计费。
+                </p>
+            </div>
+        </div>
+
+        <!-- 3 即梦图片 4.0（豆包体系内上线的图像模型） -->
+        <div class="news-card">
+            <h2>
+                <span class="news-index">3</span>「即梦图片 4.0」正式发布：多模态生图，编辑与组图一体化
+            </h2>
+            <div class="summary">
+                <span class="tag">AI绘图</span>
+                <span class="tag">多模态</span>
+                字节跳动宣布「即梦图片 4.0」上线：同一模型支持文生图、图像编辑与组图生成，更强中文指令遵循、分辨率与速度提升；正在逐步扩量覆盖用户。多位测评者称其一致性与稳定性<strong>接近“Banana”</strong>（Gemini Flash Image）级别。
+            </div>
+            <div class="analysis">
+                <h3>对普通人的价值分析</h3>
+                <p>
+                    <strong>提效：</strong> 适合批量生产<strong>封面/电商图/社媒素材</strong>；主体一致性强，连贯改稿更省心。<br>
+                    <strong>赚钱：</strong> ① 上线<strong>“一键封面/小红书首图”</strong>代工（输入标题→配图+大字排版 HTML）；② 做<strong>商用模板店</strong>（节日海报/电商活动图包月）；③ 提供<strong>图像编辑代运营</strong>（按月 100–300 张交付，含修订轮次与交付 SLA）。
+                </p>
+            </div>
+        </div>
+
+        <!-- 4 Gemini 限额 -->
+        <div class="news-card">
+            <h2>
+                <span class="news-index">4</span>Gemini 明确免费限额：2.5 Pro 日 5 次提示、100 张图片、Deep Research 5 次
+            </h2>
+            <div class="summary">
+                <span class="tag">产品政策</span>
+                <span class="tag">配额收紧</span>
+                Google 对免费层做出明确说明：Gemini 2.5 Pro 免费账户每天约 <strong>5 次文本提示</strong>、<strong>100 张图</strong>（生成/编辑），Deep Research 配额为<strong>5 次</strong>（按官方说明的日/月维度计算）；付费层额度显著上升。
+            </div>
+            <div class="analysis">
+                <h3>对普通人的价值分析</h3>
+                <p>
+                    <strong>提效：</strong> 以<strong>“少轮高产”</strong>为目标，采用结构化 Prompt 套餐，一问覆盖铺陈、约束与输出格式。<br>
+                    <strong>赚钱：</strong> ① 售卖<strong>“限额内高产”</strong>Prompt 包（报告/脚本/表格模板）；② 做<strong>多模型路由</strong>（Kimi/开源模型草稿→Gemini 精修），按调用/席位计费；③ 给团队做<strong>配额策略培训</strong>与工具配置（缓存/复用/拆并问法）。
+                </p>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

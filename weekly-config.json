@@ -1,0 +1,98 @@
+{
+  "weeklies": [
+    {
+      "date": "2025-08-04",
+      "endDate": "2025-08-10",
+      "filename": "weeklies/20250804-20250810周新闻.html",
+      "title": "AI圈热点周报 第1期",
+      "summary": "2025年08月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 4,
+      "toolCount": 5,
+      "techCount": 7,
+      "published": true
+    },
+    {
+      "date": "2025-08-11",
+      "endDate": "2025-08-17",
+      "filename": "weeklies/20250811-20250817周新闻.html",
+      "title": "AI圈热点周报 第2期",
+      "summary": "2025年08月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 10,
+      "toolCount": 3,
+      "techCount": 4,
+      "published": true
+    },
+    {
+      "date": "2025-08-18",
+      "endDate": "2025-08-24",
+      "filename": "weeklies/20250818-20250824周新闻.html",
+      "title": "AI圈热点周报 第3期",
+      "summary": "2025年08月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 10,
+      "toolCount": 3,
+      "techCount": 4,
+      "published": true
+    },
+    {
+      "date": "2025-08-25",
+      "endDate": "2025-08-31",
+      "filename": "weeklies/20250825-20250831周新闻.html",
+      "title": "AI圈热点周报 第4期",
+      "summary": "2025年08月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 5,
+      "toolCount": 4,
+      "techCount": 3,
+      "published": true
+    },
+    {
+      "date": "2025-09-01",
+      "endDate": "2025-09-07",
+      "filename": "weeklies/20250901-20250907周新闻.html",
+      "title": "AI圈热点周报 第5期",
+      "summary": "2025年09月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 4,
+      "toolCount": 1,
+      "techCount": 3,
+      "published": true
+    },
+    {
+      "date": "2025-09-08",
+      "endDate": "2025-09-14",
+      "filename": "weeklies/20250908-20250914周新闻.html",
+      "title": "AI圈热点周报 第6期",
+      "summary": "2025年09月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 12,
+      "toolCount": 6,
+      "techCount": 7,
+      "published": true
+    },
+    {
+      "date": "2025-09-15",
+      "endDate": "2025-09-21",
+      "filename": "weeklies/20250915-20250921周新闻.html",
+      "title": "AI圈热点周报 第7期",
+      "summary": "2025年09月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 15,
+      "toolCount": 6,
+      "techCount": 6,
+      "published": true
+    },
+    {
+      "date": "2025-09-22",
+      "endDate": "2025-09-28",
+      "filename": "weeklies/20250922-20250928周新闻.html",
+      "title": "AI圈热点周报 第8期",
+      "summary": "2025年09月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 13,
+      "toolCount": 2,
+      "techCount": 9,
+      "published": true
+    }
+  ],
+  "settings": {
+    "autoDetectPattern": "^\\d{8}-\\d{8}周新闻\\.html$",
+    "sortOrder": "asc",
+    "baseTitle": "AI圈热点周报",
+    "weeklyFolder": "weeklies"
+  }
+}

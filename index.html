@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI圈热点周报 - 历史周报汇总</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(135deg, #1D2B64, #F8CDDA);
+            color: #333;
+            min-height: 100vh;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+        }
+
+        .header .subtitle {
+            font-size: 1.3em;
+            opacity: 0.9;
+            margin-bottom: 10px;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px 25px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9em;
+            opacity: 0.8;
+        }
+
+        .controls {
+            max-width: 1200px;
+            margin: 0 auto 30px;
+            padding: 0 20px;
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-box {
+            flex: 1;
+            min-width: 280px;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 12px 45px 12px 15px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .search-icon {
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #666;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 16px;
+            border: none;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            backdrop-filter: blur(10px);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: rgba(255, 255, 255, 0.9);
+            color: #1D2B64;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 40px;
+        }
+
+        .weekly-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            align-items: start;
+        }
+
+        .weekly-card {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: all 0.3s ease;
+            border-left: 5px solid #1D2B64;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            min-height: 250px;
+        }
+
+        .weekly-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .weekly-title {
+            margin: 0 0 15px 0;
+            color: #1a3a4a;
+            font-size: 1.5em;
+            font-weight: bold;
+            line-height: 1.3;
+        }
+
+        .date-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #1D2B64, #3949AB);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .weekly-summary {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            flex: 1;
+        }
+
+        .weekly-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-num {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #1D2B64;
+            display: block;
+        }
+
+        .stat-text {
+            font-size: 0.8em;
+            color: #666;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #1D2B64;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #333;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary:hover {
+            background: #2C387E;
+        }
+
+        .no-results {
+            text-align: center;
+            color: white;
+            font-size: 1.2em;
+            margin-top: 50px;
+            opacity: 0.8;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5em;
+            }
+
+            .header .date-range {
+                font-size: 1.1em;
+            }
+
+            .controls {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .search-box {
+                max-width: none;
+            }
+
+            .filter-buttons {
+                justify-content: center;
+            }
+
+            .weekly-list {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .weekly-card {
+                min-height: 200px;
+            }
+
+            .weekly-title {
+                font-size: 1.3em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                padding: 30px 15px;
+            }
+
+            .header h1 {
+                font-size: 2em;
+            }
+
+            .container {
+                padding: 0 15px 30px;
+            }
+
+            .weekly-card {
+                padding: 20px;
+                border-radius: 12px;
+            }
+
+            .analysis {
+                padding: 12px;
+            }
+        }
+
+        /* 动画效果 */
+        .weekly-card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .weekly-card:nth-child(1) { animation-delay: 0.1s; }
+        .weekly-card:nth-child(2) { animation-delay: 0.2s; }
+        .weekly-card:nth-child(3) { animation-delay: 0.3s; }
+        .weekly-card:nth-child(4) { animation-delay: 0.4s; }
+        .weekly-card:nth-child(5) { animation-delay: 0.5s; }
+        .weekly-card:nth-child(6) { animation-delay: 0.6s; }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>AI 圈热点周报</h1>
+        <p class="subtitle">历史周报汇总</p>
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalWeeks">7</span>
+                <span class="stat-label">总期数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="totalNews">-</span>
+                <span class="stat-label">新闻总数</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="latestDate">2025.09.28</span>
+                <span class="stat-label">最新更新</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="controls">
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="搜索周报标题或日期..." id="searchInput">
+            <span class="search-icon">🔍</span>
+        </div>
+        <div class="filter-buttons">
+            <button class="filter-btn active" data-month="all">全部</button>
+            <button class="filter-btn" data-month="2025-08">2025年8月</button>
+            <button class="filter-btn" data-month="2025-09">2025年9月</button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="weekly-list" id="weeklyList">
+            <!-- 第7期：最新期（显示在最上面） -->
+            <div class="weekly-card" data-date="2025-09-22" data-filename="20250922-20250928周新闻.html">
+                <div class="date-badge">2025年9月22日 - 9月28日</div>
+                <h2 class="weekly-title">AI圈热点周报 第7期</h2>
+                <div class="weekly-summary">
+                    本周AI圈发生了多项重要进展，包括新的AI工具发布、技术突破和行业动态，为用户和开发者带来了新的机会和选择。
+                </div>
+                <div class="weekly-stats">
+                    <div class="stat">
+                        <span class="stat-num">10</span>
+                        <span class="stat-text">新闻条数</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">5</span>
+                        <span class="stat-text">AI工具</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">3</span>
+                        <span class="stat-text">技术突破</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <a href="weeklies/20250922-20250928周新闻.html" class="btn btn-primary">查看详情</a>
+                    <button class="btn btn-secondary" onclick="previewWeekly(this)">预览</button>
+                </div>
+            </div>
+
+            <!-- 第6期 -->
+            <div class="weekly-card" data-date="2025-09-15" data-filename="20250915-20250921周新闻.html">
+                <div class="date-badge">2025年9月15日 - 9月21日</div>
+                <h2 class="weekly-title">AI圈热点周报 第6期</h2>
+                <div class="weekly-summary">
+                    九月中旬，AI技术继续快速发展，新工具和技术突破层出不穷，为各行各业带来新的机遇。
+                </div>
+                <div class="weekly-stats">
+                    <div class="stat">
+                        <span class="stat-num">12</span>
+                        <span class="stat-text">新闻条数</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">7</span>
+                        <span class="stat-text">AI工具</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">4</span>
+                        <span class="stat-text">技术突破</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <a href="weeklies/20250915-20250921周新闻.html" class="btn btn-primary">查看详情</a>
+                    <button class="btn btn-secondary" onclick="previewWeekly(this)">预览</button>
+                </div>
+            </div>
+
+            <!-- 第5期 -->
+            <div class="weekly-card" data-date="2025-09-08" data-filename="20250908-20250914周新闻.html">
+                <div class="date-badge">2025年9月8日 - 9月14日</div>
+                <h2 class="weekly-title">AI圈热点周报 第5期</h2>
+                <div class="weekly-summary">
+                    九月初的AI圈充满活力，多项重要技术发布和产品更新为行业注入新动力。
+                </div>
+                <div class="weekly-stats">
+                    <div class="stat">
+                        <span class="stat-num">10</span>
+                        <span class="stat-text">新闻条数</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">6</span>
+                        <span class="stat-text">AI工具</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">3</span>
+                        <span class="stat-text">技术突破</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <a href="weeklies/20250908-20250914周新闻.html" class="btn btn-primary">查看详情</a>
+                    <button class="btn btn-secondary" onclick="previewWeekly(this)">预览</button>
+                </div>
+            </div>
+
+            <!-- 第4期 -->
+            <div class="weekly-card" data-date="2025-09-01" data-filename="20250901-20250907周新闻.html">
+                <div class="date-badge">2025年9月1日 - 9月7日</div>
+                <h2 class="weekly-title">AI圈热点周报 第4期</h2>
+                <div class="weekly-summary">
+                    九月开局，AI领域依然热闹非凡。本周聚焦于AI在各个垂直领域的深度应用，以及一些备受关注的技术更新。
+                </div>
+                <div class="weekly-stats">
+                    <div class="stat">
+                        <span class="stat-num">8</span>
+                        <span class="stat-text">新闻条数</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">4</span>
+                        <span class="stat-text">AI工具</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">2</span>
+                        <span class="stat-text">技术突破</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <a href="weeklies/20250901-20250907周新闻.html" class="btn btn-primary">查看详情</a>
+                    <button class="btn btn-secondary" onclick="previewWeekly(this)">预览</button>
+                </div>
+            </div>
+
+            <!-- 第3期 -->
+            <div class="weekly-card" data-date="2025-08-25" data-filename="20250825-20250831周新闻.html">
+                <div class="date-badge">2025年8月25日 - 8月31日</div>
+                <h2 class="weekly-title">AI圈热点周报 第3期</h2>
+                <div class="weekly-summary">
+                    八月最后一周，AI行业继续保持高速发展态势，多个重要产品更新和技术突破令人瞩目。
+                </div>
+                <div class="weekly-stats">
+                    <div class="stat">
+                        <span class="stat-num">6</span>
+                        <span class="stat-text">新闻条数</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">3</span>
+                        <span class="stat-text">AI工具</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">2</span>
+                        <span class="stat-text">技术突破</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <a href="weeklies/20250825-20250831周新闻.html" class="btn btn-primary">查看详情</a>
+                    <button class="btn btn-secondary" onclick="previewWeekly(this)">预览</button>
+                </div>
+            </div>
+
+            <!-- 第2期 -->
+            <div class="weekly-card" data-date="2025-08-18" data-filename="20250818-20250824周新闻.html">
+                <div class="date-badge">2025年8月18日 - 8月24日</div>
+                <h2 class="weekly-title">AI圈热点周报 第2期</h2>
+                <div class="weekly-summary">
+                    本周AI领域亮点频频，从OpenAI的个性化功能到Midjourney V7的突破，每一项都值得关注。
+                </div>
+                <div class="weekly-stats">
+                    <div class="stat">
+                        <span class="stat-num">10</span>
+                        <span class="stat-text">新闻条数</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">6</span>
+                        <span class="stat-text">AI工具</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">4</span>
+                        <span class="stat-text">技术突破</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <a href="weeklies/20250818-20250824周新闻.html" class="btn btn-primary">查看详情</a>
+                    <button class="btn btn-secondary" onclick="previewWeekly(this)">预览</button>
+                </div>
+            </div>
+
+            <!-- 第1期：最早期（显示在最下面） -->
+            <div class="weekly-card" data-date="2025-08-04" data-filename="20250804-20250810周新闻.html">
+                <div class="date-badge">2025年8月4日 - 8月10日</div>
+                <h2 class="weekly-title">AI圈热点周报 第1期</h2>
+                <div class="weekly-summary">
+                    八月上旬，AI技术在多个领域取得重要进展，为行业发展注入新的活力。
+                </div>
+                <div class="weekly-stats">
+                    <div class="stat">
+                        <span class="stat-num">12</span>
+                        <span class="stat-text">新闻条数</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">7</span>
+                        <span class="stat-text">AI工具</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">3</span>
+                        <span class="stat-text">技术突破</span>
+                    </div>
+                </div>
+                <div class="action-buttons">
+                    <a href="weeklies/20250804-20250810周新闻.html" class="btn btn-primary">查看详情</a>
+                    <button class="btn btn-secondary" onclick="previewWeekly(this)">预览</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="no-results" id="noResults" style="display: none;">
+            未找到匹配的周报内容
+        </div>
+    </div>
+
+    <script>
+        // 页面元素
+        const searchInput = document.getElementById('searchInput');
+        const weeklyList = document.getElementById('weeklyList');
+        const noResults = document.getElementById('noResults');
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const weeklyCards = document.querySelectorAll('.weekly-card');
+
+        let currentFilter = 'all';
+
+        // 搜索事件
+        searchInput.addEventListener('input', function() {
+            filterWeeklies();
+        });
+
+        // 筛选按钮事件
+        filterButtons.forEach(btn => {
+            btn.addEventListener('click', function() {
+                filterButtons.forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                currentFilter = this.dataset.month;
+                filterWeeklies();
+            });
+        });
+
+        // 筛选功能
+        function filterWeeklies() {
+            const searchTerm = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+
+            weeklyCards.forEach(card => {
+                const title = card.querySelector('.weekly-title').textContent.toLowerCase();
+                const summary = card.querySelector('.weekly-summary').textContent.toLowerCase();
+                const date = card.dataset.date || '';
+
+                const matchesSearch = title.includes(searchTerm) ||
+                                    summary.includes(searchTerm) ||
+                                    date.includes(searchTerm);
+
+                const matchesFilter = currentFilter === 'all' ||
+                                    date.startsWith(currentFilter);
+
+                if (matchesSearch && matchesFilter) {
+                    card.style.display = 'flex';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            // 显示/隐藏无结果提示
+            if (visibleCount === 0) {
+                noResults.style.display = 'block';
+                weeklyList.style.display = 'none';
+            } else {
+                noResults.style.display = 'none';
+                weeklyList.style.display = 'grid';
+            }
+        }
+
+        // 预览功能
+        function previewWeekly(button) {
+            const card = button.closest('.weekly-card');
+            const filename = card.dataset.filename;
+
+            if (filename) {
+                // 打开新窗口预览
+                window.open('weeklies/' + filename, '_blank');
+            } else {
+                alert('文件链接不存在！');
+            }
+        }
+
+        // 初始化统计数据
+        function updateStats() {
+            const allCards = document.querySelectorAll('.weekly-card');
+            const totalNewsCount = Array.from(allCards).reduce((total, card) => {
+                const newsNum = card.querySelector('.stat-num').textContent;
+                return total + (isNaN(newsNum) ? 0 : parseInt(newsNum));
+            }, 0);
+
+            document.getElementById('totalWeeks').textContent = allCards.length;
+            document.getElementById('totalNews').textContent = totalNewsCount;
+        }
+
+        // 页面加载完成后初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            updateStats();
+        });
+    </script>
+</body>
+</html>

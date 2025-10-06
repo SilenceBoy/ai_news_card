@@ -4,497 +4,247 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI新闻价值分析</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            min-height: 100vh;
-        }
-        
-        .card-container {
-            max-width: 900px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
-            overflow: hidden;
-        }
-        
-        .header {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        
-        .header h1 {
-            margin: 0;
-            font-size: 28px;
-            font-weight: 700;
-        }
-        
-        .header p {
-            margin: 10px 0 0 0;
-            opacity: 0.9;
-            font-size: 16px;
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        .news-item {
-            margin-bottom: 35px;
-            padding: 25px;
-            background: #f8f9ff;
-            border-radius: 15px;
-            border-left: 4px solid #667eea;
-        }
-        
-        .news-title {
-            font-size: 20px;
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .priority-badge {
-            background: #667eea;
-            color: white;
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 12px;
-            font-weight: 500;
-            margin-right: 15px;
-        }
-        
-        .high-priority { background: #e53e3e; }
-        .medium-priority { background: #dd6b20; }
-        .low-priority { background: #38a169; }
-        
-        .news-description {
-            color: #4a5568;
-            line-height: 1.6;
-            margin-bottom: 15px;
-        }
-        
-        .value-analysis {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            border: 1px solid #e2e8f0;
-        }
-        
-        .value-title {
-            font-weight: 600;
-            color: #2d3748;
-            margin-bottom: 10px;
-        }
-        
-        .pros-cons {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            margin-top: 15px;
-        }
-        
-        .pros, .cons {
-            padding: 15px;
-            border-radius: 8px;
-        }
-        
-        .pros {
-            background: #f0fff4;
-            border-left: 3px solid #38a169;
-        }
-        
-        .cons {
-            background: #fff5f5;
-            border-left: 3px solid #e53e3e;
-        }
-        
-        .pros h4, .cons h4 {
-            margin: 0 0 10px 0;
-            font-size: 14px;
-            font-weight: 600;
-        }
-        
-        .pros h4 { color: #38a169; }
-        .cons h4 { color: #e53e3e; }
-        
-        .pros ul, .cons ul {
-            margin: 0;
-            padding-left: 20px;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        
-        .warning-section {
-            background: #fffbeb;
-            border: 1px solid #f6ad55;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 30px;
-        }
-        
-        .warning-title {
-            color: #c05621;
-            font-weight: 600;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-        }
-        
-        .warning-icon {
-            margin-right: 8px;
-            font-size: 18px;
-        }
-        
-        .news-list-section {
-            background: #f7fafc;
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 30px;
-        }
-        
-        .section-title {
-            font-size: 24px;
-            font-weight: 700;
-            color: #2d3748;
-            margin-bottom: 25px;
-            border-bottom: 3px solid #667eea;
-            padding-bottom: 10px;
-        }
-        
-        .news-category {
-            margin-bottom: 30px;
-        }
-        
-        .news-category h3 {
-            color: #4a5568;
-            font-size: 18px;
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-        
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
-        }
-        
-        .news-brief {
-            background: white;
-            padding: 15px;
-            border-radius: 8px;
-            border-left: 3px solid #667eea;
-            font-size: 14px;
-            line-height: 1.5;
-        }
-        
-        .news-brief strong {
-            color: #2d3748;
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .references-section {
-            background: #edf2f7;
-            border-radius: 15px;
-            padding: 30px;
-            margin-top: 20px;
-        }
-        
-        .references-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-        
-        .ref-column {
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
-        
-        .ref-item {
-            font-size: 13px;
-            line-height: 1.4;
-            padding: 8px 0;
-            border-bottom: 1px solid #cbd5e0;
-        }
-        
-        .ref-item:last-child {
-            border-bottom: none;
-        }
-        
-        .ref-item a {
-            color: #667eea;
-            text-decoration: none;
-        }
-        
-        .ref-item a:hover {
-            text-decoration: underline;
-        }
-        
-        @media (max-width: 768px) {
-            .references-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .news-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .pros-cons {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="weekly.css">
 </head>
 <body>
-    <div class="card-container">
-        <div class="header">
-            <h1>🚀 AI新闻价值分析</h1>
-            <p>普通人用AI提效赚钱的机会与风险解读</p>
+    <div class="container">
+        <h1>AI 圈热点周报</h1>
+        <p class="date-range">周期：2025年8月4日 - 8月10日</p>
+        <p class="summary">普通人用AI提效赚钱的机会与风险解读</p>
+
+        <div class="news-card">
+            <h2>
+                <span class="news-index">1</span>OpenAI GPT-5免费版默认启用
+            </h2>
+            <div class="summary">
+                <span class="tag">大模型</span>
+                <span class="tag">提效</span>
+                GPT-5正式发布，免费版 ChatGPT 默认启用最新模型。Sam Altman 称其为“全球最佳模型”，并展望 GPT-8 时代有望攻克癌症。[1][2]
+            </div>
+            <div class="analysis">
+                <h3>对普通人的价值分析</h3>
+                <p>顶级 AI 能力全面开放意味着我们随时都能调动一个免费的超级助手，无论是写作、翻译还是分析任务，成本几乎降为零。</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ 机会点</h4>
+                        <ul>
+                            <li>内容创作效率大幅提升</li>
+                            <li>编程、写作、翻译成本大幅下降</li>
+                            <li>小企业可免费获得 AI 咨询与分析能力</li>
+                            <li>在线教育、客服等行业门槛进一步降低</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>竞争加剧，差异化能力更重要</li>
+                            <li>需要精进提示词与流程设计</li>
+                            <li>过度依赖可能削弱原创能力</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="content">
-            <div class="news-item">
-                <div class="news-title">
-                    <span class="priority-badge high-priority">高价值</span>
-                    OpenAI GPT-5免费版默认启用
+
+        <div class="news-card">
+            <h2>
+                <span class="news-index">2</span>xAI推出 Grok-Imagine 图像生成工具
+            </h2>
+            <div class="summary">
+                <span class="tag">内容创作</span>
+                <span class="tag">图像生成</span>
+                Elon Musk 旗下 xAI 推出 Grok-Imagine，可在文本提示下生成图像/视频，并支持 NSFW 设置，引发内容审核与合规讨论。[6]
+            </div>
+            <div class="analysis">
+                <h3>对普通人的价值分析</h3>
+                <p>快速生成高质量视觉素材的门槛再度下降，小型团队也能以极低成本制作营销素材或产品概念图。</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ 机会点</h4>
+                        <ul>
+                            <li>显著降低视觉内容制作成本</li>
+                            <li>支持快速原型设计与创意验证</li>
+                            <li>帮助个人品牌打造统一视觉形象</li>
+                            <li>适合社交媒体批量内容生产</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>必须关注版权与合规风险</li>
+                            <li>滥用会削弱品牌独特性</li>
+                            <li>仍需人工审核与筛选成品</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="news-description">
-                    GPT-5正式发布，免费版ChatGPT默认启用最新模型，Sam Altman称其为"全球最佳模型"并展望GPT-8时代治愈癌症的可能性。[1][2]
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h2>
+                <span class="news-index">3</span>Apple 测试全新 Siri 深度控制功能
+            </h2>
+            <div class="summary">
+                <span class="tag">语音助手</span>
+                <span class="tag">自动化</span>
+                Apple 正测试基于 App Intents 的 Siri 深度控制功能，可跨应用执行更复杂的语音任务，提升移动办公体验。[3]
+            </div>
+            <div class="analysis">
+                <h3>对普通人的价值分析</h3>
+                <p>对于需要随时处理工作的职场人士和自由职业者，语音自动化将节省大量低价值操作时间。</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ 机会点</h4>
+                        <ul>
+                            <li>实现免手控的移动办公流程</li>
+                            <li>复杂任务可被拆解并自动执行</li>
+                            <li>为语音交互产品提供新的设计思路</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>当前仅限 Apple 生态</li>
+                            <li>需关注语音隐私与安全</li>
+                            <li>用户仍需时间培养语音操作习惯</li>
+                        </ul>
+                    </div>
                 </div>
-                <div class="value-analysis">
-                    <div class="value-title">💡 价值分析</div>
-                    <p>这是今年最重要的AI新闻之一。想象一下，之前需要付费才能使用的顶级AI能力现在免费了，这就像突然有了一个免费的超级助手。</p>
-                    <div class="pros-cons">
-                        <div class="pros">
-                            <h4>✅ 机会点</h4>
-                            <ul>
-                                <li>内容创作效率大幅提升</li>
-                                <li>编程、写作、翻译成本降为零</li>
-                                <li>小企业可免费获得AI咨询能力</li>
-                                <li>在线教育、客服等领域门槛降低</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>⚠️ 注意事项</h4>
-                            <ul>
-                                <li>竞争加剧，差异化变得更重要</li>
-                                <li>需要学会更好的提示词技巧</li>
-                                <li>过度依赖可能降低原创能力</li>
-                            </ul>
-                        </div>
+            </div>
+        </div>
+
+        <div class="news-card">
+            <h2>
+                <span class="news-index">4</span>ElevenLabs 推出 AI 音乐生成器
+            </h2>
+            <div class="summary">
+                <span class="tag">音乐生成</span>
+                <span class="tag">内容创作</span>
+                ElevenLabs 发布可商用的 AI 音乐生成器，支持多风格定制，主打版权合规与低成本原创音乐制作。[14]
+            </div>
+            <div class="analysis">
+                <h3>对普通人的价值分析</h3>
+                <p>小企业、视频创作者和播客主可以自行生成背景音乐，显著降低制作成本并快速满足多平台需求。</p>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ 机会点</h4>
+                        <ul>
+                            <li>视频与播客制作费用大幅降低</li>
+                            <li>音乐教育与创作辅助更易普及</li>
+                            <li>商业活动可快速定制合规背景音乐</li>
+                            <li>助力解决传统音乐版权痛点</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>⚠️ 注意事项</h4>
+                        <ul>
+                            <li>生成音乐的原创性与质量需验证</li>
+                            <li>对传统音乐行业带来冲击</li>
+                            <li>正式商用前仍需核实版权条款</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="warning-section">
+            <div class="warning-title">
+                <span class="warning-icon">⚠️</span>
+                关键风险提醒
+            </div>
+            <p><strong>深度伪造争议案例：</strong>泰勒·斯威夫特被 xAI Grok 深度伪造不雅视频的事件[15]提醒我们，AI 工具在带来便利的同时也伴随伦理与法律风险。</p>
+            <p><strong>我的批判性建议：</strong></p>
+            <ul>
+                <li><strong>不要盲目追新：</strong>工具层出不穷，要挑选真正贴合需求的方案，避免工具成瘾。</li>
+                <li><strong>版权意识必须加强：</strong>AI 生成内容的版权归属仍不明朗，商用前务必咨询专业人士。</li>
+                <li><strong>保持人类价值：</strong>AI 应该增强而非替代创造力，持续锻炼个人差异化能力。</li>
+                <li><strong>关注成本效益：</strong>免费不代表有价值，需计算学习成本与实际收益。</li>
+                <li><strong>建立护城河：</strong>当 AI 普及后，思考如何构建个人或业务的独特优势。</li>
+            </ul>
+        </div>
+
+        <div class="news-list-section">
+            <div class="section-title">📰 今日 AI 要闻完整列表</div>
+
+            <div class="news-category">
+                <h3>🌟 英文媒体聚焦</h3>
+                <div class="news-grid">
+                    <div class="news-brief">
+                        <strong>OpenAI GPT-5 发布</strong> - OpenAI 正式发布 GPT-5，免费版 ChatGPT 默认启用，Sam Altman 称其为“全球最佳模型”。[1][2]
+                    </div>
+                    <div class="news-brief">
+                        <strong>GPT-4o 紧急重新上线</strong> - 面对 GPT-5 用户反馈，OpenAI 重新开放 GPT-4o 供用户切换。[2][3]
+                    </div>
+                    <div class="news-brief">
+                        <strong>EQT 收购 Remember 平台</strong> - EQT 以约 4 亿美元收购韩国 AI 人力平台 Remember。[4][5]
+                    </div>
+                    <div class="news-brief">
+                        <strong>xAI 推出 Grok-Imagine</strong> - xAI 上线图像/视频生成工具，支持多样内容设置。[6]
+                    </div>
+                    <div class="news-brief">
+                        <strong>Sam Altman 预测 AI 治癌</strong> - Sam Altman 预测 2035 年 AI 有望治愈癌症，称当代大学生是“最幸运的一代”。[7]
+                    </div>
+                    <div class="news-brief">
+                        <strong>AI 防御挑战赛</strong> - 全球 AI 防御挑战赛 2025 截止报名，聚焦深度伪造防御。[8]
+                    </div>
+                    <div class="news-brief">
+                        <strong>特朗普 AI 行动蓝图</strong> - 特朗普公布 AI 计划，拟放宽监管争夺产业主导权。[9]
+                    </div>
+                    <div class="news-brief">
+                        <strong>英国呼吁全球 AI 治理</strong> - 英国专家呼吁成立全球 AI 治理组织，应对中美政策竞争。[10]
                     </div>
                 </div>
             </div>
 
-            <div class="news-item">
-                <div class="news-title">
-                    <span class="priority-badge high-priority">高价值</span>
-                    xAI推出Grok-Imagine图像生成工具
-                </div>
-                <div class="news-description">
-                    Elon Musk旗下xAI推出Grok-Imagine图像/视频生成工具，支持NSFW内容，激发内容审核与合规讨论。[6]
-                </div>
-                <div class="value-analysis">
-                    <div class="value-title">💡 价值分析</div>
-                    <p>这对设计师、营销人员、自媒体创作者来说是重大利好。比如一个小型广告公司，以前需要花数千元找摄影师拍产品图，现在可能几分钟就能生成专业级别的营销素材。</p>
-                    <div class="pros-cons">
-                        <div class="pros">
-                            <h4>✅ 机会点</h4>
-                            <ul>
-                                <li>降低视觉内容制作成本</li>
-                                <li>快速原型设计和创意验证</li>
-                                <li>个人品牌视觉包装</li>
-                                <li>社交媒体内容批量生产</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>⚠️ 注意事项</h4>
-                            <ul>
-                                <li>版权和法律风险需谨慎</li>
-                                <li>过度使用可能影响品牌独特性</li>
-                                <li>需要人工审核和筛选</li>
-                            </ul>
-                        </div>
+            <div class="news-category">
+                <h3>🇨🇳 中文媒体聚焦</h3>
+                <div class="news-grid">
+                    <div class="news-brief">
+                        <strong>华为 AI 推理突破</strong> - 华为发布 AI 推理突破成果，预计降低对 HBM 的依赖。[11][2]
+                    </div>
+                    <div class="news-brief">
+                        <strong>Apple Siri 深度控制</strong> - Apple 测试全新 Siri 语音深度控制功能。[3]
+                    </div>
+                    <div class="news-brief">
+                        <strong>NASA-Google 太空 AI</strong> - NASA 与 Google 合作开发“宇航员医疗官”数字助理，实现太空远程诊断。[12]
+                    </div>
+                    <div class="news-brief">
+                        <strong>xAI Grok 4 免费开放</strong> - xAI 将 Grok 4 免费开放全球试用，并设置日配额限制。[3]
+                    </div>
+                    <div class="news-brief">
+                        <strong>北京具身智能政策</strong> - 北京亦庄发布“具身智能机器人十条”支持政策。[13][11]
+                    </div>
+                    <div class="news-brief">
+                        <strong>ElevenLabs 音乐生成器</strong> - 发布声称版权合规的 AI 音乐生成器，支持商用。[14]
+                    </div>
+                    <div class="news-brief">
+                        <strong>深度伪造争议</strong> - 泰勒·斯威夫特遭 xAI Grok 深度伪造，引发内容安全讨论。[15]
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="news-item">
-                <div class="news-title">
-                    <span class="priority-badge medium-priority">中等价值</span>
-                    Apple测试全新Siri深度控制功能
+        <div class="references-section">
+            <div class="section-title">🔗 参考链接</div>
+            <div class="references-grid">
+                <div class="ref-column">
+                    <div class="ref-item">[1] <a href="https://techcrunch.com/2025/08/07/openais-gpt-5-is-here/" target="_blank">TechCrunch - OpenAI's GPT-5 is here</a></div>
+                    <div class="ref-item">[2] <a href="https://www.163.com/dy/article/K6LU85SL051481US.html" target="_blank">网易 - GPT-5 发布相关报道</a></div>
+                    <div class="ref-item">[3] <a href="https://www.nbd.com.cn/articles/2025-08-11/4007250.html" target="_blank">每日经济新闻 - AI 相关综合报道</a></div>
+                    <div class="ref-item">[4] <a href="https://news.cision.com/eqt/r/eqt-to-acquire-south-korea-s-leading-ai-enabled-hr-tech-platform--remember,c4216266" target="_blank">Cision - EQT 收购 Remember</a></div>
+                    <div class="ref-item">[5] <a href="https://eqtgroup.com/news/eqt-to-acquire-south-koreas-leading-ai-enabled-hr-tech-platform-remember-2025-08-10" target="_blank">EQT Group 官方声明</a></div>
+                    <div class="ref-item">[6] <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">Crescendo AI - xAI Grok-Imagine 新闻</a></div>
+                    <div class="ref-item">[7] <a href="https://timesofindia.indiatimes.com/education/news/sam-altman-says-college-graduates-today-are-the-luckiest-in-history-here-is-why-ai-works-in-their-favour/articleshow/123226150.cms" target="_blank">Times of India - Sam Altman 采访</a></div>
+                    <div class="ref-item">[8] <a href="https://www.businesswire.com/news/home/20250710179338/en/The-Global-AI-Defense-Challenge-2025-Launched-to-Fight-Bad-AI-with-Good-AI" target="_blank">BusinessWire - AI 防御挑战赛</a></div>
                 </div>
-                <div class="news-description">
-                    Apple正测试基于App Intents技术的Siri语音深度控制功能，依托App Intents技术实现跨应用精准操作。[3]
-                </div>
-                <div class="value-analysis">
-                    <div class="value-title">💡 价值分析</div>
-                    <p>这个功能对提升个人工作效率有重要意义。想象你在开车时说"帮我发微信给张总说会议延期到3点"，Siri就能自动完成整个流程。对于经常需要多任务处理的职场人士来说，这能节省大量时间。</p>
-                    <div class="pros-cons">
-                        <div class="pros">
-                            <h4>✅ 机会点</h4>
-                            <ul>
-                                <li>解放双手，提升移动办公效率</li>
-                                <li>复杂任务自动化</li>
-                                <li>为语音交互应用开发带来新思路</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>⚠️ 注意事项</h4>
-                            <ul>
-                                <li>仅限Apple生态系统</li>
-                                <li>隐私和安全问题</li>
-                                <li>需要时间学习和适应</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="news-item">
-                <div class="news-title">
-                    <span class="priority-badge medium-priority">中等价值</span>
-                    ElevenLabs推出AI音乐生成器
-                </div>
-                <div class="news-description">
-                    发布商业可用且声称版权合规的AI音乐生成器ElevenLabs，支持多风格定制，为音乐创作领域带来新工具。[14]
-                </div>
-                <div class="value-analysis">
-                    <div class="value-title">💡 价值分析</div>
-                    <p>对于视频制作者、播客主、小企业来说这是个游戏改变者。以前制作一个企业宣传片，背景音乐版权费可能就要几百到几千元，现在可以生成专属的原创音乐。</p>
-                    <div class="pros-cons">
-                        <div class="pros">
-                            <h4>✅ 机会点</h4>
-                            <ul>
-                                <li>视频、播客制作成本大幅降低</li>
-                                <li>音乐教育和创作辅助</li>
-                                <li>商业活动背景音乐定制</li>
-                                <li>音乐版权问题的解决方案</li>
-                            </ul>
-                        </div>
-                        <div class="cons">
-                            <h4>⚠️ 注意事项</h4>
-                            <ul>
-                                <li>音乐质量和原创性待验证</li>
-                                <li>可能冲击传统音乐产业</li>
-                                <li>版权声明需要谨慎核实</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="warning-section">
-                <div class="warning-title">
-                    <span class="warning-icon">⚠️</span>
-                    关键风险提醒
-                </div>
-                <p><strong>深度伪造争议案例：</strong>泰勒·斯威夫特被xAI Grok深度伪造不雅视频的事件[15]提醒我们，AI工具在带来便利的同时也带来了严重的伦理和法律风险。</p>
-                <br>
-                <p><strong>我的批判性建议：</strong></p>
-                <ul>
-                    <li><strong>不要盲目追新：</strong>新工具层出不穷，但要选择真正适合自己需求的，避免工具成瘾</li>
-                    <li><strong>版权意识必须加强：</strong>AI生成内容的版权归属仍然模糊，商用前一定要咨询法律专业人士</li>
-                    <li><strong>保持人类价值：</strong>AI应该是增强而非替代人类创造力，过度依赖会降低竞争力</li>
-                    <li><strong>关注成本效益：</strong>免费≠有价值，要计算学习成本和实际收益</li>
-                    <li><strong>建立护城河：</strong>当AI工具普及后，你的独特价值在哪里？提前思考差异化策略</li>
-                </ul>
-            </div>
-
-            <div class="news-list-section">
-                <div class="section-title">📰 今日AI要闻完整列表</div>
-                
-                <div class="news-category">
-                    <h3>🌟 英文媒体聚焦</h3>
-                    <div class="news-grid">
-                        <div class="news-brief">
-                            <strong>OpenAI GPT-5发布</strong> - OpenAI正式发布GPT-5，免费版ChatGPT默认启用，Sam Altman称其为"全球最佳模型" [1][2]
-                        </div>
-                        <div class="news-brief">
-                            <strong>GPT-4o紧急重新上线</strong> - 面对GPT-5差评，OpenAI紧急重新上线GPT-4o供用户切换 [2][3]
-                        </div>
-                        <div class="news-brief">
-                            <strong>EQT收购Remember平台</strong> - EQT以约4亿美元收购韩国AI人力平台Remember [4][5]
-                        </div>
-                        <div class="news-brief">
-                            <strong>xAI推出Grok-Imagine</strong> - Elon Musk旗下xAI推出图像/视频生成工具，支持NSFW内容 [6]
-                        </div>
-                        <div class="news-brief">
-                            <strong>Sam Altman预测AI治癌</strong> - Sam Altman表示现今大学毕业生"史上最幸运一代"，预测2035年AI可治癌症 [7]
-                        </div>
-                        <div class="news-brief">
-                            <strong>AI防御挑战赛</strong> - 全球AI防御挑战赛2025结束报名，重点攻防深度伪造身份验证技术 [8]
-                        </div>
-                        <div class="news-brief">
-                            <strong>特朗普AI行动蓝图</strong> - 特朗普发布AI行动蓝图，拟放宽行业监管争夺产业主导权 [9]
-                        </div>
-                        <div class="news-brief">
-                            <strong>英国呼吁全球AI治理</strong> - 英国专家呼吁成立全球AI治理组织，回应中美AI行动计划 [10]
-                        </div>
-                    </div>
-                </div>
-
-                <div class="news-category">
-                    <h3>🇨🇳 中文媒体聚焦</h3>
-                    <div class="news-grid">
-                        <div class="news-brief">
-                            <strong>华为AI推理突破</strong> - 华为8月12日发布AI推理领域突破成果，预计降低HBM依赖 [11][2]
-                        </div>
-                        <div class="news-brief">
-                            <strong>Apple Siri深度控制</strong> - Apple测试全新Siri语音深度控制功能，基于App Intents技术 [3]
-                        </div>
-                        <div class="news-brief">
-                            <strong>NASA-Google太空AI</strong> - NASA与Google合作开发"宇航员医疗官数字助理"，实现太空远程诊断 [12]
-                        </div>
-                        <div class="news-brief">
-                            <strong>xAI Grok 4免费开放</strong> - xAI将Grok 4免费开放全球试用，附每日配额限制 [3]
-                        </div>
-                        <div class="news-brief">
-                            <strong>北京具身智能政策</strong> - 北京亦庄发布"具身智能机器人十条"支持政策 [13][11]
-                        </div>
-                        <div class="news-brief">
-                            <strong>ElevenLabs音乐生成器</strong> - 发布商业可用且声称版权合规的AI音乐生成器 [14]
-                        </div>
-                        <div class="news-brief">
-                            <strong>深度伪造争议</strong> - 泰勒·斯威夫特遭xAI Grok深度伪造，凸显AI内容安全风险 [15]
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="references-section">
-                <div class="section-title">🔗 参考链接</div>
-                <div class="references-grid">
-                    <div class="ref-column">
-                        <div class="ref-item">[1] <a href="https://techcrunch.com/2025/08/07/openais-gpt-5-is-here/" target="_blank">TechCrunch - OpenAI's GPT-5 is here</a></div>
-                        <div class="ref-item">[2] <a href="https://www.163.com/dy/article/K6LU85SL051481US.html" target="_blank">网易 - GPT-5发布相关报道</a></div>
-                        <div class="ref-item">[3] <a href="https://www.nbd.com.cn/articles/2025-08-11/4007250.html" target="_blank">每日经济新闻 - AI相关综合报道</a></div>
-                        <div class="ref-item">[4] <a href="https://news.cision.com/eqt/r/eqt-to-acquire-south-korea-s-leading-ai-enabled-hr-tech-platform--remember,c4216266" target="_blank">Cision - EQT收购Remember</a></div>
-                        <div class="ref-item">[5] <a href="https://eqtgroup.com/news/eqt-to-acquire-south-koreas-leading-ai-enabled-hr-tech-platform-remember-2025-08-10" target="_blank">EQT Group官方声明</a></div>
-                        <div class="ref-item">[6] <a href="https://www.crescendo.ai/news/latest-ai-news-and-updates" target="_blank">Crescendo AI - xAI Grok-Imagine新闻</a></div>
-                        <div class="ref-item">[7] <a href="https://timesofindia.indiatimes.com/education/news/sam-altman-says-college-graduates-today-are-the-luckiest-in-history-here-is-why-ai-works-in-their-favour/articleshow/123226150.cms" target="_blank">Times of India - Sam Altman采访</a></div>
-                        <div class="ref-item">[8] <a href="https://www.businesswire.com/news/home/20250710179338/en/The-Global-AI-Defense-Challenge-2025-Launched-to-Fight-Bad-AI-with-Good-AI" target="_blank">BusinessWire - AI防御挑战赛</a></div>
-                    </div>
-                    <div class="ref-column">
-                        <div class="ref-item">[9] <a href="https://www.youtube.com/watch?v=Iekbx9rB4aY" target="_blank">YouTube - 特朗普AI行动蓝图</a></div>
-                        <div class="ref-item">[10] <a href="https://www.cnn.com/2025/07/28/tech/china-global-ai-cooperation-organization-waic-hnk-spc" target="_blank">CNN - 全球AI治理组织呼吁</a></div>
-                        <div class="ref-item">[11] <a href="https://www.nbd.com.cn/articles/2025-08-10/4007004.html" target="_blank">每日经济新闻 - 华为AI推理突破</a></div>
-                        <div class="ref-item">[12] <a href="https://www.guancha.cn/economy/2025_08_11_786107.shtml" target="_blank">观察者网 - NASA Google合作项目</a></div>
-                        <div class="ref-item">[13] <a href="https://www.163.com/dy/article/K6LP54VC0512B07B.html" target="_blank">网易 - 北京具身智能政策</a></div>
-                        <div class="ref-item">[14] <a href="https://techcrunch.com/2025/08/05/elevenlabs-launches-an-ai-music-generator-which-it-claims-is-cleared-for-commercial-use/" target="_blank">TechCrunch - ElevenLabs音乐生成器</a></div>
-                        <div class="ref-item">[15] <a href="https://timesofindia.indiatimes.com/sports/nfl/news/expensive-lawsuit-incoming-outrage-erupts-over-taylor-swifts-deepfake-scandal-while-travis-kelce-gets-caught-in-the-online-crossfire/articleshow/123217260.cms" target="_blank">Times of India - 泰勒·斯威夫特深度伪造争议</a></div>
-                    </div>
+                <div class="ref-column">
+                    <div class="ref-item">[9] <a href="https://www.youtube.com/watch?v=Iekbx9rB4aY" target="_blank">YouTube - 特朗普 AI 行动蓝图</a></div>
+                    <div class="ref-item">[10] <a href="https://www.cnn.com/2025/07/28/tech/china-global-ai-cooperation-organization-waic-hnk-spc" target="_blank">CNN - 全球 AI 治理呼吁</a></div>
+                    <div class="ref-item">[11] <a href="https://www.nbd.com.cn/articles/2025-08-10/4007004.html" target="_blank">每日经济新闻 - 华为 AI 推理突破</a></div>
+                    <div class="ref-item">[12] <a href="https://www.guancha.cn/economy/2025_08_11_786107.shtml" target="_blank">观察者网 - NASA Google 合作项目</a></div>
+                    <div class="ref-item">[13] <a href="https://www.163.com/dy/article/K6LP54VC0512B07B.html" target="_blank">网易 - 北京具身智能政策</a></div>
+                    <div class="ref-item">[14] <a href="https://techcrunch.com/2025/08/05/elevenlabs-launches-an-ai-music-generator-which-it-claims-is-cleared-for-commercial-use/" target="_blank">TechCrunch - ElevenLabs 音乐生成器</a></div>
+                    <div class="ref-item">[15] <a href="https://timesofindia.indiatimes.com/sports/nfl/news/expensive-lawsuit-incoming-outrage-erupts-over-taylor-swifts-deepfake-scandal-while-travis-kelce-gets-caught-in-the-online-crossfire/articleshow/123217260.cms" target="_blank">Times of India - 泰勒·斯威夫特深度伪造争议</a></div>
                 </div>
             </div>
         </div>

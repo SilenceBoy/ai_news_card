@@ -153,6 +153,17 @@
       "toolCount": 4,
       "techCount": 7,
       "published": true
+    },
+    {
+      "date": "2025-11-10",
+      "endDate": "2025-11-16",
+      "filename": "weeklies/20251110-20251116周新闻.html",
+      "title": "AI圈热点周报 第15期",
+      "summary": "2025年11月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 11,
+      "toolCount": 3,
+      "techCount": 6,
+      "published": true
     }
   ],
   "settings": {

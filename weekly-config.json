@@ -197,6 +197,17 @@
       "toolCount": 2,
       "techCount": 7,
       "published": true
+    },
+    {
+      "date": "2025-12-08",
+      "endDate": "2025-12-14",
+      "filename": "weeklies/20251208-20251214周新闻.html",
+      "title": "AI圈热点周报 第19期",
+      "summary": "2025年12月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 10,
+      "toolCount": 3,
+      "techCount": 6,
+      "published": true
     }
   ],
   "settings": {

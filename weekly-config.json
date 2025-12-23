@@ -168,7 +168,7 @@
     {
       "date": "2025-11-17",
       "endDate": "2025-11-23",
-      "filename": "weeklies/20251117-20251123周新闻.html",
+      "filename": "weklies/20251117-20251123周新闻.html",
       "title": "AI圈热点周报 第16期",
       "summary": "2025年11月的AI圈精彩内容，包含最新的技术突破和工具发布。",
       "newsCount": 10,
@@ -211,8 +211,8 @@
     },
     {
       "date": "2025-12-15",
-      "endDate": "2125-12-21",
-      "filename": "weeklies/20251215-21251221周新闻.html",
+      "endDate": "2025-12-21",
+      "filename": "weeklies/20251215-20251221周新闻.html",
       "title": "AI圈热点周报 第20期",
       "summary": "2025年12月的AI圈精彩内容，包含最新的技术突破和工具发布。",
       "newsCount": 10,

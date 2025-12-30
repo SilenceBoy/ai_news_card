@@ -403,7 +403,7 @@
 <body>
     <div class="header">
         <h1>AI 圈热点周报</h1>
-        <p class="subtitle">动态列表 - 自动更新</p>
+        <p class="subtitle">动态列表 - 自动更新 (v2.0)</p>
         <div class="stats">
             <div class="stat-item">
                 <span class="stat-number" id="totalWeeks">-</span>
@@ -456,6 +456,7 @@
 
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function () {
+            console.log("🚀 News List Loaded - Version 20251230-Patch-ImageFix"); // 用于验证是否加载了最新JS
             loadWeeklies();
             setupEventListeners();
         });
@@ -537,10 +538,19 @@
             const weeklyList = document.getElementById('weeklyList');
 
             // 为每个周报分配序号（基于时间顺序）
-            const weeklyWithIssues = weeklyData.map((weekly, index) => ({
-                ...weekly,
-                issueNumber: index + 1  // 从1开始的序号
-            }));
+            const weeklyWithIssues = weeklyData.map((weekly, index) => {
+                // DEBUG: 打印每条周报的数据，用于排查图片字段丢失问题
+                if (weekly.blackboardImage) {
+                    console.log(`✅ [Image Found] ${weekly.title}: ${weekly.blackboardImage}`);
+                } else {
+                    console.log(`⚠️ [No Image] ${weekly.title}, Date: ${weekly.date}`);
+                }
+
+                return {
+                    ...weekly,
+                    issueNumber: index + 1  // 从1开始的序号
+                };
+            });
 
             // 按日期反向排序用于显示（最新的在前）
             const sortedForDisplay = weeklyWithIssues.sort((a, b) => new Date(b.date) - new Date(a.date));

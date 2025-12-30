@@ -150,6 +150,18 @@ function scanFolder() {
         const filePath = path.join(weeklyDir, filename);
         const stats = analyzeHtmlContent(filePath);
 
+        // 检查是否存在黑板图片
+        const dateStr = `${match[1]}${match[2]}${match[3]}-${match[4]}${match[5]}${match[6]}`;
+        const imageBaseName = `ai_weekly_blackboard_${dateStr}`;
+        const imageDir = path.join(weeklyDir, 'images');
+        let blackboardImage = null;
+
+        if (fs.existsSync(path.join(imageDir, `${imageBaseName}.png`))) {
+            blackboardImage = `weeklies/images/${imageBaseName}.png`;
+        } else if (fs.existsSync(path.join(imageDir, `${imageBaseName}.jpg`))) {
+            blackboardImage = `weeklies/images/${imageBaseName}.jpg`;
+        }
+
         if (!existing) {
             // 新文件，先添加到数组
             const newWeekly = {
@@ -161,11 +173,15 @@ function scanFolder() {
                 newsCount: stats.newsCount,
                 toolCount: stats.toolCount,
                 techCount: stats.techCount,
-                published: true
+                published: true,
+                blackboardImage: blackboardImage
             };
             config.weeklies.push(newWeekly);
             newFiles++;
             console.log(`📄 发现新文件: weeklies/${filename} (${stats.newsCount}条新闻, ${stats.toolCount}个工具, ${stats.techCount}个新发布)`);
+            if (blackboardImage) {
+                console.log(`🖼️  发现黑板图片: ${blackboardImage}`);
+            }
         } else {
             // 更新现有文件的统计数据
             const oldStats = `${existing.newsCount}/${existing.toolCount}/${existing.techCount}`;
@@ -174,6 +190,13 @@ function scanFolder() {
             existing.newsCount = stats.newsCount;
             existing.toolCount = stats.toolCount;
             existing.techCount = stats.techCount;
+
+            // 更新图片路径
+            if (blackboardImage && existing.blackboardImage !== blackboardImage) {
+                existing.blackboardImage = blackboardImage;
+                updatedFiles++;
+                console.log(`🖼️  更新黑板图片: ${existing.filename} -> ${blackboardImage}`);
+            }
 
             if (!existing.published) {
                 existing.published = true;

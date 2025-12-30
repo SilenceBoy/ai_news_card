@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,7 +29,7 @@
         .header h1 {
             font-size: 3em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
         }
 
         .header .subtitle {
@@ -369,15 +370,36 @@
             }
         }
 
-        .weekly-card:nth-child(1) { animation-delay: 0.1s; }
-        .weekly-card:nth-child(2) { animation-delay: 0.2s; }
-        .weekly-card:nth-child(3) { animation-delay: 0.3s; }
-        .weekly-card:nth-child(4) { animation-delay: 0.4s; }
-        .weekly-card:nth-child(5) { animation-delay: 0.5s; }
-        .weekly-card:nth-child(6) { animation-delay: 0.6s; }
-        .weekly-card:nth-child(7) { animation-delay: 0.7s; }
+        .weekly-card:nth-child(1) {
+            animation-delay: 0.1s;
+        }
+
+        .weekly-card:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .weekly-card:nth-child(3) {
+            animation-delay: 0.3s;
+        }
+
+        .weekly-card:nth-child(4) {
+            animation-delay: 0.4s;
+        }
+
+        .weekly-card:nth-child(5) {
+            animation-delay: 0.5s;
+        }
+
+        .weekly-card:nth-child(6) {
+            animation-delay: 0.6s;
+        }
+
+        .weekly-card:nth-child(7) {
+            animation-delay: 0.7s;
+        }
     </style>
 </head>
+
 <body>
     <div class="header">
         <h1>AI 圈热点周报</h1>
@@ -433,7 +455,7 @@
         let currentFilter = 'all';
 
         // 页面加载完成后初始化
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             loadWeeklies();
             setupEventListeners();
         });
@@ -501,7 +523,7 @@
 
             // 添加事件监听器
             filterButtons.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     filterButtons.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     currentFilter = this.dataset.month;
@@ -532,10 +554,15 @@
                 // 使用预先分配的序号
                 const titleWithIssue = `AI圈热点周报 第${weekly.issueNumber}期`;
 
+                // 周报列表卡片添加黑板图片 (如果有)
+                const extraContent = weekly.blackboardImage ?
+                    `<img src="${weekly.blackboardImage}" style="width: 100%; border-radius: 10px; margin-bottom: 15px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);" alt="AI Weekly Blackboard">` : '';
+
                 return `
                     <div class="weekly-card${unpublishedClass}" data-date="${weekly.date}" data-filename="${weekly.filename}" style="animation-delay: ${(displayIndex + 1) * 0.1}s;">
                         <div class="date-badge">${startDate} - ${endDate}</div>
                         <h2 class="weekly-title">${titleWithIssue}${unpublishedText}</h2>
+                        ${extraContent}
                         <div class="weekly-summary">${weekly.summary}</div>
                         <div class="weekly-stats">
                             <div class="stat">
@@ -553,10 +580,10 @@
                         </div>
                         <div class="action-buttons">
                             ${weekly.published ?
-                                `<a href="${weekly.filename}" class="btn btn-primary">查看详情</a>
+                        `<a href="${weekly.filename}" class="btn btn-primary">查看详情</a>
                                  <button class="btn btn-secondary" onclick="previewWeekly('${weekly.filename}')">预览</button>` :
-                                `<button class="btn btn-secondary" disabled>即将发布</button>`
-                            }
+                        `<button class="btn btn-secondary" disabled>即将发布</button>`
+                    }
                         </div>
                     </div>
                 `;
@@ -579,11 +606,11 @@
                 const date = card.dataset.date || '';
 
                 const matchesSearch = title.includes(searchTerm) ||
-                                    summary.includes(searchTerm) ||
-                                    date.includes(searchTerm);
+                    summary.includes(searchTerm) ||
+                    date.includes(searchTerm);
 
                 const matchesFilter = currentFilter === 'all' ||
-                                    date.startsWith(currentFilter);
+                    date.startsWith(currentFilter);
 
                 if (matchesSearch && matchesFilter) {
                     card.style.display = 'flex';
@@ -644,7 +671,7 @@
         }
 
         // 键盘快捷键支持
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             // Ctrl/Cmd + R 刷新数据
             if ((e.ctrlKey || e.metaKey) && e.key === 'r') {
                 e.preventDefault();
@@ -653,4 +680,5 @@
         });
     </script>
 </body>
+
 </html>

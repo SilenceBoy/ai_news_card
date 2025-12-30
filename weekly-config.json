@@ -177,10 +177,21 @@
       "published": true
     },
     {
+      "date": "2025-11-17",
+      "endDate": "2025-11-23",
+      "filename": "weeklies/20251117-20251123周新闻.html",
+      "title": "AI圈热点周报 第17期",
+      "summary": "2025年11月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 10,
+      "toolCount": 1,
+      "techCount": 4,
+      "published": true
+    },
+    {
       "date": "2025-11-24",
       "endDate": "2025-11-30",
       "filename": "weeklies/20251124-20251130周新闻.html",
-      "title": "AI圈热点周报 第17期",
+      "title": "AI圈热点周报 第18期",
       "summary": "2025年11月的AI圈精彩内容，包含最新的技术突破和工具发布。",
       "newsCount": 12,
       "toolCount": 2,
@@ -191,7 +202,7 @@
       "date": "2025-12-01",
       "endDate": "2025-12-07",
       "filename": "weeklies/20251201-20251207周新闻.html",
-      "title": "AI圈热点周报 第18期",
+      "title": "AI圈热点周报 第19期",
       "summary": "2025年12月的AI圈精彩内容，包含最新的技术突破和工具发布。",
       "newsCount": 10,
       "toolCount": 2,
@@ -202,7 +213,7 @@
       "date": "2025-12-08",
       "endDate": "2025-12-14",
       "filename": "weeklies/20251208-20251214周新闻.html",
-      "title": "AI圈热点周报 第19期",
+      "title": "AI圈热点周报 第20期",
       "summary": "2025年12月的AI圈精彩内容，包含最新的技术突破和工具发布。",
       "newsCount": 10,
       "toolCount": 3,
@@ -213,12 +224,25 @@
       "date": "2025-12-15",
       "endDate": "2025-12-21",
       "filename": "weeklies/20251215-20251221周新闻.html",
-      "title": "AI圈热点周报 第20期",
+      "title": "AI圈热点周报 第21期",
       "summary": "2025年12月的AI圈精彩内容，包含最新的技术突破和工具发布。",
       "newsCount": 10,
       "toolCount": 3,
       "techCount": 5,
-      "published": true
+      "published": true,
+      "blackboardImage": "weeklies/images/ai_weekly_blackboard_20251215-20251221.png"
+    },
+    {
+      "date": "2025-12-22",
+      "endDate": "2025-12-28",
+      "filename": "weeklies/20251222-20251228周新闻.html",
+      "title": "AI圈热点周报 第22期",
+      "summary": "2025年12月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 10,
+      "toolCount": 3,
+      "techCount": 5,
+      "published": true,
+      "blackboardImage": "weeklies/images/ai_weekly_blackboard_20251222-20251228.png"
     }
   ],
   "settings": {

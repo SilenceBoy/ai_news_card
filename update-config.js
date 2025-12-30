@@ -150,30 +150,53 @@ function scanFolder() {
         const filePath = path.join(weeklyDir, filename);
         const stats = analyzeHtmlContent(filePath);
 
-        if (!existing) {
-            // 新文件，先添加到数组
-            const newWeekly = {
-                date: startDate,
-                endDate: endDate,
-                filename: `weeklies/${filename}`,  // 包含文件夹路径
-                title: `AI圈热点周报`,  // 临时标题，后面会重新分配期数
-                summary: `${startDate.substring(0, 7).replace('-', '年')}月的AI圈精彩内容，包含最新的技术突破和工具发布。`,
-                newsCount: stats.newsCount,
-                toolCount: stats.toolCount,
-                techCount: stats.techCount,
-                published: true
-            };
-            config.weeklies.push(newWeekly);
-            newFiles++;
-            console.log(`📄 发现新文件: weeklies/${filename} (${stats.newsCount}条新闻, ${stats.toolCount}个工具, ${stats.techCount}个新发布)`);
-        } else {
-            // 更新现有文件的统计数据
-            const oldStats = `${existing.newsCount}/${existing.toolCount}/${existing.techCount}`;
-            const newStats = `${stats.newsCount}/${stats.toolCount}/${stats.techCount}`;
+            // 检查是否存在黑板图片
+            const dateStr = `${match[1]}${match[2]}${match[3]}-${match[4]}${match[5]}${match[6]}`;
+            const imageBaseName = `ai_weekly_blackboard_${dateStr}`;
+            const imageDir = path.join(weeklyDir, 'images');
+            let blackboardImage = null;
 
-            existing.newsCount = stats.newsCount;
-            existing.toolCount = stats.toolCount;
-            existing.techCount = stats.techCount;
+            if (fs.existsSync(path.join(imageDir, `${imageBaseName}.png`))) {
+                blackboardImage = `weeklies/images/${imageBaseName}.png`;
+            } else if (fs.existsSync(path.join(imageDir, `${imageBaseName}.jpg`))) {
+                blackboardImage = `weeklies/images/${imageBaseName}.jpg`;
+            }
+
+            if (!existing) {
+                // 新文件，先添加到数组
+                const newWeekly = {
+                    date: startDate,
+                    endDate: endDate,
+                    filename: `weeklies/${filename}`,  // 包含文件夹路径
+                    title: `AI圈热点周报`,  // 临时标题，后面会重新分配期数
+                    summary: `${startDate.substring(0, 7).replace('-', '年')}月的AI圈精彩内容，包含最新的技术突破和工具发布。`,
+                    newsCount: stats.newsCount,
+                    toolCount: stats.toolCount,
+                    techCount: stats.techCount,
+                    published: true,
+                    blackboardImage: blackboardImage // 添加图片路径
+                };
+                config.weeklies.push(newWeekly);
+                newFiles++;
+                console.log(`📄 发现新文件: weeklies/${filename} (${stats.newsCount}条新闻, ${stats.toolCount}个工具, ${stats.techCount}个新发布)`);
+                if (blackboardImage) {
+                    console.log(`🖼️  发现黑板图片: ${blackboardImage}`);
+                }
+            } else {
+                // 更新现有文件的统计数据
+               const oldStats = `${existing.newsCount}/${existing.toolCount}/${existing.techCount}`;
+                const newStats = `${stats.newsCount}/${stats.toolCount}/${stats.techCount}`;
+
+                existing.newsCount = stats.newsCount;
+                existing.toolCount = stats.toolCount;
+                existing.techCount = stats.techCount;
+                
+                // 更新图片路径
+                if (blackboardImage && existing.blackboardImage !== blackboardImage) {
+                    existing.blackboardImage = blackboardImage;
+                    updatedFiles++;
+                    console.log(`🖼️  更新黑板图片: ${existing.filename} -> ${blackboardImage}`);
+                }
 
             if (!existing.published) {
                 existing.published = true;

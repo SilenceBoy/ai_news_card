@@ -477,7 +477,7 @@
                 weeklyList.style.display = 'none';
                 errorMessage.style.display = 'none';
 
-                const response = await fetch('weekly-config.json');
+                const response = await fetch(`weekly-config.json?t=${new Date().getTime()}`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }

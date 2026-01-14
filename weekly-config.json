@@ -244,6 +244,18 @@
       "techCount": 3,
       "published": true,
       "blackboardImage": null
+    },
+    {
+      "date": "2026-01-05",
+      "endDate": "2026-01-11",
+      "filename": "weeklies/20260105-20260111周新闻.html",
+      "title": "AI圈热点周报 第23期",
+      "summary": "2026年01月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 7,
+      "toolCount": 2,
+      "techCount": 3,
+      "published": true,
+      "blackboardImage": null
     }
   ],
   "settings": {

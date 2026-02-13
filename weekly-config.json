@@ -280,6 +280,30 @@
       "techCount": 2,
       "published": true,
       "blackboardImage": null
+    },
+    {
+      "date": "2026-01-26",
+      "endDate": "2026-02-01",
+      "filename": "weeklies/20260126-20260201周新闻.html",
+      "title": "AI圈热点周报 第26期",
+      "summary": "2026年01月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 7,
+      "toolCount": 2,
+      "techCount": 2,
+      "published": true,
+      "blackboardImage": null
+    },
+    {
+      "date": "2026-02-02",
+      "endDate": "2026-02-08",
+      "filename": "weeklies/20260202-20260208周新闻.html",
+      "title": "AI圈热点周报 第27期",
+      "summary": "2026年02月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 6,
+      "toolCount": 1,
+      "techCount": 3,
+      "published": true,
+      "blackboardImage": null
     }
   ],
   "settings": {

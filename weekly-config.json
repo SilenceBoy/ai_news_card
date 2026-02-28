@@ -316,6 +316,18 @@
       "techCount": 2,
       "published": true,
       "blackboardImage": null
+    },
+    {
+      "date": "2026-02-16",
+      "endDate": "2026-02-23",
+      "filename": "weeklies/20260216-20260223周新闻.html",
+      "title": "AI圈热点周报 第29期",
+      "summary": "2026年02月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 5,
+      "toolCount": 0,
+      "techCount": 1,
+      "published": true,
+      "blackboardImage": null
     }
   ],
   "settings": {

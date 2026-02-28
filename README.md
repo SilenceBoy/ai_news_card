@@ -123,7 +123,62 @@ node update-config.js add "2025-10-01" "2025-10-07" "第8期" "十月第一周AI
 node update-config.js publish <文件名>
 ```
 
-## 📝 标准工作流程
+## 🤖 AI 辅助发布（推荐）
+
+本项目内置了 `generate-weekly` AI Skill，可通过 AI 编程助手（如 Gemini CLI）**一键完成**从 Markdown 到 HTML 周报的全流程发布。
+
+### 使用方法
+
+在 AI 编程助手的对话中输入：
+
+```
+使用 generate-weekly 操作 @doc/news/YYYYMMDD-YYYYMMDD.md
+```
+
+例如：
+```
+使用 generate-weekly 操作 @doc/news/20260216-20260223.md
+```
+
+AI 助手将自动完成以下全部步骤：
+1. 📖 解析 Markdown 源文件，提取新闻标题、标签、价值分析等
+2. 🏗️ 生成格式化的 HTML 周报到 `weeklies/` 目录
+3. ⚙️ 执行 `node update-config.js scan` 更新配置
+4. 📊 更新 `README.md` 的已发布周报列表和统计总计
+
+### Markdown 源文件规范
+
+源文件位于 `doc/news/` 目录，命名格式为 `YYYYMMDD-YYYYMMDD.md`，内容结构如下：
+
+```markdown
+📊 YYYY年M月第N周 AI 热点周报（M.DD - M.DD）
+
+1. 分类标题（如：模型动态、应用动态等）
+【新闻标题】
+新闻简介：新闻内容描述...
+
+价值分析：
+提效（场景描述）：
+  场景例子：具体场景...
+赚钱（变现描述）：
+  变现路径：具体路径...
+
+辩证思考：
+提醒：辩证观点...（可选）
+
+---
+
+🛡️ 证据模式与推断链（Evidence Log）
+关于 XXX：数据来源...（来源：XXX）
+```
+
+### Skill 文件位置
+
+Skill 定义文件位于 `.agent/skills/generate-weekly/SKILL.md`，包含完整的模板规范和检查清单。
+
+---
+
+## 📝 标准工作流程（手动）
 
 ### 添加新周报的完整流程：
 

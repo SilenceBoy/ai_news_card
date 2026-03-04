@@ -305,3 +305,5 @@ python -m http.server 8000
 ✅ 平板设备 (iPad, Android 平板)
 ✅ 移动设备 (iOS Safari, Android Chrome)
 ✅ 响应式设计，自动适配所有屏幕尺寸
+
+TEST: git token auth check at 2026-03-04

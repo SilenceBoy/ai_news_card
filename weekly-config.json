@@ -364,6 +364,18 @@
       "techCount": 3,
       "published": true,
       "blackboardImage": null
+    },
+    {
+      "date": "2026-03-16",
+      "endDate": "2026-03-22",
+      "filename": "weeklies/20260316-20260322周新闻.html",
+      "title": "AI圈热点周报 第33期",
+      "summary": "2026年03月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 6,
+      "toolCount": 4,
+      "techCount": 4,
+      "published": true,
+      "blackboardImage": null
     }
   ],
   "settings": {

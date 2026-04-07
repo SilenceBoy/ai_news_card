@@ -1,11 +1,37 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI圈热点周报 - 动态列表</title>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap');
+
+        :root {
+            --fs-bg-page: #f5f6f7;
+            --fs-bg-header: #ffffff;
+            --fs-surface: #ffffff;
+            --fs-surface-hover: #fcfcfc;
+            --fs-border: #dee0e3;
+            --fs-primary: #3370FF;
+            --fs-primary-hover: #548BF4;
+            --fs-primary-light: #e1eaff;
+            --fs-success: #24a148;
+            --fs-danger: #d92d20;
+            --fs-text-title: #1f2329;
+            --fs-text-body: #646a73;
+            --fs-text-meta: #8f959e;
+            --fs-shadow-sm: 0 1px 4px rgba(31, 35, 41, 0.05);
+            --fs-shadow-card: 0 2px 8px rgba(31, 35, 41, 0.08);
+            --fs-drawer-shadow: -4px 0 16px rgba(0,0,0,0.1);
+            --fs-radius-sm: 6px;
+            --fs-radius-md: 8px;
+            --fs-radius-lg: 12px;
+            --fs-header-height: 64px;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -13,405 +39,572 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: linear-gradient(135deg, #1D2B64, #F8CDDA);
-            color: #333;
+            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--fs-bg-page);
+            color: var(--fs-text-body);
             min-height: 100vh;
         }
 
-        .header {
-            text-align: center;
-            padding: 40px 20px;
-            color: white;
-        }
-
-        .header h1 {
-            font-size: 3em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
-        }
-
-        .header .subtitle {
-            font-size: 1.3em;
-            opacity: 0.9;
-            margin-bottom: 10px;
-        }
-
-        .stats {
+        /* Feishu Style Top Navigation */
+        .top-nav {
+            height: var(--fs-header-height);
+            background: var(--fs-bg-header);
+            border-bottom: 1px solid var(--fs-border);
             display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 20px;
-            flex-wrap: wrap;
+            align-items: center;
+            padding: 0 24px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
-        .stat-item {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 15px 25px;
-            border-radius: 25px;
-            backdrop-filter: blur(10px);
+        .top-nav h1 {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--fs-text-title);
+            margin: 0;
+            letter-spacing: 0.5px;
         }
 
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            display: block;
+        .top-nav .subtitle {
+            margin-left: 12px;
+            padding-left: 12px;
+            border-left: 1px solid var(--fs-border);
+            font-size: 14px;
+            color: var(--fs-text-meta);
         }
 
-        .stat-label {
-            font-size: 0.9em;
-            opacity: 0.8;
-        }
-
-        .loading {
-            text-align: center;
-            color: white;
-            padding: 50px;
-            font-size: 1.2em;
-        }
-
-        .error {
-            text-align: center;
-            color: #ff6b6b;
-            padding: 50px;
-            font-size: 1.1em;
-            background: rgba(255, 255, 255, 0.1);
-            margin: 20px;
-            border-radius: 15px;
-        }
-
-        .controls {
-            max-width: 1200px;
-            margin: 0 auto 30px;
-            padding: 0 20px;
+        .stats-bar {
+            background: var(--fs-surface);
+            border-bottom: 1px solid var(--fs-border);
+            padding: 16px 24px;
             display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-            justify-content: center;
+            gap: 40px;
             align-items: center;
         }
 
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-number {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--fs-text-title);
+            line-height: 1.2;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: var(--fs-text-meta);
+        }
+
+        .controls {
+            padding: 24px 24px 0;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
         .search-box {
-            flex: 1;
-            min-width: 280px;
-            max-width: 400px;
             position: relative;
+            flex: 1;
+            min-width: 240px;
+            max-width: 320px;
         }
 
         .search-input {
             width: 100%;
-            padding: 12px 45px 12px 15px;
-            border: none;
-            border-radius: 25px;
-            font-size: 16px;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            height: 32px;
+            padding: 4px 12px 4px 32px;
+            border: 1px solid var(--fs-border);
+            border-radius: var(--fs-radius-sm);
+            font-size: 14px;
+            background: var(--fs-surface);
+            color: var(--fs-text-title);
+            transition: all 0.2s ease;
         }
 
         .search-input:focus {
             outline: none;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            border-color: var(--fs-primary);
+            box-shadow: 0 0 0 2px rgba(51, 112, 255, 0.2);
+        }
+
+        .search-input::placeholder {
+            color: var(--fs-text-meta);
         }
 
         .search-icon {
             position: absolute;
-            right: 15px;
+            left: 10px;
             top: 50%;
             transform: translateY(-50%);
-            color: #666;
+            color: var(--fs-text-meta);
+            font-size: 14px;
         }
 
         .filter-buttons {
             display: flex;
-            gap: 10px;
-            flex-wrap: wrap;
+            gap: 8px;
+            overflow-x: auto;
+            flex-wrap: nowrap;
+            padding-bottom: 4px;
         }
 
         .filter-btn {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.2);
-            color: white;
+            height: 32px;
+            padding: 0 16px;
+            border: 1px solid var(--fs-border);
+            border-radius: var(--fs-radius-sm);
+            background: var(--fs-surface);
+            color: var(--fs-text-body);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             font-size: 14px;
-            backdrop-filter: blur(10px);
+            white-space: nowrap;
         }
 
-        .filter-btn:hover,
+        .filter-btn:hover {
+            border-color: var(--fs-primary);
+            color: var(--fs-primary);
+        }
+
         .filter-btn.active {
-            background: rgba(255, 255, 255, 0.9);
-            color: #1D2B64;
-            transform: translateY(-2px);
+            background: var(--fs-primary-light);
+            border-color: var(--fs-primary);
+            color: var(--fs-primary);
+            font-weight: 500;
         }
 
         .refresh-btn {
-            padding: 8px 16px;
-            border: none;
-            border-radius: 20px;
-            background: rgba(76, 175, 80, 0.8);
-            color: white;
+            height: 32px;
+            padding: 0 16px;
+            border: 1px solid var(--fs-border);
+            border-radius: var(--fs-radius-sm);
+            background: var(--fs-surface);
+            color: var(--fs-text-body);
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             font-size: 14px;
-            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .refresh-btn:hover {
-            background: rgba(76, 175, 80, 1);
-            transform: translateY(-2px);
+            color: var(--fs-primary);
+            background: var(--fs-surface-hover);
+            border-color: var(--fs-primary);
+        }
+
+        .layout-switcher {
+            display: flex;
+            gap: 4px;
+            background: var(--fs-surface);
+            padding: 4px;
+            border-radius: var(--fs-radius-sm);
+            border: 1px solid var(--fs-border);
+            margin-left: auto;
+        }
+
+        .layout-btn {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: transparent;
+            border: none;
+            border-radius: 4px;
+            color: var(--fs-text-meta);
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .layout-btn:hover {
+            color: var(--fs-text-title);
+            background: var(--fs-bg-page);
+        }
+
+        .layout-btn.active {
+            color: var(--fs-primary);
+            background: var(--fs-primary-light);
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px 40px;
+            padding: 24px;
         }
 
+        /* DEFAULT (Medium Grid) */
         .weekly-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 20px;
             align-items: start;
         }
 
+        /* SMALL / COMPACT Grid */
+        .weekly-list.layout-small {
+            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+            gap: 16px;
+        }
+
+        /* LARGE / DETAIL Grid */
+        .weekly-list.layout-large {
+            grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+            gap: 24px;
+        }
+
         .weekly-card {
-            background-color: white;
-            border-radius: 15px;
-            padding: 30px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
-            transition: all 0.3s ease;
-            border-left: 5px solid #1D2B64;
+            background: var(--fs-surface);
+            border: 1px solid var(--fs-border);
+            border-radius: var(--fs-radius-md);
+            padding: 20px;
+            box-shadow: var(--fs-shadow-sm);
+            transition: all 0.2s ease;
             display: flex;
             flex-direction: column;
-            position: relative;
-            min-height: 250px;
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-            transform: translateY(30px);
+            cursor: pointer;
+            min-height: 180px;
+        }
+
+        /* Small layout card overrides */
+        .weekly-list.layout-small .weekly-card {
+            min-height: auto;
+            padding: 16px;
+        }
+        .weekly-list.layout-small .weekly-title {
+            font-size: 16px;
+            margin: 0 0 8px 0;
+        }
+        .weekly-list.layout-small .card-preview-image {
+            height: 100px;
+            margin-bottom: 12px;
+        }
+        .weekly-list.layout-small .weekly-summary,
+        .weekly-list.layout-small .weekly-stats {
+            display: none;
+        }
+
+        /* Large layout card overrides */
+        .weekly-list.layout-large .weekly-card {
+            min-height: 220px;
+            padding: 24px;
+        }
+        .weekly-list.layout-large .weekly-title {
+            font-size: 20px;
+            margin-bottom: 16px;
+        }
+        .weekly-list.layout-large .weekly-summary {
+            font-size: 15px;
+            -webkit-line-clamp: 5;
+            margin-bottom: 24px;
+        }
+        .weekly-list.layout-large .card-preview-image {
+            height: 200px;
         }
 
         .weekly-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            transform: translateY(-2px);
+            box-shadow: var(--fs-shadow-card);
+            border-color: var(--fs-primary);
         }
 
         .weekly-card.unpublished {
             opacity: 0.6;
-            border-left-color: #999;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 12px;
         }
 
         .date-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #1D2B64, #3949AB);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 14px;
-            font-weight: bold;
-            margin-bottom: 15px;
+            color: var(--fs-text-meta);
+            font-size: 13px;
+        }
+
+        .status-badge {
+            font-size: 12px;
+            padding: 2px 6px;
+            border-radius: 4px;
+            background: var(--fs-primary-light);
+            color: var(--fs-primary);
+            font-weight: 500;
+        }
+
+        .unpublished .status-badge {
+            background: var(--fs-bg-page);
+            color: var(--fs-text-meta);
+            border: 1px solid var(--fs-border);
         }
 
         .weekly-title {
-            margin: 0 0 15px 0;
-            color: #1a3a4a;
-            font-size: 1.5em;
-            font-weight: bold;
-            line-height: 1.3;
+            margin: 0 0 12px 0;
+            color: var(--fs-text-title);
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .weekly-summary {
-            color: #666;
+            color: var(--fs-text-body);
+            font-size: 14px;
             line-height: 1.6;
-            margin-bottom: 20px;
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
             flex: 1;
+        }
+
+        .card-preview-image {
+            width: 100%;
+            height: 140px;
+            object-fit: cover;
+            border-radius: var(--fs-radius-sm);
+            border: 1px solid var(--fs-border);
+            margin-bottom: 16px;
         }
 
         .weekly-stats {
             display: flex;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 10px;
+            gap: 16px;
+            padding-top: 16px;
+            border-top: 1px solid var(--fs-border);
         }
 
         .stat {
-            text-align: center;
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .stat-num {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #1D2B64;
-            display: block;
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--fs-text-title);
         }
 
         .stat-text {
-            font-size: 0.8em;
-            color: #666;
+            font-size: 12px;
+            color: var(--fs-text-meta);
         }
 
-        .action-buttons {
-            display: flex;
-            gap: 10px;
-            margin-top: auto;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
+        .loading, .no-results, .error {
+            text-align: center;
+            padding: 60px 0;
+            color: var(--fs-text-meta);
             font-size: 14px;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
+            grid-column: 1 / -1;
         }
 
-        .btn-primary {
-            background: #1D2B64;
-            color: white;
+        /* Drawer styles */
+        .drawer-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(31, 35, 41, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.2s ease;
+            z-index: 1000;
+        }
+        
+        .drawer-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .drawer {
+            position: fixed;
+            top: 0; right: -860px;
+            width: 860px;
+            max-width: 100vw;
+            height: 100vh;
+            background: var(--fs-bg-page);
+            box-shadow: var(--fs-drawer-shadow);
+            transition: right 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+            z-index: 1001;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .drawer.active {
+            right: 0;
+        }
+        
+        .drawer-header {
+            padding: 16px 24px;
+            background: var(--fs-surface);
+            border-bottom: 1px solid var(--fs-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .drawer-header h2 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--fs-text-title);
+            margin: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
-        .btn-secondary {
-            background: #f0f0f0;
-            color: #333;
+        .drawer-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
         }
 
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        .drawer-btn {
+            background: none;
+            border: 1px solid var(--fs-border);
+            font-size: 14px;
+            color: var(--fs-text-body);
+            cursor: pointer;
+            padding: 4px 12px;
+            border-radius: var(--fs-radius-sm);
+            transition: all 0.2s ease;
+            height: 32px;
+            display: inline-flex;
+            align-items: center;
         }
 
-        .btn-primary:hover {
-            background: #2C387E;
+        .drawer-btn:hover {
+            background: var(--fs-surface-hover);
+            color: var(--fs-text-title);
+            border-color: #bbbfc4;
+        }
+        
+        .drawer-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            line-height: 1;
+            color: var(--fs-text-meta);
+            cursor: pointer;
+            width: 32px;
+            height: 32px;
+            border-radius: var(--fs-radius-sm);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: all 0.2s ease;
+        }
+        
+        .drawer-close:hover {
+            color: var(--fs-text-title);
+            background: var(--fs-surface-hover);
+        }
+        
+        .drawer-content {
+            flex: 1;
+            overflow: hidden;
+            background: var(--fs-surface);
+            position: relative;
+        }
+        
+        .drawer-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: var(--fs-bg-page);
         }
 
-        .btn:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
+        /* Iframe loader */
+        .iframe-loader {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--fs-text-meta);
+            font-size: 14px;
+            pointer-events: none;
         }
 
-        .no-results {
-            text-align: center;
-            color: white;
-            font-size: 1.2em;
-            margin-top: 50px;
-            opacity: 0.8;
-        }
-
-        /* 响应式设计 */
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 2.5em;
-            }
-
-            .header .subtitle {
-                font-size: 1.1em;
-            }
-
-            .controls {
-                flex-direction: column;
-                align-items: stretch;
-            }
-
-            .search-box {
-                max-width: none;
-            }
-
-            .filter-buttons {
-                justify-content: center;
-            }
-
-            .weekly-list {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .weekly-card {
-                min-height: 200px;
-            }
-
-            .weekly-title {
-                font-size: 1.3em;
-            }
+            .top-nav { padding: 0 16px; height: 56px; }
+            .stats-bar { gap: 20px; padding: 12px 16px; overflow-x: auto; }
+            .controls { padding: 16px 16px 0; }
+            .search-box { max-width: none; flex: 1 1 100%; }
+            .layout-switcher { margin-left: 0; width: 100%; justify-content: flex-end; }
+            .weekly-list { grid-template-columns: 1fr; }
+            .weekly-list.layout-small { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+            .drawer { width: 100vw; }
         }
-
-        @media (max-width: 480px) {
-            .header {
-                padding: 30px 15px;
-            }
-
-            .header h1 {
-                font-size: 2em;
-            }
-
-            .container {
-                padding: 0 15px 30px;
-            }
-
-            .weekly-card {
-                padding: 20px;
-                border-radius: 12px;
-            }
-        }
-
-        /* 动画效果 */
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .weekly-card:nth-child(1) { animation-delay: 0.1s; }
-        .weekly-card:nth-child(2) { animation-delay: 0.2s; }
-        .weekly-card:nth-child(3) { animation-delay: 0.3s; }
-        .weekly-card:nth-child(4) { animation-delay: 0.4s; }
-        .weekly-card:nth-child(5) { animation-delay: 0.5s; }
-        .weekly-card:nth-child(6) { animation-delay: 0.6s; }
-        .weekly-card:nth-child(7) { animation-delay: 0.7s; }
     </style>
+    <script>
+        window.va = window.va || function () { (window.va.q = window.va.q || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
+
 <body>
-    <div class="header">
+    <div class="top-nav">
         <h1>AI 圈热点周报</h1>
-        <p class="subtitle">动态列表 - 自动更新</p>
-        <div class="stats">
-            <div class="stat-item">
-                <span class="stat-number" id="totalWeeks">-</span>
-                <span class="stat-label">总期数</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" id="totalNews">-</span>
-                <span class="stat-label">新闻总数</span>
-            </div>
-            <div class="stat-item">
-                <span class="stat-number" id="latestDate">-</span>
-                <span class="stat-label">最新更新</span>
-            </div>
+        <span class="subtitle">动态列表 (Feishu Style)</span>
+    </div>
+
+    <div class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-number" id="totalWeeks">-</span>
+            <span class="stat-label">总期数</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number" id="totalNews">-</span>
+            <span class="stat-label">新闻总数</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-number" id="latestDate">-</span>
+            <span class="stat-label">最新更新</span>
         </div>
     </div>
 
     <div class="controls">
         <div class="search-box">
-            <input type="text" class="search-input" placeholder="搜索周报标题或日期..." id="searchInput">
             <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" placeholder="搜索周报标题或日期..." id="searchInput">
         </div>
         <div class="filter-buttons" id="filterButtons">
             <button class="filter-btn active" data-month="all">全部</button>
         </div>
-        <button class="refresh-btn" onclick="loadWeeklies()">🔄 刷新</button>
+        <button class="refresh-btn" onclick="loadWeeklies()">
+            <span>🔄</span> 刷新
+        </button>
+
+        <div class="layout-switcher" id="layoutSwitcher">
+           <button class="layout-btn" data-layout="large" title="宽体视图">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6z"/></svg>
+            </button>
+            <button class="layout-btn active" data-layout="medium" title="标准网格视图">
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 0h7v7h-7v-7z"/></svg>
+            </button>
+            <button class="layout-btn" data-layout="small" title="紧凑视图">
+               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3 3h5v5H3V3zm7 0h5v5h-5V3zm7 0h5v5h-5V3zM3 10h5v5H3v-5zm7 0h5v5h-5v-5zm7 0h5v5h-5v-5zM3 17h5v5H3v-5zm7 0h5v5h-5v-5zm7 0h5v5h-5v-5z"/></svg>
+            </button>
+        </div>
     </div>
 
     <div class="container">
         <div class="loading" id="loading">
-            ⏳ 正在加载周报数据...
+            加载中...
         </div>
 
         <div class="weekly-list" id="weeklyList" style="display: none;">
@@ -423,7 +616,23 @@
         </div>
 
         <div class="error" id="errorMessage" style="display: none;">
-            ❌ 加载失败，请检查配置文件是否存在或网络连接
+            加载失败，请检查配置文件是否存在或网络连接
+        </div>
+    </div>
+
+    <!-- Drawer Component -->
+    <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
+    <div class="drawer" id="drawer">
+        <div class="drawer-header">
+            <h2 id="drawerTitle">周报预览</h2>
+            <div class="drawer-actions">
+                <button class="drawer-btn" id="drawerOpenNew" onclick="openInNewTab()">新窗口打开</button>
+                <button class="drawer-close" onclick="closeDrawer()">×</button>
+            </div>
+        </div>
+        <div class="drawer-content">
+            <div class="iframe-loader" id="iframeLoader">加载中...</div>
+            <iframe id="drawerIframe" onload="iframeLoaded()"></iframe>
         </div>
     </div>
 
@@ -431,17 +640,46 @@
         // 全局变量
         let weeklyData = [];
         let currentFilter = 'all';
+        let currentDrawerUrl = '';
 
         // 页面加载完成后初始化
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log("🚀 News List Loaded - Feishu Style drawer + Layouts update");
             loadWeeklies();
             setupEventListeners();
+            setupLayoutSwitcher();
         });
 
         // 设置事件监听器
         function setupEventListeners() {
             const searchInput = document.getElementById('searchInput');
             searchInput.addEventListener('input', filterWeeklies);
+            
+            // 按下 Esc 键关闭抽屉
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape') {
+                    closeDrawer();
+                }
+            });
+        }
+
+        // Layout Switcher Logic
+        function setupLayoutSwitcher() {
+            const layoutBtns = document.querySelectorAll('.layout-btn');
+            const weeklyList = document.getElementById('weeklyList');
+            
+            layoutBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    layoutBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    const layout = this.dataset.layout;
+                    weeklyList.className = 'weekly-list'; // clear all size classes
+                    if (layout !== 'medium') {
+                        weeklyList.classList.add('layout-' + layout);
+                    }
+                });
+            });
         }
 
         // 加载周报数据
@@ -455,7 +693,7 @@
                 weeklyList.style.display = 'none';
                 errorMessage.style.display = 'none';
 
-                const response = await fetch('weekly-config.json');
+                const response = await fetch(`weekly-config.json?t=${new Date().getTime()}`);
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
@@ -463,7 +701,6 @@
                 const data = await response.json();
                 weeklyData = data.weeklies || [];
 
-                // 先按日期排序（最早的在前）以分配正确的序号
                 weeklyData.sort((a, b) => new Date(a.date) - new Date(b.date));
 
                 generateFilterButtons();
@@ -478,7 +715,7 @@
                 loading.style.display = 'none';
                 errorMessage.style.display = 'block';
                 errorMessage.innerHTML = `
-                    ❌ 加载失败: ${error.message}<br>
+                    加载失败: ${error.message}<br>
                     <small>请确保 weekly-config.json 文件存在且格式正确</small>
                 `;
             }
@@ -499,9 +736,8 @@
 
             filterButtons.innerHTML = buttonsHTML;
 
-            // 添加事件监听器
             filterButtons.querySelectorAll('.filter-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     filterButtons.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
                     currentFilter = this.dataset.month;
@@ -510,53 +746,91 @@
             });
         }
 
+        // Drawer 功能
+        function openDrawer(filename, title, isPublished) {
+            if (!isPublished) return;
+            
+            currentDrawerUrl = filename;
+            document.getElementById('drawerTitle').innerText = title;
+            document.getElementById('iframeLoader').style.display = 'block';
+            document.getElementById('drawerIframe').src = filename;
+            
+            document.getElementById('drawerOverlay').classList.add('active');
+            document.getElementById('drawer').classList.add('active');
+            document.body.style.overflow = 'hidden'; // 防止背景滚动
+        }
+
+        function closeDrawer() {
+            document.getElementById('drawerOverlay').classList.remove('active');
+            document.getElementById('drawer').classList.remove('active');
+            document.body.style.overflow = '';
+            
+            setTimeout(() => {
+                document.getElementById('drawerIframe').src = 'about:blank';
+            }, 300);
+        }
+
+        function iframeLoaded() {
+            document.getElementById('iframeLoader').style.display = 'none';
+        }
+
+        function openInNewTab() {
+            if (currentDrawerUrl) {
+                window.open(currentDrawerUrl, '_blank');
+            }
+        }
+
         // 生成周报卡片
         function generateWeeklyCards() {
             const weeklyList = document.getElementById('weeklyList');
 
-            // 为每个周报分配序号（基于时间顺序）
-            const weeklyWithIssues = weeklyData.map((weekly, index) => ({
-                ...weekly,
-                issueNumber: index + 1  // 从1开始的序号
-            }));
+            const weeklyWithIssues = weeklyData.map((weekly, index) => {
+                return {
+                    ...weekly,
+                    issueNumber: index + 1
+                };
+            });
 
-            // 按日期反向排序用于显示（最新的在前）
             const sortedForDisplay = weeklyWithIssues.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-            const cardsHTML = sortedForDisplay.map((weekly, displayIndex) => {
-                const startDate = formatDate(weekly.date);
-                const endDate = formatDate(weekly.endDate);
+            const cardsHTML = sortedForDisplay.map((weekly) => {
+                const startDate = formatDate(weekly.date, 'short');
+                const endDate = formatDate(weekly.endDate, 'short');
                 const unpublishedClass = weekly.published ? '' : ' unpublished';
-                const unpublishedText = weekly.published ? '' : ' <span style="color: #999; font-size: 0.8em;">(待发布)</span>';
+                const statusHtml = weekly.published ? 
+                    '<span class="status-badge">已发布</span>' : 
+                    '<span class="status-badge">待发布</span>';
 
-                // 使用预先分配的序号
                 const titleWithIssue = `AI圈热点周报 第${weekly.issueNumber}期`;
 
+                const extraContent = weekly.blackboardImage ?
+                    `<img src="${weekly.blackboardImage}" class="card-preview-image" alt="AI Weekly Blackboard">` : '';
+
+                // Add onclick to card directly
                 return `
-                    <div class="weekly-card${unpublishedClass}" data-date="${weekly.date}" data-filename="${weekly.filename}" style="animation-delay: ${(displayIndex + 1) * 0.1}s;">
-                        <div class="date-badge">${startDate} - ${endDate}</div>
-                        <h2 class="weekly-title">${titleWithIssue}${unpublishedText}</h2>
+                    <div class="weekly-card${unpublishedClass}" onclick="openDrawer('${weekly.filename}', '${titleWithIssue}', ${weekly.published})">
+                        <div class="card-header">
+                            <span class="date-badge">${startDate} - ${endDate}</span>
+                            ${statusHtml}
+                        </div>
+                        
+                        <h2 class="weekly-title">${titleWithIssue}</h2>
+                        ${extraContent}
                         <div class="weekly-summary">${weekly.summary}</div>
+                        
                         <div class="weekly-stats">
                             <div class="stat">
                                 <span class="stat-num">${weekly.newsCount || '-'}</span>
-                                <span class="stat-text">新闻条数</span>
+                                <span class="stat-text">新闻</span>
                             </div>
                             <div class="stat">
                                 <span class="stat-num">${weekly.toolCount || '-'}</span>
-                                <span class="stat-text">AI工具</span>
+                                <span class="stat-text">工具</span>
                             </div>
                             <div class="stat">
                                 <span class="stat-num">${weekly.techCount || '-'}</span>
-                                <span class="stat-text">新发布</span>
+                                <span class="stat-text">突破</span>
                             </div>
-                        </div>
-                        <div class="action-buttons">
-                            ${weekly.published ?
-                                `<a href="${weekly.filename}" class="btn btn-primary">查看详情</a>
-                                 <button class="btn btn-secondary" onclick="previewWeekly('${weekly.filename}')">预览</button>` :
-                                `<button class="btn btn-secondary" disabled>即将发布</button>`
-                            }
                         </div>
                     </div>
                 `;
@@ -565,7 +839,6 @@
             weeklyList.innerHTML = cardsHTML;
         }
 
-        // 筛选功能
         function filterWeeklies() {
             const searchTerm = document.getElementById('searchInput').value.toLowerCase();
             const weeklyCards = document.querySelectorAll('.weekly-card');
@@ -573,17 +846,20 @@
             const weeklyList = document.getElementById('weeklyList');
             let visibleCount = 0;
 
-            weeklyCards.forEach(card => {
+            weeklyCards.forEach((card, index) => {
                 const title = card.querySelector('.weekly-title').textContent.toLowerCase();
                 const summary = card.querySelector('.weekly-summary').textContent.toLowerCase();
-                const date = card.dataset.date || '';
+                const dateText = card.querySelector('.date-badge').textContent.toLowerCase();
+                
+                // Original file uses data-date for filtering by month
+                const dataDateRaw = weeklyData.sort((a, b) => new Date(b.date) - new Date(a.date))[index].date;
 
                 const matchesSearch = title.includes(searchTerm) ||
-                                    summary.includes(searchTerm) ||
-                                    date.includes(searchTerm);
+                    summary.includes(searchTerm) ||
+                    dateText.includes(searchTerm);
 
                 const matchesFilter = currentFilter === 'all' ||
-                                    date.startsWith(currentFilter);
+                    dataDateRaw.startsWith(currentFilter);
 
                 if (matchesSearch && matchesFilter) {
                     card.style.display = 'flex';
@@ -593,7 +869,6 @@
                 }
             });
 
-            // 显示/隐藏无结果提示
             if (visibleCount === 0 && weeklyData.length > 0) {
                 noResults.style.display = 'block';
                 weeklyList.style.display = 'none';
@@ -603,16 +878,6 @@
             }
         }
 
-        // 预览功能
-        function previewWeekly(filename) {
-            if (filename) {
-                window.open(filename, '_blank');
-            } else {
-                alert('文件链接不存在！');
-            }
-        }
-
-        // 更新统计数据
         function updateStats() {
             const publishedWeeklies = weeklyData.filter(w => w.published);
             const totalNewsCount = publishedWeeklies.reduce((total, weekly) => {
@@ -627,8 +892,7 @@
             document.getElementById('latestDate').textContent = latestDate;
         }
 
-        // 日期格式化
-        function formatDate(dateStr, format = 'full') {
+        function formatDate(dateStr, format = 'short') {
             if (!dateStr) return '';
 
             const date = new Date(dateStr);
@@ -639,13 +903,10 @@
             if (format === 'short') {
                 return `${year}.${month.toString().padStart(2, '0')}.${day.toString().padStart(2, '0')}`;
             }
-
             return `${year}年${month}月${day}日`;
         }
 
-        // 键盘快捷键支持
-        document.addEventListener('keydown', function(e) {
-            // Ctrl/Cmd + R 刷新数据
+        document.addEventListener('keydown', function (e) {
             if ((e.ctrlKey || e.metaKey) && e.key === 'r') {
                 e.preventDefault();
                 loadWeeklies();
@@ -653,4 +914,5 @@
         });
     </script>
 </body>
+
 </html>

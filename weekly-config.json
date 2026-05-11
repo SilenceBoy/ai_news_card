@@ -448,6 +448,18 @@
       "techCount": 2,
       "published": true,
       "blackboardImage": null
+    },
+    {
+      "date": "2026-05-04",
+      "endDate": "2026-05-10",
+      "filename": "weeklies/20260504-20260510周新闻.html",
+      "title": "AI圈热点周报 第40期",
+      "summary": "2026年05月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 6,
+      "toolCount": 1,
+      "techCount": 5,
+      "published": true,
+      "blackboardImage": null
     }
   ],
   "settings": {

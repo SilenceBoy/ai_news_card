@@ -484,6 +484,18 @@
       "techCount": 4,
       "published": true,
       "blackboardImage": null
+    },
+    {
+      "date": "2026-05-25",
+      "endDate": "2026-05-31",
+      "filename": "weeklies/20260525-20260531周新闻.html",
+      "title": "AI圈热点周报 第43期",
+      "summary": "2026年05月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 6,
+      "toolCount": 2,
+      "techCount": 7,
+      "published": true,
+      "blackboardImage": null
     }
   ],
   "settings": {

@@ -520,6 +520,18 @@
       "techCount": 5,
       "published": true,
       "blackboardImage": null
+    },
+    {
+      "date": "2026-06-15",
+      "endDate": "2026-06-21",
+      "filename": "weeklies/20260615-20260621周新闻.html",
+      "title": "AI圈热点周报 第46期",
+      "summary": "2026年06月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 8,
+      "toolCount": 3,
+      "techCount": 8,
+      "published": true,
+      "blackboardImage": null
     }
   ],
   "settings": {

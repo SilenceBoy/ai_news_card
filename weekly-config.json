@@ -532,6 +532,18 @@
       "techCount": 8,
       "published": true,
       "blackboardImage": null
+    },
+    {
+      "date": "2026-06-22",
+      "endDate": "2026-06-28",
+      "filename": "weeklies/20260622-20260628周新闻.html",
+      "title": "AI圈热点周报 第47期",
+      "summary": "2026年06月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 8,
+      "toolCount": 1,
+      "techCount": 7,
+      "published": true,
+      "blackboardImage": null
     }
   ],
   "settings": {

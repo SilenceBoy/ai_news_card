@@ -151,6 +151,29 @@ body {
 .tag:nth-child(6n+6) { background: #e6f7ff; color: #096dd9; border-color: transparent; }
 .tag:nth-child(6n+6):hover { background: #bae0ff; }
 
+.news-source {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: -4px 0 18px;
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--fs-text-meta);
+}
+
+.source-label {
+  display: inline-flex;
+  align-items: center;
+  height: 22px;
+  padding: 0 8px;
+  border-radius: 4px;
+  background: var(--fs-bg);
+  color: var(--fs-text-secondary);
+  border: 1px solid var(--fs-border);
+  font-size: 12px;
+  font-weight: 500;
+}
+
 .value-analysis,
 .analysis {
   margin-top: 24px;

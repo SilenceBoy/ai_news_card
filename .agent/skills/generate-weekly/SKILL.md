@@ -29,6 +29,7 @@ description: 根据 Markdown 新闻文档生成 HTML 周报，扫描更新配置
 2. **新闻条目**：每个新闻包含：
    - 标题
    - 标签（tags）
+   - 来源网站（source site，可附日期/链接）
    - 新闻简介（**100-300字**，建议 180-220 字，包含背景+关键信息+影响）
    - 价值分析（提效/赚钱）
    - 辩证思考（可选）
@@ -60,6 +61,9 @@ description: 根据 Markdown 新闻文档生成 HTML 周报，扫描更新配置
                 <span class="tag">标签1</span>
                 <span class="tag">标签2</span>
                 新闻简介内容...
+            </div>
+            <div class="news-source">
+                <span class="source-label">来源</span>来源网站（YYYY-MM-DD）
             </div>
             <div class="analysis">
                 <h3>对普通人的价值分析</h3>
@@ -96,8 +100,9 @@ description: 根据 Markdown 新闻文档生成 HTML 周报，扫描更新配置
 2. **使用外部样式**：`<link rel="stylesheet" href="weekly.css">`
 3. **新闻序号**：使用 `<span class="news-index">N</span>`
 4. **标签格式**：`<span class="tag">标签文本</span>`
-5. **辩证思考**：使用 `<p class="warning">` 包裹
-6. **总结卡片**：添加 `summary-card` 类
+5. **来源网站**：每张新闻卡片必须在简介和价值分析之间添加 `<div class="news-source">`，显示来源网站名称；有日期则使用 `来源网站（YYYY-MM-DD）`，多个来源用 `、` 分隔
+6. **辩证思考**：使用 `<p class="warning">` 包裹
+7. **总结卡片**：添加 `summary-card` 类
 
 ### 步骤 3：扫描文件夹并更新配置
 
@@ -155,6 +160,8 @@ node update-config.js scan
 #### **【新闻标题】**
 
 * **新闻简介**：新闻内容描述...
+* **来源网站**：来源网站名称（YYYY-MM-DD，可选）
+* **来源链接**：https://example.com/...（可选；没有原文链接时可省略，但来源网站不能省）
 * **价值分析**：
   * **提效（场景描述）**：
     * *场景例子*：具体场景...
@@ -212,6 +219,7 @@ node update-config.js scan
 - [ ] 文件名格式正确：`YYYYMMDD-YYYYMMDD周新闻.html`
 - [ ] 使用 `<link rel="stylesheet" href="weekly.css">`
 - [ ] 所有新闻卡片格式正确
+- [ ] 每张新闻卡片都显示来源网站
 - [ ] `node update-config.js scan` 已执行
 - [ ] `weekly-config.json` 已更新
 - [ ] `README.md` 已发布周报列表已更新
@@ -224,5 +232,6 @@ node update-config.js scan
 1. **样式引用**：新版周报使用外部 CSS 文件（`weekly.css`），而非内联样式
 2. **日期格式**：标题使用中文日期格式（如：2026年1月5日）
 3. **标签提取**：从新闻内容中提取 2-3 个关键词作为标签
-4. **辩证思考**：并非所有新闻都有辩证思考，按源文件决定是否添加
-5. **总结卡片**：总结部分使用 `📊` 作为索引，而非数字
+4. **来源展示**：来源网站不要只埋在新闻简介括号里；生成 HTML 时必须独立展示，便于读者快速判断可信度
+5. **辩证思考**：并非所有新闻都有辩证思考，按源文件决定是否添加
+6. **总结卡片**：总结部分使用 `📊` 作为索引，而非数字

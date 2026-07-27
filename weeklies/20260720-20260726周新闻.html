@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI热点周报 (2026年7月20日-7月26日)</title>
+  <link rel="stylesheet" href="weekly.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>AI 圈热点周报</h1>
+    <p class="date-range">周期：2026年7月20日 - 7月26日</p>
+
+    <div class="news-card">
+      <h2><span class="news-index">1</span>Anthropic 发布 Claude Opus 5，前沿模型竞争继续转向复杂任务和 Agent 能力</h2>
+      <div class="summary"><span class="tag">Anthropic</span><span class="tag">Claude Opus 5</span><span class="tag">Agent</span><p>7月24日，Anthropic 发布 Claude Opus 5，把重点放在复杂推理、长任务执行、代码协作和工具使用上。相比单轮问答，前沿模型正在更强调能否理解项目背景、拆解多步骤任务、保持上下文一致，并在工具调用中稳定完成交付。Opus 5 的意义不只是参数或榜单提升，而是继续把 AI 从“聊天助手”推向“可承担部分专业工作的协作者”。这也说明企业采购模型时会更关注稳定性、权限控制、成本和可审计性，而不只是演示效果。</p></div>
+      <div class="news-source"><span class="source-label">来源</span>Anthropic（2026-07-24）</div>
+      <div class="analysis"><h3>对普通人的价值分析</h3><p><strong>提效：</strong><br>产品经理、开发者和咨询顾问可以把需求分析、代码修改、资料整理、方案初稿交给模型先跑一版，再由人做判断和定稿。</p><p><strong>赚钱：</strong><br>小团队可以围绕垂直行业做 Claude Agent 工作流，例如合同初审、售前方案、代码维护、客服质检，按项目或订阅收费。</p><p class="warning"><strong>⚠️ 辩证思考：</strong>模型越像“能干活”，越容易让人放松审核。长任务里的隐藏错误、权限误用和成本失控，往往比单次回答错误更贵。</p></div>
+    </div>
+
+    <div class="news-card">
+      <h2><span class="news-index">2</span>OpenAI 发布长周期模型安全研究，聚焦模型在多步骤任务中的失控风险</h2>
+      <div class="summary"><span class="tag">OpenAI</span><span class="tag">AI安全</span><span class="tag">长周期任务</span><p>7月20日，OpenAI 发布关于长周期模型安全与对齐的研究，讨论模型在持续、多步骤、跨工具任务中如何保持目标一致和行为可控。随着 AI Agent 能够读文件、写代码、调用浏览器、操作外部系统，传统只看单次回答是否安全的评测已经不够。OpenAI 强调需要观察模型在长时间任务中的计划、纠错、权限边界和对人类指令的服从情况。这条新闻说明 AI 安全正在从“内容过滤”升级到“流程治理”和“操作审计”。</p></div>
+      <div class="news-source"><span class="source-label">来源</span>OpenAI（2026-07-20）</div>
+      <div class="analysis"><h3>对普通人的价值分析</h3><p><strong>提效：</strong><br>做企业 Agent、代码助手、自动化运营工具的团队，可以把长任务回放、权限日志和失败恢复纳入验收清单。</p><p><strong>赚钱：</strong><br>懂 AI 产品和安全的人可以提供 Agent 流程审计、提示注入测试、权限设计咨询和上线评测报告。</p><p class="warning"><strong>⚠️ 辩证思考：</strong>安全不是阻碍效率，而是让 AI 能进真实系统的前提。没有边界的 Agent，越强越危险。</p></div>
+    </div>
+
+    <div class="news-card">
+      <h2><span class="news-index">3</span>OpenAI 通报 Hugging Face 集成安全事件，AI 供应链安全再次被拉到台前</h2>
+      <div class="summary"><span class="tag">OpenAI</span><span class="tag">Hugging Face</span><span class="tag">供应链安全</span><p>7月21日，OpenAI 披露其 Hugging Face 集成相关安全事件，说明部分令牌和集成权限被不当暴露或访问，并给出轮换、撤销和修复建议。事件本身不只是某个平台的漏洞提醒，而是敲响 AI 供应链安全警钟：模型、数据集、托管平台、API Key、插件和自动化脚本彼此连接后，一个薄弱环节就可能影响整条链路。随着团队越来越依赖开源模型仓库和第三方集成，凭证治理会成为 AI 工程的基础能力。</p></div>
+      <div class="news-source"><span class="source-label">来源</span>OpenAI（2026-07-21）</div>
+      <div class="analysis"><h3>对普通人的价值分析</h3><p><strong>提效：</strong><br>开发团队可以建立 API Key 清单、最小权限、定期轮换和自动扫描，减少排查凭证泄露的时间。</p><p><strong>赚钱：</strong><br>安全顾问可以面向 AI 创业团队提供凭证审计、CI/CD 秘钥扫描、模型仓库权限梳理和事故响应服务。</p><p class="warning"><strong>⚠️ 辩证思考：</strong>别把“模型安全”只理解成输出内容安全。真实世界里，泄露一个 Token 可能比回答错一句话更致命。</p></div>
+    </div>
+
+    <div class="news-card">
+      <h2><span class="news-index">4</span>Google 推进 Gemini API 稳定能力，开发者可把多模态与工具调用放进生产系统</h2>
+      <div class="summary"><span class="tag">Google</span><span class="tag">Gemini API</span><span class="tag">开发者生态</span><p>7月21日前后，Google 在 Gemini API 更新中继续推进稳定版本能力，覆盖多模态输入、工具调用、结构化输出和更适合生产环境的模型选择。对开发者而言，这类更新的关键不是“又多一个模型”，而是 API 的稳定性、成本层级和工程接口越来越成熟，方便把 AI 嵌入客服、内容生成、数据分析、教育、办公自动化等业务。Google 的节奏说明大厂竞争已经进入开发者生态阶段，谁能让团队更快、更稳地上线，谁就更容易成为底层供应商。</p></div>
+      <div class="news-source"><span class="source-label">来源</span>Google AI for Developers（2026-07-21）</div>
+      <div class="analysis"><h3>对普通人的价值分析</h3><p><strong>提效：</strong><br>中小团队可以用 Gemini API 快速搭建图片理解、文档摘要、表格抽取、自动客服和多语言内容流水线。</p><p><strong>赚钱：</strong><br>把通用 API 封装成细分行业工具，例如跨境电商商品页生成、教育题库解析、合同信息抽取，按使用量收费。</p><p class="warning"><strong>⚠️ 辩证思考：</strong>API 越好用，越容易忽略成本曲线。批量任务必须做缓存、限流、降级和账单监控，否则收入还没来，调用费先爆。</p></div>
+    </div>
+
+    <div class="news-card">
+      <h2><span class="news-index">5</span>阿里云在 WAIC 展示 Agent 原生技术，企业 AI 从单点工具走向流程编排</h2>
+      <div class="summary"><span class="tag">阿里云</span><span class="tag">WAIC</span><span class="tag">企业Agent</span><p>7月20日至26日 WAIC 期间，阿里云围绕通义、云上 Agent、企业智能体和行业解决方案释放多项进展，强调让 AI 不只回答问题，而是连接知识库、业务系统、工具调用和流程自动化。这个方向代表企业 AI 的重心从“买一个聊天机器人”变成“改造一段业务流程”：销售、客服、研发、运营、财务和供应链都可能被 Agent 重新编排。对国内市场来说，云厂商把模型、算力、平台和行业案例打包，会降低传统企业试点门槛。</p></div>
+      <div class="news-source"><span class="source-label">来源</span>Alibaba Cloud（2026-07-20）</div>
+      <div class="analysis"><h3>对普通人的价值分析</h3><p><strong>提效：</strong><br>企业可以优先选择工单分流、知识库问答、销售资料生成、报表解读等边界清楚的流程做 Agent 试点。</p><p><strong>赚钱：</strong><br>懂行业流程的人可以做 Agent 方案设计、知识库清洗、系统集成和员工培训，按项目交付收费。</p><p class="warning"><strong>⚠️ 辩证思考：</strong>企业 Agent 最大的坑是流程没理清就上模型。先梳理权限、数据源和责任边界，再谈自动化。</p></div>
+    </div>
+
+    <div class="news-card">
+      <h2><span class="news-index">6</span>新华社聚焦 2026 世界人工智能大会：中国 AI 进入规模化应用和治理并行阶段</h2>
+      <div class="summary"><span class="tag">WAIC</span><span class="tag">产业应用</span><span class="tag">AI治理</span><p>7月20日至26日，新华社连续报道 2026 世界人工智能大会，重点关注大模型、具身智能、智能终端、工业应用、医疗科研和全球治理。本届大会释放的信号很明确：AI 竞争不再只看模型发布会，而是看能不能进入产业链、城市治理、制造业和公共服务场景。国内企业和地方政府也在借大会推动供需对接，把技术展示转成采购、试点和标准讨论。对普通人来说，WAIC 是观察“哪些岗位会被 AI 改造、哪些新服务会出现”的窗口。</p></div>
+      <div class="news-source"><span class="source-label">来源</span>新华社（2026-07-20）</div>
+      <div class="analysis"><h3>对普通人的价值分析</h3><p><strong>提效：</strong><br>从业者可以通过 WAIC 议题判断本行业的 AI 渗透方向，提前学习工具、调整岗位能力和项目经验。</p><p><strong>赚钱：</strong><br>媒体、咨询和自由职业者可以做展会情报、供应商对比、行业案例拆解和落地清单，服务中小企业决策。</p><p class="warning"><strong>⚠️ 辩证思考：</strong>大会热度不等于商业成熟。判断机会要看客户是否愿意付费、是否有预算、是否能复购，而不是只看展台人气。</p></div>
+    </div>
+
+    <div class="news-card summary-card">
+      <h2><span class="news-index">📊</span>总结与逻辑链条</h2>
+      <div class="summary"><span class="tag">趋势分析</span><span class="tag">Agent</span><span class="tag">产业落地</span></div>
+      <div class="analysis">
+        <p><strong>趋势1：模型能力继续向复杂任务和 Agent 形态升级。</strong>Claude Opus 5、Gemini API 和阿里云 Agent 方案都在说明，AI 正从单点问答走向长流程协作。</p>
+        <p><strong>趋势2：安全和供应链治理成为 AI 工程硬要求。</strong>OpenAI 的长周期安全研究与 Hugging Face 集成安全事件证明，AI 应用越接近真实系统，越需要权限、日志、审计和凭证治理。</p>
+        <p><strong>趋势3：国内市场正在从模型展示转向产业采购和服务交付。</strong>WAIC 的报道和云厂商方案说明，机会更多出现在行业流程改造、知识库治理、系统集成和培训陪跑里。</p>
+        <p><strong>趋势4：普通人的机会在“把通用能力变成具体交付”。</strong>会用模型只是起点，真正能赚钱的是找到一个明确场景，把数据、流程、工具和结果打包成客户愿意付费的服务。</p>
+        <p><strong>一句话总结：</strong>这周 AI 的关键词是“进系统”。模型要进开发者 API，Agent 要进企业流程，安全要进上线验收，产业应用要进采购清单。谁能把 AI 从演示变成交付，谁就更接近真实收益。</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

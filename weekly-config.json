@@ -592,6 +592,18 @@
       "techCount": 4,
       "published": true,
       "blackboardImage": null
+    },
+    {
+      "date": "2026-07-27",
+      "endDate": "2026-08-02",
+      "filename": "weeklies/20260727-20260802周新闻.html",
+      "title": "AI圈热点周报 第52期",
+      "summary": "2026年07月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 8,
+      "toolCount": 3,
+      "techCount": 2,
+      "published": true,
+      "blackboardImage": null
     }
   ],
   "settings": {

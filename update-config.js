@@ -11,6 +11,7 @@ const fs = require('fs');
 const path = require('path');
 
 const CONFIG_FILE = 'weekly-config.json';
+const README_FILE = 'README.md';
 
 // 读取配置文件
 function readConfig() {
@@ -33,6 +34,96 @@ function writeConfig(config) {
         console.error('❌ 写入配置文件失败:', error.message);
         return false;
     }
+}
+
+function formatShortDate(dateString) {
+    const date = new Date(dateString);
+    const month = String(date.getMonth() + 1).padStart(2, '0');
+    const day = String(date.getDate()).padStart(2, '0');
+    return `${month}-${day}`;
+}
+
+function formatMonth(dateString) {
+    const date = new Date(dateString);
+    return `${date.getFullYear()}年${date.getMonth() + 1}月`;
+}
+
+function getIssueNumber(weekly, fallbackIndex) {
+    const titleIssueNumber = extractIssueNumber(weekly.title || '');
+    return titleIssueNumber || fallbackIndex + 1;
+}
+
+function updateReadmeStatus(config) {
+    if (!fs.existsSync(README_FILE)) {
+        console.log(`⚠️  未找到 ${README_FILE}，跳过 README 更新`);
+        return false;
+    }
+
+    const readme = fs.readFileSync(README_FILE, 'utf8');
+    const publishedWeeklies = config.weeklies
+        .filter(weekly => weekly.published)
+        .sort((a, b) => new Date(a.date) - new Date(b.date));
+
+    if (publishedWeeklies.length === 0) {
+        console.log('⚠️  没有已发布周报，跳过 README 状态更新');
+        return false;
+    }
+
+    const totalNews = publishedWeeklies.reduce((sum, weekly) => sum + (Number(weekly.newsCount) || 0), 0);
+    const totalTools = publishedWeeklies.reduce((sum, weekly) => sum + (Number(weekly.toolCount) || 0), 0);
+    const totalTech = publishedWeeklies.reduce((sum, weekly) => sum + (Number(weekly.techCount) || 0), 0);
+    const firstWeekly = publishedWeeklies[0];
+    const latestFirst = publishedWeeklies.slice().reverse();
+
+    const lines = [
+        '## 📊 当前状态',
+        '',
+        '### 已发布周报'
+    ];
+
+    latestFirst.forEach((weekly, reverseIndex) => {
+        const originalIndex = publishedWeeklies.length - reverseIndex - 1;
+        const issueNumber = getIssueNumber(weekly, originalIndex);
+        const startDate = weekly.date;
+        const endDate = formatShortDate(weekly.endDate);
+        const stats = `${weekly.newsCount || 0}条新闻，${weekly.toolCount || 0}个AI工具，${weekly.techCount || 0}项技术突破`;
+
+        if (reverseIndex === 0) {
+            lines.push(`- 🆕 **第${issueNumber}期** (${startDate} 至 ${endDate}) - 最新发布，${stats}`);
+        } else {
+            lines.push(`- ✨ **第${issueNumber}期** (${startDate} 至 ${endDate})，${stats}`);
+        }
+    });
+
+    lines.push('');
+    lines.push(`**总计**: ${publishedWeeklies.length}期周报，${totalNews}条AI新闻，${totalTools}个AI工具，${totalTech}项技术突破，覆盖${calculateMonthSpan(firstWeekly.date, latestFirst[0].endDate)}个月时间(${formatMonth(firstWeekly.date)}-${formatMonth(latestFirst[0].endDate)})`);
+    lines.push('');
+
+    const nextSectionMatch = readme.match(/\n## 🚨 注意事项/);
+    if (!nextSectionMatch) {
+        console.log('⚠️  README 中未找到「## 🚨 注意事项」锚点，跳过 README 更新');
+        return false;
+    }
+
+    const updatedReadme = readme.replace(
+        /## 📊 当前状态[\s\S]*?(?=\n## 🚨 注意事项)/,
+        lines.join('\n')
+    );
+
+    if (updatedReadme === readme) {
+        console.log('✅ README 当前状态无需更新');
+        return true;
+    }
+
+    fs.writeFileSync(README_FILE, updatedReadme, 'utf8');
+    console.log('✅ README 当前状态已更新');
+    return true;
+}
+
+function calculateMonthSpan(startDateString, endDateString) {
+    const start = new Date(startDateString);
+    const end = new Date(endDateString);
+    return (end.getFullYear() - start.getFullYear()) * 12 + end.getMonth() - start.getMonth() + 1;
 }
 
 // 生成文件名
@@ -82,6 +173,7 @@ function addWeekly(startDate, endDate, title, summary, newsCount = 0, toolCount 
     config.weeklies.sort((a, b) => new Date(a.date) - new Date(b.date));
 
     if (writeConfig(config)) {
+        updateReadmeStatus(config);
         console.log(`✅ 已添加/更新周报: ${filename}`);
         console.log(`📊 统计: ${newsCount}条新闻, ${toolCount}个工具, ${techCount}个新发布`);
     }
@@ -222,10 +314,12 @@ function scanFolder() {
 
     if (newFiles > 0 || updatedFiles > 0) {
         if (writeConfig(config)) {
+            updateReadmeStatus(config);
             console.log(`✅ 扫描完成: 新增 ${newFiles} 个文件, 更新 ${updatedFiles} 个状态`);
             console.log(`📊 重新分配了 ${config.weeklies.length} 个周报的期数`);
         }
     } else {
+        updateReadmeStatus(config);
         console.log('✅ 扫描完成: 没有发现新文件');
     }
 }
@@ -243,6 +337,7 @@ function markPublished(filename) {
     weekly.published = true;
 
     if (writeConfig(config)) {
+        updateReadmeStatus(config);
         console.log(`✅ 已标记为发布: ${filename}`);
     }
 }
@@ -333,4 +428,4 @@ if (require.main === module) {
     main();
 }
 
-module.exports = { addWeekly, scanFolder, markPublished, readConfig, writeConfig };
+module.exports = { addWeekly, scanFolder, markPublished, readConfig, writeConfig, updateReadmeStatus };

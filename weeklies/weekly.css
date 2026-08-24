@@ -161,6 +161,15 @@ body {
   color: var(--fs-text-meta);
 }
 
+.news-source a {
+  color: var(--fs-primary);
+  text-decoration: none;
+}
+
+.news-source a:hover {
+  text-decoration: underline;
+}
+
 .source-label {
   display: inline-flex;
   align-items: center;

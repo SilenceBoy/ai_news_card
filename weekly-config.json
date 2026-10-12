@@ -712,6 +712,18 @@
       "techCount": 4,
       "published": true,
       "blackboardImage": null
+    },
+    {
+      "date": "2026-10-05",
+      "endDate": "2026-10-11",
+      "filename": "weeklies/20261005-20261011周新闻.html",
+      "title": "AI圈热点周报 第62期",
+      "summary": "2026年10月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "newsCount": 6,
+      "toolCount": 1,
+      "techCount": 2,
+      "published": true,
+      "blackboardImage": null
     }
   ],
   "settings": {

@@ -179,7 +179,7 @@ function addWeekly(startDate, endDate, title, summary, newsCount = 0, toolCount 
     }
 }
 
-// 分析HTML文件内容获取统计数据
+// 分析HTML文件内容获取统计数据与核心看点
 function analyzeHtmlContent(filePath) {
     try {
         const content = fs.readFileSync(filePath, 'utf8');
@@ -199,14 +199,28 @@ function analyzeHtmlContent(filePath) {
         const releaseMatches = (content.match(releaseKeywords) || []).length;
         const releaseCount = Math.min(Math.ceil(releaseMatches / 3), 10); // 避免重复计数，设置上限
 
+        // 提取当期前3条热点新闻标题
+        const titleMatches = [...content.matchAll(/<h2[^>]*>([\s\S]*?)<\/h2>|<div class="news-title"[^>]*>([\s\S]*?)<\/div>/gi)];
+        const highlights = titleMatches
+            .map(m => (m[1] || m[2] || '')
+                .replace(/<span class="news-index">[\s\S]*?<\/span>/gi, '')
+                .replace(/<span class="priority-badge[\s\S]*?<\/span>/gi, '')
+                .replace(/<[^>]+>/g, '')
+                .replace(/\s+/g, ' ')
+                .trim()
+            )
+            .filter(t => t && !t.includes('总结与逻辑链条') && !t.includes('新闻速览') && !t.includes('参考资料'))
+            .slice(0, 3);
+
         return {
             newsCount: newsCount,
             toolCount: toolCount,
-            techCount: releaseCount
+            techCount: releaseCount,
+            highlights: highlights
         };
     } catch (error) {
         console.log(`⚠️  无法分析文件 ${filePath}: ${error.message}`);
-        return { newsCount: 0, toolCount: 0, techCount: 0 };
+        return { newsCount: 0, toolCount: 0, techCount: 0, highlights: [] };
     }
 }
 
@@ -241,6 +255,10 @@ function scanFolder() {
         // 分析文件内容获取统计数据
         const filePath = path.join(weeklyDir, filename);
         const stats = analyzeHtmlContent(filePath);
+        const defaultBoilerplate = `${startDate.substring(0, 7).replace('-', '年')}月的AI圈精彩内容，包含最新的技术突破和工具发布。`;
+        const generatedSummary = stats.highlights.length > 0
+            ? stats.highlights.join('；')
+            : defaultBoilerplate;
 
         // 检查是否存在黑板图片
         const dateStr = `${match[1]}${match[2]}${match[3]}-${match[4]}${match[5]}${match[6]}`;
@@ -261,7 +279,8 @@ function scanFolder() {
                 endDate: endDate,
                 filename: `weeklies/${filename}`,  // 包含文件夹路径
                 title: `AI圈热点周报`,  // 临时标题，后面会重新分配期数
-                summary: `${startDate.substring(0, 7).replace('-', '年')}月的AI圈精彩内容，包含最新的技术突破和工具发布。`,
+                summary: generatedSummary,
+                highlights: stats.highlights,
                 newsCount: stats.newsCount,
                 toolCount: stats.toolCount,
                 techCount: stats.techCount,
@@ -282,6 +301,20 @@ function scanFolder() {
             existing.newsCount = stats.newsCount;
             existing.toolCount = stats.toolCount;
             existing.techCount = stats.techCount;
+
+            // 同步更新看点列表与默认摘要
+            const prevHighlightsJson = JSON.stringify(existing.highlights || []);
+            const nextHighlightsJson = JSON.stringify(stats.highlights || []);
+            if (prevHighlightsJson !== nextHighlightsJson) {
+                existing.highlights = stats.highlights;
+                updatedFiles++;
+            }
+            if (!existing.summary || existing.summary === defaultBoilerplate || /月的AI圈精彩内容，包含最新的技术突破和工具发布。$/.test(existing.summary)) {
+                if (existing.summary !== generatedSummary) {
+                    existing.summary = generatedSummary;
+                    updatedFiles++;
+                }
+            }
 
             // 更新图片路径
             if (blackboardImage && existing.blackboardImage !== blackboardImage) {

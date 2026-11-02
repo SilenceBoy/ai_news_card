@@ -5,497 +5,712 @@
       "endDate": "2025-08-10",
       "filename": "weeklies/20250804-20250810周新闻.html",
       "title": "AI圈热点周报 第1期",
-      "summary": "2025年08月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI GPT-5免费版默认启用；xAI推出 Grok-Imagine 图像生成工具；Apple 测试全新 Siri 深度控制功能",
       "newsCount": 4,
       "toolCount": 4,
       "techCount": 6,
-      "published": true
+      "published": true,
+      "highlights": [
+        "OpenAI GPT-5免费版默认启用",
+        "xAI推出 Grok-Imagine 图像生成工具",
+        "Apple 测试全新 Siri 深度控制功能"
+      ]
     },
     {
       "date": "2025-08-11",
       "endDate": "2025-08-17",
       "filename": "weeklies/20250811-20250817周新闻.html",
       "title": "AI圈热点周报 第2期",
-      "summary": "2025年08月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI发布\"动态学习率\"功能，GPT-4o回答更具个性化；Midjourney V7 Alpha版向资深用户开放测试；GitHub Copilot \"代码审查\" 功能上线，自动发现Bug",
       "newsCount": 10,
       "toolCount": 3,
       "techCount": 4,
-      "published": true
+      "published": true,
+      "highlights": [
+        "OpenAI发布\"动态学习率\"功能，GPT-4o回答更具个性化",
+        "Midjourney V7 Alpha版向资深用户开放测试",
+        "GitHub Copilot \"代码审查\" 功能上线，自动发现Bug"
+      ]
     },
     {
       "date": "2025-08-18",
       "endDate": "2025-08-24",
       "filename": "weeklies/20250818-20250824周新闻.html",
       "title": "AI圈热点周报 第3期",
-      "summary": "2025年08月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI发布\"动态学习率\"功能，GPT-4o回答更具个性化；Midjourney V7 Alpha版向资深用户开放测试；GitHub Copilot \"代码审查\" 功能上线，自动发现Bug",
       "newsCount": 10,
       "toolCount": 3,
       "techCount": 4,
-      "published": true
+      "published": true,
+      "highlights": [
+        "OpenAI发布\"动态学习率\"功能，GPT-4o回答更具个性化",
+        "Midjourney V7 Alpha版向资深用户开放测试",
+        "GitHub Copilot \"代码审查\" 功能上线，自动发现Bug"
+      ]
     },
     {
       "date": "2025-08-25",
       "endDate": "2025-08-31",
       "filename": "weeklies/20250825-20250831周新闻.html",
       "title": "AI圈热点周报 第4期",
-      "summary": "2025年08月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "谷歌发布端侧图像模型\"NanoBanana\"，可离线运行；Claude更新隐私政策，将使用用户数据进行模型训练；苹果Xcode 26 Beta版集成Claude与GPT，编程迎史诗级增强",
       "newsCount": 5,
       "toolCount": 4,
       "techCount": 3,
-      "published": true
+      "published": true,
+      "highlights": [
+        "谷歌发布端侧图像模型\"NanoBanana\"，可离线运行",
+        "Claude更新隐私政策，将使用用户数据进行模型训练",
+        "苹果Xcode 26 Beta版集成Claude与GPT，编程迎史诗级增强"
+      ]
     },
     {
       "date": "2025-09-01",
       "endDate": "2025-09-07",
       "filename": "weeklies/20250901-20250907周新闻.html",
       "title": "AI圈热点周报 第5期",
-      "summary": "2025年09月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "阿里发布万亿参数大模型 Qwen3-Max-Preview，上线 API 与 Chat 体验；Kimi K2-0905 发布：256K 上下文、Agentic Coding 与高速 API 升级；「即梦图片 4.0」正式发布：多模态生图，编辑与组图一体化",
       "newsCount": 4,
       "toolCount": 1,
       "techCount": 3,
-      "published": true
+      "published": true,
+      "highlights": [
+        "阿里发布万亿参数大模型 Qwen3-Max-Preview，上线 API 与 Chat 体验",
+        "Kimi K2-0905 发布：256K 上下文、Agentic Coding 与高速 API 升级",
+        "「即梦图片 4.0」正式发布：多模态生图，编辑与组图一体化"
+      ]
     },
     {
       "date": "2025-09-08",
       "endDate": "2025-09-14",
       "filename": "weeklies/20250908-20250914周新闻.html",
       "title": "AI圈热点周报 第6期",
-      "summary": "2025年09月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "B站发布 Index-TTS-2模型，可实时克隆音色与控制情绪；阿里发布 Qwen3-Next 模型，800亿参数仅激活30亿；MiniMax 发布 Music1.5，AI可生成4分钟完整歌曲",
       "newsCount": 12,
       "toolCount": 6,
       "techCount": 7,
-      "published": true
+      "published": true,
+      "highlights": [
+        "B站发布 Index-TTS-2模型，可实时克隆音色与控制情绪",
+        "阿里发布 Qwen3-Next 模型，800亿参数仅激活30亿",
+        "MiniMax 发布 Music1.5，AI可生成4分钟完整歌曲"
+      ]
     },
     {
       "date": "2025-09-15",
       "endDate": "2025-09-21",
       "filename": "weeklies/20250915-20250921周新闻.html",
       "title": "AI圈热点周报 第7期",
-      "summary": "2025年09月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "XAI 发布 Grok-4 Fast，上下文达200万Token且更便宜；OpenAI 发布 GPT-5-Codex，专为编程优化；Luma AI 推出 Ray3 视频模型，支持推理与HDR画质",
       "newsCount": 15,
       "toolCount": 6,
       "techCount": 6,
-      "published": true
+      "published": true,
+      "highlights": [
+        "XAI 发布 Grok-4 Fast，上下文达200万Token且更便宜",
+        "OpenAI 发布 GPT-5-Codex，专为编程优化",
+        "Luma AI 推出 Ray3 视频模型，支持推理与HDR画质"
+      ]
     },
     {
       "date": "2025-09-22",
       "endDate": "2025-09-28",
       "filename": "weeklies/20250922-20250928周新闻.html",
       "title": "AI圈热点周报 第8期",
-      "summary": "2025年09月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "DeepSeek V3.1-Terminus 发布，提升Agent能力；腾讯开源混元图片3.0，精准生成汉字；阿里发布全模态 Qwen3-Omni 模型，统一多模态输入",
       "newsCount": 13,
       "toolCount": 2,
       "techCount": 9,
-      "published": true
+      "published": true,
+      "highlights": [
+        "DeepSeek V3.1-Terminus 发布，提升Agent能力",
+        "腾讯开源混元图片3.0，精准生成汉字",
+        "阿里发布全模态 Qwen3-Omni 模型，统一多模态输入"
+      ]
     },
     {
       "date": "2025-09-29",
       "endDate": "2025-10-05",
       "filename": "weeklies/20250929-20251005周新闻.html",
       "title": "AI圈热点周报 第9期",
-      "summary": "2025年09月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Anthropic 发布 Claude Sonnet 4.5，主打超长时Agent；ChatGPT 推出“直接购买”功能，进军AI电商；OpenAI 发布 Sora 2 及全新 Sora App",
       "newsCount": 10,
       "toolCount": 2,
       "techCount": 7,
-      "published": true
+      "published": true,
+      "highlights": [
+        "Anthropic 发布 Claude Sonnet 4.5，主打超长时Agent",
+        "ChatGPT 推出“直接购买”功能，进军AI电商",
+        "OpenAI 发布 Sora 2 及全新 Sora App"
+      ]
     },
     {
       "date": "2025-10-06",
       "endDate": "2025-10-12",
       "filename": "weeklies/20251006-20251012周新闻.html",
       "title": "AI圈热点周报 第10期",
-      "summary": "2025年10月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 联手 AMD，打造6GW超级算力；ChatGPT 推出“可对话的应用”，迈向聊天操作系统；OpenAI 发布 AgentKit，打造企业级Agent生产线",
       "newsCount": 10,
       "toolCount": 4,
       "techCount": 4,
-      "published": true
+      "published": true,
+      "highlights": [
+        "OpenAI 联手 AMD，打造6GW超级算力",
+        "ChatGPT 推出“可对话的应用”，迈向聊天操作系统",
+        "OpenAI 发布 AgentKit，打造企业级Agent生产线"
+      ]
     },
     {
       "date": "2025-10-13",
       "endDate": "2025-10-19",
       "filename": "weeklies/20251013-20251019周新闻.html",
       "title": "AI圈热点周报 第11期",
-      "summary": "2025年10月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Google Veo 3.1 发布，大幅强化视频可编辑性；OpenAI 联手博通，豪赌10GW定制AI芯片；Apple 发布 M5 芯片，加速“端侧AI”",
       "newsCount": 10,
       "toolCount": 2,
       "techCount": 8,
-      "published": true
+      "published": true,
+      "highlights": [
+        "Google Veo 3.1 发布，大幅强化视频可编辑性",
+        "OpenAI 联手博通，豪赌10GW定制AI芯片",
+        "Apple 发布 M5 芯片，加速“端侧AI”"
+      ]
     },
     {
       "date": "2025-10-20",
       "endDate": "2025-10-26",
       "filename": "weeklies/20251020-20251026周新闻.html",
       "title": "AI圈热点周报 第12期",
-      "summary": "2025年10月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 发布自家浏览器「ChatGPT Atlas」；Google AI Studio 推出「vibe coding」新体验；Adobe 上线企业级「AI Foundry」，定制品牌专属模型",
       "newsCount": 10,
       "toolCount": 2,
       "techCount": 6,
-      "published": true
+      "published": true,
+      "highlights": [
+        "OpenAI 发布自家浏览器「ChatGPT Atlas」",
+        "Google AI Studio 推出「vibe coding」新体验",
+        "Adobe 上线企业级「AI Foundry」，定制品牌专属模型"
+      ]
     },
     {
       "date": "2025-10-27",
       "endDate": "2025-11-02",
       "filename": "weeklies/20251027-20251102周新闻.html",
       "title": "AI圈热点周报 第13期",
-      "summary": "2025年10月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Google Veo 3.1 全面接入 Workspace 办公套件；ChatGPT 升级“敏感对话”安全网，降低失范回复；高通发布AI200/AI250数据中心推理加速器",
       "newsCount": 10,
       "toolCount": 2,
       "techCount": 6,
-      "published": true
+      "published": true,
+      "highlights": [
+        "Google Veo 3.1 全面接入 Workspace 办公套件",
+        "ChatGPT 升级“敏感对话”安全网，降低失范回复",
+        "高通发布AI200/AI250数据中心推理加速器"
+      ]
     },
     {
       "date": "2025-11-03",
       "endDate": "2025-11-09",
       "filename": "weeklies/20251103-20251109周新闻.html",
       "title": "AI圈热点周报 第14期",
-      "summary": "2025年11月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Kimi 发布 K2 Thinking（开源“思考+工具调用”模型）；阿里 Qwen3-Max-Thinking 开放预览；百度 ERNIE-5.0-Preview 登上 LMArena 全球第二",
       "newsCount": 10,
       "toolCount": 4,
       "techCount": 7,
-      "published": true
+      "published": true,
+      "highlights": [
+        "Kimi 发布 K2 Thinking（开源“思考+工具调用”模型）",
+        "阿里 Qwen3-Max-Thinking 开放预览",
+        "百度 ERNIE-5.0-Preview 登上 LMArena 全球第二"
+      ]
     },
     {
       "date": "2025-11-10",
       "endDate": "2025-11-16",
       "filename": "weeklies/20251110-20251116周新闻.html",
       "title": "AI圈热点周报 第15期",
-      "summary": "2025年11月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "GPT-5.1 更新，API提供三档版本；Gemini 3 据传已登陆模型竞技场；百度发布文心5.0，2.4万亿参数全模态",
       "newsCount": 11,
       "toolCount": 3,
       "techCount": 6,
-      "published": true
+      "published": true,
+      "highlights": [
+        "GPT-5.1 更新，API提供三档版本",
+        "Gemini 3 据传已登陆模型竞技场",
+        "百度发布文心5.0，2.4万亿参数全模态"
+      ]
     },
     {
       "date": "2025-11-17",
       "endDate": "2025-11-23",
       "filename": "weeklies/20251117-20251123周新闻.html",
       "title": "AI圈热点周报 第16期",
-      "summary": "2025年11月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Google 正式发布 Gemini 3，登顶最强模型；Google 推出 Nano Banana Pro 图像生成模型；Nvidia 业绩超预期，AI 资本支出拉动美国 GDP",
       "newsCount": 10,
       "toolCount": 1,
       "techCount": 4,
-      "published": true
+      "published": true,
+      "highlights": [
+        "Google 正式发布 Gemini 3，登顶最强模型",
+        "Google 推出 Nano Banana Pro 图像生成模型",
+        "Nvidia 业绩超预期，AI 资本支出拉动美国 GDP"
+      ]
     },
     {
       "date": "2025-11-24",
       "endDate": "2025-11-30",
       "filename": "weeklies/20251124-20251130周新闻.html",
       "title": "AI圈热点周报 第17期",
-      "summary": "2025年11月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "GPT-5.1 更新，API 细分三档；Gemini 3 疑似登陆竞技场，代号 Riftrunner；百度发布文心5.0，2.4万亿参数全模态",
       "newsCount": 12,
       "toolCount": 2,
       "techCount": 8,
-      "published": true
+      "published": true,
+      "highlights": [
+        "GPT-5.1 更新，API 细分三档",
+        "Gemini 3 疑似登陆竞技场，代号 Riftrunner",
+        "百度发布文心5.0，2.4万亿参数全模态"
+      ]
     },
     {
       "date": "2025-12-01",
       "endDate": "2025-12-07",
       "filename": "weeklies/20251201-20251207周新闻.html",
       "title": "AI圈热点周报 第18期",
-      "summary": "2025年12月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "快手可灵 2.6 发布：音画同步与角色一致性；DeepSeek V3.2 发布：推理能力大幅跃升；Gemini 上线 Deep Think 与记忆功能",
       "newsCount": 10,
       "toolCount": 2,
       "techCount": 7,
-      "published": true
+      "published": true,
+      "highlights": [
+        "快手可灵 2.6 发布：音画同步与角色一致性",
+        "DeepSeek V3.2 发布：推理能力大幅跃升",
+        "Gemini 上线 Deep Think 与记忆功能"
+      ]
     },
     {
       "date": "2025-12-08",
       "endDate": "2025-12-14",
       "filename": "weeklies/20251208-20251214周新闻.html",
       "title": "AI圈热点周报 第19期",
-      "summary": "2025年12月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "GPT-5.2 发布，专注赋能“打工人”；Google 推出 Gemini Deep Research 深度研究智能体；Gemini 2.5 Flash Native Audio：原生听说的进化",
       "newsCount": 10,
       "toolCount": 3,
       "techCount": 6,
-      "published": true
+      "published": true,
+      "highlights": [
+        "GPT-5.2 发布，专注赋能“打工人”",
+        "Google 推出 Gemini Deep Research 深度研究智能体",
+        "Gemini 2.5 Flash Native Audio：原生听说的进化"
+      ]
     },
     {
       "date": "2025-12-15",
       "endDate": "2025-12-21",
       "filename": "weeklies/20251215-20251221周新闻.html",
       "title": "AI圈热点周报 第20期",
-      "summary": "2025年12月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "ChatGPT 正式开放“App Store”；微软牵手 Kimi，国内 Office Copilot 有救了；Google 发布 Gemini 3 Flash：速度提升 3 倍",
       "newsCount": 10,
       "toolCount": 3,
       "techCount": 5,
       "published": true,
-      "blackboardImage": "weeklies/images/ai_weekly_blackboard_20251215-20251221.png"
+      "blackboardImage": "weeklies/images/ai_weekly_blackboard_20251215-20251221.png",
+      "highlights": [
+        "ChatGPT 正式开放“App Store”",
+        "微软牵手 Kimi，国内 Office Copilot 有救了",
+        "Google 发布 Gemini 3 Flash：速度提升 3 倍"
+      ]
     },
     {
       "date": "2025-12-22",
       "endDate": "2025-12-28",
       "filename": "weeklies/20251222-20251228周新闻.html",
       "title": "AI圈热点周报 第21期",
-      "summary": "2025年12月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "ChatGPT 正式开放“App Store”；微软牵手 Kimi，国内 Office Copilot 有救了；Google 发布 Gemini 3 Flash：速度提升 3 倍",
       "newsCount": 10,
       "toolCount": 3,
       "techCount": 5,
       "published": true,
-      "blackboardImage": "weeklies/images/ai_weekly_blackboard_20251222-20251228.png"
+      "blackboardImage": "weeklies/images/ai_weekly_blackboard_20251222-20251228.png",
+      "highlights": [
+        "ChatGPT 正式开放“App Store”",
+        "微软牵手 Kimi，国内 Office Copilot 有救了",
+        "Google 发布 Gemini 3 Flash：速度提升 3 倍"
+      ]
     },
     {
       "date": "2025-12-29",
       "endDate": "2026-01-04",
       "filename": "weeklies/20251229-20260104周新闻.html",
       "title": "AI圈热点周报 第22期",
-      "summary": "2025年12月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "DeepSeek 发布 mHC 架构：解锁\"万亿参数\"稳定训练；阿里发布 Qwen-Image-2512：开源界最强的\"写字匠\"；X 推出\"霸道\"功能：PC 端支持随意修改他人图片",
       "newsCount": 6,
       "toolCount": 1,
       "techCount": 3,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "DeepSeek 发布 mHC 架构：解锁\"万亿参数\"稳定训练",
+        "阿里发布 Qwen-Image-2512：开源界最强的\"写字匠\"",
+        "X 推出\"霸道\"功能：PC 端支持随意修改他人图片"
+      ]
     },
     {
       "date": "2026-01-05",
       "endDate": "2026-01-11",
       "filename": "weeklies/20260105-20260111周新闻.html",
       "title": "AI圈热点周报 第23期",
-      "summary": "2026年01月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "DeepSeek V4：编程王座的新挑战者；LTX-2 开源：4K 高清+音画同步的创作革命；Gmail 接入 Gemini 3：邮箱即秘书",
       "newsCount": 7,
       "toolCount": 2,
       "techCount": 3,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "DeepSeek V4：编程王座的新挑战者",
+        "LTX-2 开源：4K 高清+音画同步的创作革命",
+        "Gmail 接入 Gemini 3：邮箱即秘书"
+      ]
     },
     {
       "date": "2026-01-12",
       "endDate": "2026-01-18",
       "filename": "weeklies/20260112-20260118周新闻.html",
       "title": "AI圈热点周报 第24期",
-      "summary": "2026年01月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "FLux.2 [Klein]：秒级出图的“克莱因”时刻；Google TranslateGemma：翻译不仅仅是语言交换；Claude Coworker：非编程领域的自动化推手",
       "newsCount": 6,
       "toolCount": 1,
       "techCount": 3,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "FLux.2 [Klein]：秒级出图的“克莱因”时刻",
+        "Google TranslateGemma：翻译不仅仅是语言交换",
+        "Claude Coworker：非编程领域的自动化推手"
+      ]
     },
     {
       "date": "2026-01-19",
       "endDate": "2026-01-25",
       "filename": "weeklies/20260119-20260125周新闻.html",
       "title": "AI圈热点周报 第25期",
-      "summary": "2026年01月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Qwen3-TTS：全语种、端侧语音核武；Claude Excel 插件：数据分析的“物理外挂”；Cursor & MiniMax：Agent 的“专家组件化”",
       "newsCount": 4,
       "toolCount": 1,
       "techCount": 2,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "Qwen3-TTS：全语种、端侧语音核武",
+        "Claude Excel 插件：数据分析的“物理外挂”",
+        "Cursor & MiniMax：Agent 的“专家组件化”"
+      ]
     },
     {
       "date": "2026-01-26",
       "endDate": "2026-02-01",
       "filename": "weeklies/20260126-20260201周新闻.html",
       "title": "AI圈热点周报 第26期",
-      "summary": "2026年01月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Kimi K2.5：原生多模态 Agent 集群；Qwen3-Max-Thinking：旗舰推理模型登顶；DeepSeek OCR-2：文档解析的\"毫米波雷达\"",
       "newsCount": 7,
       "toolCount": 2,
       "techCount": 2,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "Kimi K2.5：原生多模态 Agent 集群",
+        "Qwen3-Max-Thinking：旗舰推理模型登顶",
+        "DeepSeek OCR-2：文档解析的\"毫米波雷达\""
+      ]
     },
     {
       "date": "2026-02-02",
       "endDate": "2026-02-08",
       "filename": "weeklies/20260202-20260208周新闻.html",
       "title": "AI圈热点周报 第27期",
-      "summary": "2026年02月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Claude Opus 4.6 发布：100万上下文与 76% 召回率；GPT-5.3-Codex：会\"自省\"的 Agent 模型；Claude Office 全线升级：文档即应用",
       "newsCount": 6,
       "toolCount": 1,
       "techCount": 3,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "Claude Opus 4.6 发布：100万上下文与 76% 召回率",
+        "GPT-5.3-Codex：会\"自省\"的 Agent 模型",
+        "Claude Office 全线升级：文档即应用"
+      ]
     },
     {
       "date": "2026-02-09",
       "endDate": "2026-02-15",
       "filename": "weeklies/20260209-20260215周新闻.html",
       "title": "AI圈热点周报 第28期",
-      "summary": "2026年02月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 控告 DeepSeek：开启\"蒸馏\"法律战；GPT-4o 正式退役：一个时代的终结；国内 35 亿红包战：元宝、千问、豆包的\"Token 撒币\"",
       "newsCount": 6,
       "toolCount": 1,
       "techCount": 2,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 控告 DeepSeek：开启\"蒸馏\"法律战",
+        "GPT-4o 正式退役：一个时代的终结",
+        "国内 35 亿红包战：元宝、千问、豆包的\"Token 撒币\""
+      ]
     },
     {
       "date": "2026-02-16",
       "endDate": "2026-02-23",
       "filename": "weeklies/20260216-20260223周新闻.html",
       "title": "AI圈热点周报 第29期",
-      "summary": "2026年02月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "数据大逆转：中国 Token 调用量首次超越美国；马年春晚：人形机器人的\"成人礼\"；OpenAI 收购 OpenClaw：个人 Agent 的\"招安\"",
       "newsCount": 5,
       "toolCount": 0,
       "techCount": 1,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "数据大逆转：中国 Token 调用量首次超越美国",
+        "马年春晚：人形机器人的\"成人礼\"",
+        "OpenAI 收购 OpenClaw：个人 Agent 的\"招安\""
+      ]
     },
     {
       "date": "2026-02-23",
       "endDate": "2026-03-01",
       "filename": "weeklies/20260223-20260301周新闻.html",
       "title": "AI圈热点周报 第30期",
-      "summary": "2026年02月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 超大规模融资与云合作落地；Anthropic 与政府围绕安全红线冲突升级；DeepSeek V4 传闻升温，国产芯片适配提速",
       "newsCount": 5,
       "toolCount": 1,
       "techCount": 3,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 超大规模融资与云合作落地",
+        "Anthropic 与政府围绕安全红线冲突升级",
+        "DeepSeek V4 传闻升温，国产芯片适配提速"
+      ]
     },
     {
       "date": "2026-03-02",
       "endDate": "2026-03-08",
       "filename": "weeklies/20260302-20260308周新闻.html",
       "title": "AI圈热点周报 第31期",
-      "summary": "2026年03月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 披露国防合作安全条款；Google 3月 Pixel Drop 强化 Gemini Agent；NVIDIA 预热 GTC 2026：AI 工厂与代理系统成主线",
       "newsCount": 6,
       "toolCount": 1,
       "techCount": 1,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 披露国防合作安全条款",
+        "Google 3月 Pixel Drop 强化 Gemini Agent",
+        "NVIDIA 预热 GTC 2026：AI 工厂与代理系统成主线"
+      ]
     },
     {
       "date": "2026-03-09",
       "endDate": "2026-03-15",
       "filename": "weeklies/20260309-20260315周新闻.html",
       "title": "AI圈热点周报 第32期",
-      "summary": "2026年03月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 收购 Promptfoo，补齐企业 Agent 安全能力；Google 发布 Gemini Embedding 2；Anthropic 成立 The Anthropic Institute",
       "newsCount": 6,
       "toolCount": 2,
       "techCount": 3,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 收购 Promptfoo，补齐企业 Agent 安全能力",
+        "Google 发布 Gemini Embedding 2",
+        "Anthropic 成立 The Anthropic Institute"
+      ]
     },
     {
       "date": "2026-03-16",
       "endDate": "2026-03-22",
       "filename": "weeklies/20260316-20260322周新闻.html",
       "title": "AI圈热点周报 第33期",
-      "summary": "2026年03月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "NVIDIA 发布 Agent Toolkit，企业 Agent 开始补“可落地”能力；Google 更新 Gemini API 工具体系，Agent 编排门槛继续下降；阿里发布企业级 AI 原生平台“悟空”，瞄准工作流自动执行",
       "newsCount": 6,
       "toolCount": 4,
       "techCount": 4,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "NVIDIA 发布 Agent Toolkit，企业 Agent 开始补“可落地”能力",
+        "Google 更新 Gemini API 工具体系，Agent 编排门槛继续下降",
+        "阿里发布企业级 AI 原生平台“悟空”，瞄准工作流自动执行"
+      ]
     },
     {
       "date": "2026-03-23",
       "endDate": "2026-03-29",
       "filename": "weeklies/20260323-20260329周新闻.html",
       "title": "AI圈热点周报 第34期",
-      "summary": "2026年03月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "NVIDIA 联手能源公司推进“弹性 AI 工厂”，算力开始按电网资产来建；OpenAI 把商品发现塞进 ChatGPT，AI 开始直接切电商入口；Google 推出 agentic media-buying tools，广告投放开始被 AI 代理接管",
       "newsCount": 6,
       "toolCount": 2,
       "techCount": 5,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "NVIDIA 联手能源公司推进“弹性 AI 工厂”，算力开始按电网资产来建",
+        "OpenAI 把商品发现塞进 ChatGPT，AI 开始直接切电商入口",
+        "Google 推出 agentic media-buying tools，广告投放开始被 AI 代理接管"
+      ]
     },
     {
       "date": "2026-03-30",
       "endDate": "2026-04-05",
       "filename": "weeklies/20260330-20260405周新闻.html",
       "title": "AI圈热点周报 第35期",
-      "summary": "2026年03月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "微软开放 Copilot Cowork，企业 Agent 从“会答题”走向“真干活”；OpenAI 宣布完成 1220 亿美元融资，AI 基建大战彻底打成军备赛；Google 用 4 月 1 日整包更新证明：Gemini 竞争点已经从聊天变成入口控制",
       "newsCount": 7,
       "toolCount": 3,
       "techCount": 3,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "微软开放 Copilot Cowork，企业 Agent 从“会答题”走向“真干活”",
+        "OpenAI 宣布完成 1220 亿美元融资，AI 基建大战彻底打成军备赛",
+        "Google 用 4 月 1 日整包更新证明：Gemini 竞争点已经从聊天变成入口控制"
+      ]
     },
     {
       "date": "2026-04-06",
       "endDate": "2026-04-12",
       "filename": "weeklies/20260406-20260412周新闻.html",
       "title": "AI圈热点周报 第36期",
-      "summary": "2026年04月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 抛出“智能时代产业政策”草案，AI 讨论开始从模型性能转向财富分配；OpenAI 推 Trusted Access for Cyber，最强模型先给防守方用；Anthropic 联手 Google 和 Broadcom 锁定多吉瓦 TPU，算力承诺开始像能源项目",
       "newsCount": 6,
       "toolCount": 1,
       "techCount": 2,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 抛出“智能时代产业政策”草案，AI 讨论开始从模型性能转向财富分配",
+        "OpenAI 推 Trusted Access for Cyber，最强模型先给防守方用",
+        "Anthropic 联手 Google 和 Broadcom 锁定多吉瓦 TPU，算力承诺开始像能源项目"
+      ]
     },
     {
       "date": "2026-04-13",
       "endDate": "2026-04-19",
       "filename": "weeklies/20260413-20260419周新闻.html",
       "title": "AI圈热点周报 第37期",
-      "summary": "2026年04月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 升级 Agents SDK 与 Codex，开发者工具链开始从“写代码”走向“代做整段流程”；Anthropic 发布 Claude Opus 4.7，长程编码能力和视觉理解继续上强度；Google 让 Gemini 结合个人偏好和相册生图，AI 创作开始从“会画”转向“更懂你”",
       "newsCount": 6,
       "toolCount": 2,
       "techCount": 5,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 升级 Agents SDK 与 Codex，开发者工具链开始从“写代码”走向“代做整段流程”",
+        "Anthropic 发布 Claude Opus 4.7，长程编码能力和视觉理解继续上强度",
+        "Google 让 Gemini 结合个人偏好和相册生图，AI 创作开始从“会画”转向“更懂你”"
+      ]
     },
     {
       "date": "2026-04-20",
       "endDate": "2026-04-26",
       "filename": "weeklies/20260420-20260426周新闻.html",
       "title": "AI圈热点周报 第38期",
-      "summary": "2026年04月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 发布 GPT‑5.5：模型竞争正式进入“更强且更省”阶段；Claude Opus 4.7 与 Qwen3.6‑Max‑Preview 同步推进：旗舰模型开始对撞复杂任务执行力；DeepSeek‑V4 发布：国产模型继续押注“超长上下文普惠化”",
       "newsCount": 6,
       "toolCount": 0,
       "techCount": 3,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 发布 GPT‑5.5：模型竞争正式进入“更强且更省”阶段",
+        "Claude Opus 4.7 与 Qwen3.6‑Max‑Preview 同步推进：旗舰模型开始对撞复杂任务执行力",
+        "DeepSeek‑V4 发布：国产模型继续押注“超长上下文普惠化”"
+      ]
     },
     {
       "date": "2026-04-27",
       "endDate": "2026-05-03",
       "filename": "weeklies/20260427-20260503周新闻.html",
       "title": "AI圈热点周报 第39期",
-      "summary": "2026年04月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 更新五项原则：开始正面回应 AI 权力分配问题；OpenAI 联手 AWS：头部模型开始抢企业云入口；Claude for Creative Work 发布：AI 开始深入专业创作软件",
       "newsCount": 6,
       "toolCount": 2,
       "techCount": 2,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 更新五项原则：开始正面回应 AI 权力分配问题",
+        "OpenAI 联手 AWS：头部模型开始抢企业云入口",
+        "Claude for Creative Work 发布：AI 开始深入专业创作软件"
+      ]
     },
     {
       "date": "2026-05-04",
       "endDate": "2026-05-10",
       "filename": "weeklies/20260504-20260510周新闻.html",
       "title": "AI圈热点周报 第40期",
-      "summary": "2026年05月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 发布 GPT-5.5 Instant，并设为 ChatGPT 默认模型；Anthropic 联合黑石、高盛等成立企业 AI 服务公司；Google、Meta 被曝加速测试个人 AI 智能体 Remy 与 Hatch",
       "newsCount": 6,
       "toolCount": 1,
       "techCount": 5,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 发布 GPT-5.5 Instant，并设为 ChatGPT 默认模型",
+        "Anthropic 联合黑石、高盛等成立企业 AI 服务公司",
+        "Google、Meta 被曝加速测试个人 AI 智能体 Remy 与 Hatch"
+      ]
     },
     {
       "date": "2026-05-11",
       "endDate": "2026-05-17",
       "filename": "weeklies/20260511-20260517周新闻.html",
       "title": "AI圈热点周报 第41期",
-      "summary": "2026年05月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 推出 Deployment Company，砸 40 亿美元补齐企业落地能力；Anthropic 发布 Claude for Small Business，把 AI 变成小企业可开箱工作流；OpenAI 将 Codex 放进 ChatGPT 手机端，长任务协作开始移动化",
       "newsCount": 7,
       "toolCount": 3,
       "techCount": 3,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 推出 Deployment Company，砸 40 亿美元补齐企业落地能力",
+        "Anthropic 发布 Claude for Small Business，把 AI 变成小企业可开箱工作流",
+        "OpenAI 将 Codex 放进 ChatGPT 手机端，长任务协作开始移动化"
+      ]
     },
     {
       "date": "2026-05-18",
       "endDate": "2026-05-24",
       "filename": "weeklies/20260518-20260524周新闻.html",
       "title": "AI圈热点周报 第42期",
-      "summary": "2026年05月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Google I/O 2026 进入 agentic Gemini 时代，搜索、YouTube、Docs 和视频生成全面上 AI；OpenAI 与 Dell 合作，让 Codex 进入混合云和本地企业环境；OpenAI 模型推翻离散几何核心猜想，AI 科研从辅助走向原创证明",
       "newsCount": 7,
       "toolCount": 3,
       "techCount": 4,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "Google I/O 2026 进入 agentic Gemini 时代，搜索、YouTube、Docs 和视频生成全面上 AI",
+        "OpenAI 与 Dell 合作，让 Codex 进入混合云和本地企业环境",
+        "OpenAI 模型推翻离散几何核心猜想，AI 科研从辅助走向原创证明"
+      ]
     },
     {
       "date": "2026-05-25",
       "endDate": "2026-05-31",
       "filename": "weeklies/20260525-20260531周新闻.html",
       "title": "AI圈热点周报 第43期",
-      "summary": "2026年05月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Anthropic 发布 Claude Opus 4.8，强化编码、Agent 长任务与专业工作可靠性；OpenAI 展示 Codex 25 小时长任务实验，软件开发从提示词走向可验证工作流；NVIDIA CUDA 13.3 发布：CUDA Tile C++、CUDA Python 1.0 与 CompileIQ 降低 GPU 开发门槛",
       "newsCount": 6,
       "toolCount": 2,
       "techCount": 7,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "Anthropic 发布 Claude Opus 4.8，强化编码、Agent 长任务与专业工作可靠性",
+        "OpenAI 展示 Codex 25 小时长任务实验，软件开发从提示词走向可验证工作流",
+        "NVIDIA CUDA 13.3 发布：CUDA Tile C++、CUDA Python 1.0 与 CompileIQ 降低 GPU 开发门槛"
+      ]
     },
     {
       "date": "2026-06-01",
@@ -507,259 +722,369 @@
       "toolCount": 3,
       "techCount": 5,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "NVIDIA 发布 Nemotron 3 Ultra：面向长任务 Agent 的开放推理模型",
+        "NVIDIA 与 Microsoft 推本地 AI Agent 工具链，Windows PC 变成个人 Agent 工作站",
+        "NVIDIA JetPack 7.2 支持边缘 Agent，NemoClaw 与 Jetson Skills 进入机器人场景"
+      ]
     },
     {
       "date": "2026-06-08",
       "endDate": "2026-06-14",
       "filename": "weeklies/20260608-20260614周新闻.html",
       "title": "AI圈热点周报 第45期",
-      "summary": "2026年06月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 提交 confidential S-1，AI 竞争进入资本市场排位赛；OpenAI 宣布收购 Ona，Codex 要有可长期运行的云端工作区；Anthropic 发布 Claude Fable 5 / Mythos 5，随后因美国政府指令暂停访问",
       "newsCount": 9,
       "toolCount": 3,
       "techCount": 5,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 提交 confidential S-1，AI 竞争进入资本市场排位赛",
+        "OpenAI 宣布收购 Ona，Codex 要有可长期运行的云端工作区",
+        "Anthropic 发布 Claude Fable 5 / Mythos 5，随后因美国政府指令暂停访问"
+      ]
     },
     {
       "date": "2026-06-15",
       "endDate": "2026-06-21",
       "filename": "weeklies/20260615-20260621周新闻.html",
       "title": "AI圈热点周报 第46期",
-      "summary": "2026年06月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "ChatGPT 6月18日更新：日常问答、连接应用和移动体验继续产品化；Google Gemini API 宣布旧图像和视频生成模型下线时间，开发者必须迁移；NVIDIA 与 HPE 扩展 AI Factory：企业 Agent 需要私有云、治理和回滚",
       "newsCount": 8,
       "toolCount": 3,
       "techCount": 8,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "ChatGPT 6月18日更新：日常问答、连接应用和移动体验继续产品化",
+        "Google Gemini API 宣布旧图像和视频生成模型下线时间，开发者必须迁移",
+        "NVIDIA 与 HPE 扩展 AI Factory：企业 Agent 需要私有云、治理和回滚"
+      ]
     },
     {
       "date": "2026-06-22",
       "endDate": "2026-06-28",
       "filename": "weeklies/20260622-20260628周新闻.html",
       "title": "AI圈热点周报 第47期",
-      "summary": "2026年06月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 发布 Daybreak 与 Patch the Planet，AI 安全从发现漏洞走向自动修复；OpenAI 与 Broadcom 发布 Jalapeno 推理芯片，模型竞争进入全栈算力时代；OpenAI 披露内部智能体使用数据，Codex 在研究、工程和客服中高速渗透",
       "newsCount": 8,
       "toolCount": 1,
       "techCount": 7,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 发布 Daybreak 与 Patch the Planet，AI 安全从发现漏洞走向自动修复",
+        "OpenAI 与 Broadcom 发布 Jalapeno 推理芯片，模型竞争进入全栈算力时代",
+        "OpenAI 披露内部智能体使用数据，Codex 在研究、工程和客服中高速渗透"
+      ]
     },
     {
       "date": "2026-06-29",
       "endDate": "2026-07-05",
       "filename": "weeklies/20260629-20260705周新闻.html",
       "title": "AI圈热点周报 第48期",
-      "summary": "2026年06月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Anthropic 发布 Claude Sonnet 5，低成本智能体模型继续逼近高端能力；Anthropic 恢复 Fable 5 全球访问，前沿模型安全进入“政府审查 + 行业标准”阶段；OpenAI 披露 ChatGPT 全球采用趋势，AI 使用从尝鲜走向日常化",
       "newsCount": 7,
       "toolCount": 3,
       "techCount": 5,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "Anthropic 发布 Claude Sonnet 5，低成本智能体模型继续逼近高端能力",
+        "Anthropic 恢复 Fable 5 全球访问，前沿模型安全进入“政府审查 + 行业标准”阶段",
+        "OpenAI 披露 ChatGPT 全球采用趋势，AI 使用从尝鲜走向日常化"
+      ]
     },
     {
       "date": "2026-07-06",
       "endDate": "2026-07-12",
       "filename": "weeklies/20260706-20260712周新闻.html",
       "title": "AI圈热点周报 第49期",
-      "summary": "2026年07月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Anthropic 推出 Claude Reflect，让 AI 使用从“聊天记录”变成可复盘的个人生产力账本；Meta 发布 Muse Image，社交平台把图像生成推向“熟人照片 + 直接分享”的创作入口；OpenAI 推出 GPT-Live，实时语音从“等你说完再答”进入边听边说阶段",
       "newsCount": 8,
       "toolCount": 2,
       "techCount": 7,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "Anthropic 推出 Claude Reflect，让 AI 使用从“聊天记录”变成可复盘的个人生产力账本",
+        "Meta 发布 Muse Image，社交平台把图像生成推向“熟人照片 + 直接分享”的创作入口",
+        "OpenAI 推出 GPT-Live，实时语音从“等你说完再答”进入边听边说阶段"
+      ]
     },
     {
       "date": "2026-07-13",
       "endDate": "2026-07-19",
       "filename": "weeklies/20260713-20260719周新闻.html",
       "title": "AI圈热点周报 第50期",
-      "summary": "2026年07月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 发布 AI 投资管理建议，提醒资本热潮必须转化为可持续基础设施；OpenAI 推出 GPT-Red，把 AI 红队测试做成更系统的安全评测流程；Google DeepMind 发布 AI 生物韧性议程，推动 AI 风险治理进入生命科学场景",
       "newsCount": 7,
       "toolCount": 3,
       "techCount": 4,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 发布 AI 投资管理建议，提醒资本热潮必须转化为可持续基础设施",
+        "OpenAI 推出 GPT-Red，把 AI 红队测试做成更系统的安全评测流程",
+        "Google DeepMind 发布 AI 生物韧性议程，推动 AI 风险治理进入生命科学场景"
+      ]
     },
     {
       "date": "2026-07-20",
       "endDate": "2026-07-26",
       "filename": "weeklies/20260720-20260726周新闻.html",
       "title": "AI圈热点周报 第51期",
-      "summary": "2026年07月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Anthropic 发布 Claude Opus 5，前沿模型竞争继续转向复杂任务和 Agent 能力；OpenAI 发布长周期模型安全研究，聚焦模型在多步骤任务中的失控风险；OpenAI 通报 Hugging Face 集成安全事件，AI 供应链安全再次被拉到台前",
       "newsCount": 6,
       "toolCount": 4,
       "techCount": 4,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "Anthropic 发布 Claude Opus 5，前沿模型竞争继续转向复杂任务和 Agent 能力",
+        "OpenAI 发布长周期模型安全研究，聚焦模型在多步骤任务中的失控风险",
+        "OpenAI 通报 Hugging Face 集成安全事件，AI 供应链安全再次被拉到台前"
+      ]
     },
     {
       "date": "2026-07-27",
       "endDate": "2026-08-02",
       "filename": "weeklies/20260727-20260802周新闻.html",
       "title": "AI圈热点周报 第52期",
-      "summary": "2026年07月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 下调 GPT-5.6 Luna 与 Terra 使用成本，价格性能竞争进入新阶段；OpenAI 推出 ChatGPT for Academic Researchers，免费支持最多 10 万名科研人员；Anthropic 表态不主张一刀切禁止开源权重，但要求高能力模型做强制安全测试",
       "newsCount": 8,
       "toolCount": 3,
       "techCount": 2,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 下调 GPT-5.6 Luna 与 Terra 使用成本，价格性能竞争进入新阶段",
+        "OpenAI 推出 ChatGPT for Academic Researchers，免费支持最多 10 万名科研人员",
+        "Anthropic 表态不主张一刀切禁止开源权重，但要求高能力模型做强制安全测试"
+      ]
     },
     {
       "date": "2026-08-03",
       "endDate": "2026-08-09",
       "filename": "weeklies/20260803-20260809周新闻.html",
       "title": "AI圈热点周报 第53期",
-      "summary": "2026年08月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 更新 GPT-5.6 Sol，并扩大免费用户可用能力；OpenAI 连发网络安全评测说明，前沿模型的“可控边界”成为行业焦点；Google 重组 AI 领导层，Demis Hassabis 转任 DeepMind 主席与 Alphabet 首席科学家",
       "newsCount": 8,
       "toolCount": 4,
       "techCount": 6,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 更新 GPT-5.6 Sol，并扩大免费用户可用能力",
+        "OpenAI 连发网络安全评测说明，前沿模型的“可控边界”成为行业焦点",
+        "Google 重组 AI 领导层，Demis Hassabis 转任 DeepMind 主席与 Alphabet 首席科学家"
+      ]
     },
     {
       "date": "2026-08-10",
       "endDate": "2026-08-16",
       "filename": "weeklies/20260810-20260816周新闻.html",
       "title": "AI圈热点周报 第54期",
-      "summary": "2026年08月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Google Gemini App 月活突破 10 亿，AI 助手进入超级应用规模；Google 发布 Gemini 3.7 Flash，主攻编码和 Agent 的“工作马”模型；OpenAI 扩大 Daybreak，推出 GPT-5.6-Cyber 给受信任防守方",
       "newsCount": 8,
       "toolCount": 4,
       "techCount": 4,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "Google Gemini App 月活突破 10 亿，AI 助手进入超级应用规模",
+        "Google 发布 Gemini 3.7 Flash，主攻编码和 Agent 的“工作马”模型",
+        "OpenAI 扩大 Daybreak，推出 GPT-5.6-Cyber 给受信任防守方"
+      ]
     },
     {
       "date": "2026-08-17",
       "endDate": "2026-08-23",
       "filename": "weeklies/20260817-20260823周新闻.html",
       "title": "AI圈热点周报 第55期",
-      "summary": "2026年08月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Google 背书的 A2A 协议迁入 Agentic AI Foundation，Agent 互联标准开始集中；OpenAI 推出前沿模型 Zero Data Retention 方案，隐私和安全开始一起卖；ChatGPT Ads 扩展至欧洲 31 个市场，AI 搜索和对话入口开始广告化",
       "newsCount": 8,
       "toolCount": 3,
       "techCount": 4,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "Google 背书的 A2A 协议迁入 Agentic AI Foundation，Agent 互联标准开始集中",
+        "OpenAI 推出前沿模型 Zero Data Retention 方案，隐私和安全开始一起卖",
+        "ChatGPT Ads 扩展至欧洲 31 个市场，AI 搜索和对话入口开始广告化"
+      ]
     },
     {
       "date": "2026-08-24",
       "endDate": "2026-08-30",
       "filename": "weeklies/20260824-20260830周新闻.html",
       "title": "AI圈热点周报 第56期",
-      "summary": "2026年08月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 复盘 Hugging Face 事件，高能力 Agent 安全边界成为硬问题；Google DeepMind 试点双盲 AI 评测，闭源模型基准可信度被重新设计；Anthropic 预览 Model Hardware Standard，让 Claude 类 Agent 走向实验室和制造设备",
       "newsCount": 7,
       "toolCount": 2,
       "techCount": 3,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 复盘 Hugging Face 事件，高能力 Agent 安全边界成为硬问题",
+        "Google DeepMind 试点双盲 AI 评测，闭源模型基准可信度被重新设计",
+        "Anthropic 预览 Model Hardware Standard，让 Claude 类 Agent 走向实验室和制造设备"
+      ]
     },
     {
       "date": "2026-08-31",
       "endDate": "2026-09-06",
       "filename": "weeklies/20260831-20260906周新闻.html",
       "title": "AI圈热点周报 第57期",
-      "summary": "2026年08月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 披露 Astra 前沿防护机制，关键网络安全能力进入发布门槛；Google 汇总 8月 AI 更新，Gemini 进入手机、浏览器、学习和创作场景；Microsoft 发布 2026 责任 AI 透明度报告，Agent 治理从原则进入工程流程",
       "newsCount": 7,
       "toolCount": 4,
       "techCount": 6,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 披露 Astra 前沿防护机制，关键网络安全能力进入发布门槛",
+        "Google 汇总 8月 AI 更新，Gemini 进入手机、浏览器、学习和创作场景",
+        "Microsoft 发布 2026 责任 AI 透明度报告，Agent 治理从原则进入工程流程"
+      ]
     },
     {
       "date": "2026-09-07",
       "endDate": "2026-09-13",
       "filename": "weeklies/20260907-20260913周新闻.html",
       "title": "AI圈热点周报 第58期",
-      "summary": "2026年09月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "OpenAI 推出 Agents API 公测，把 Codex 式长运行 Agent 变成托管能力；ChatGPT for Financial Services 上线，金融 AI 从通用助手转向带数据与引用的工作台；OpenAI 发布 GPT-Live-1 API，实时语音交互继续向生产系统下沉",
       "newsCount": 5,
       "toolCount": 3,
       "techCount": 5,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "OpenAI 推出 Agents API 公测，把 Codex 式长运行 Agent 变成托管能力",
+        "ChatGPT for Financial Services 上线，金融 AI 从通用助手转向带数据与引用的工作台",
+        "OpenAI 发布 GPT-Live-1 API，实时语音交互继续向生产系统下沉"
+      ]
     },
     {
       "date": "2026-09-14",
       "endDate": "2026-09-20",
       "filename": "weeklies/20260914-20260920周新闻.html",
       "title": "AI圈热点周报 第59期",
-      "summary": "2026年09月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "华为发布昇腾 960 超节点，NPO 光互连瞄准万亿参数训练与推理；乐享科技发布具身大模型以太（Aether），用无预演烧烤直播检验多机器人协作；网信办 AI 安全治理论坛发布实践指南与大模型安全众测成果",
       "newsCount": 6,
       "toolCount": 1,
       "techCount": 4,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "华为发布昇腾 960 超节点，NPO 光互连瞄准万亿参数训练与推理",
+        "乐享科技发布具身大模型以太（Aether），用无预演烧烤直播检验多机器人协作",
+        "网信办 AI 安全治理论坛发布实践指南与大模型安全众测成果"
+      ]
     },
     {
       "date": "2026-09-21",
       "endDate": "2026-09-27",
       "filename": "weeklies/20260921-20260927周新闻.html",
       "title": "AI圈热点周报 第60期",
-      "summary": "2026年09月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "阿里云公布全栈 AI 路线图：芯片、Qwen 4、Agentic Cloud 同步推进；阿里云百炼下调部分语音模型价格，实时语音 Agent 的单位成本继续下降；OpenAI 发布 GPT-6 Sol 与 GPT-6 Luna，按能力与高吞吐场景分层定价",
       "newsCount": 6,
       "toolCount": 1,
       "techCount": 3,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "阿里云公布全栈 AI 路线图：芯片、Qwen 4、Agentic Cloud 同步推进",
+        "阿里云百炼下调部分语音模型价格，实时语音 Agent 的单位成本继续下降",
+        "OpenAI 发布 GPT-6 Sol 与 GPT-6 Luna，按能力与高吞吐场景分层定价"
+      ]
     },
     {
       "date": "2026-09-28",
       "endDate": "2026-10-04",
       "filename": "weeklies/20260928-20261004周新闻.html",
       "title": "AI圈热点周报 第61期",
-      "summary": "2026年09月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "CNNIC：我国生成式 AI 用户规模突破 7 亿，效率办公等使用次数同比翻倍；CNNIC 联合多方上线智能体可信基础设施平台（ATI）；Anthropic 发布 Claude Sonnet 5.5：称速度提升逾 30%，单任务成本最多下降 30%",
       "newsCount": 6,
       "toolCount": 2,
       "techCount": 4,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "CNNIC：我国生成式 AI 用户规模突破 7 亿，效率办公等使用次数同比翻倍",
+        "CNNIC 联合多方上线智能体可信基础设施平台（ATI）",
+        "Anthropic 发布 Claude Sonnet 5.5：称速度提升逾 30%，单任务成本最多下降 30%"
+      ]
     },
     {
       "date": "2026-10-05",
       "endDate": "2026-10-11",
       "filename": "weeklies/20261005-20261011周新闻.html",
       "title": "AI圈热点周报 第62期",
-      "summary": "2026年10月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Manus 母公司蝴蝶效应完成逾 5 亿美元融资；DeepSeek 据报接近完成至少 800 亿元人民币融资；OpenAI 在 ChatGPT 图像生成中测试视觉广告与转化衡量",
       "newsCount": 6,
       "toolCount": 1,
       "techCount": 2,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "Manus 母公司蝴蝶效应完成逾 5 亿美元融资",
+        "DeepSeek 据报接近完成至少 800 亿元人民币融资",
+        "OpenAI 在 ChatGPT 图像生成中测试视觉广告与转化衡量"
+      ]
     },
     {
       "date": "2026-10-12",
       "endDate": "2026-10-18",
       "filename": "weeklies/20261012-20261018周新闻.html",
       "title": "AI圈热点周报 第63期",
-      "summary": "2026年10月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "Meta 发布 Muse Wonder 系列，瞄准个人与专业智能体；OpenAI：欧盟中小企业智能体周活跃用户较5月增长 8.1 倍；Anthropic 公布模型蒸馏防御进展，称可减少 90%-99% 数据被抓取",
       "newsCount": 6,
       "toolCount": 1,
       "techCount": 3,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "Meta 发布 Muse Wonder 系列，瞄准个人与专业智能体",
+        "OpenAI：欧盟中小企业智能体周活跃用户较5月增长 8.1 倍",
+        "Anthropic 公布模型蒸馏防御进展，称可减少 90%-99% 数据被抓取"
+      ]
     },
     {
       "date": "2026-10-19",
       "endDate": "2026-10-25",
       "filename": "weeklies/20261019-20261025周新闻.html",
       "title": "AI圈热点周报 第64期",
-      "summary": "2026年10月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "MiniMax 发布 M3.1 Flash，主打长上下文与低价智能体调用；DeepSeek 开源 DeepInfer 推理框架；两办发文：以应用和市场考核推动科技成果产业化",
       "newsCount": 6,
       "toolCount": 1,
       "techCount": 3,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "MiniMax 发布 M3.1 Flash，主打长上下文与低价智能体调用",
+        "DeepSeek 开源 DeepInfer 推理框架",
+        "两办发文：以应用和市场考核推动科技成果产业化"
+      ]
     },
     {
       "date": "2026-10-26",
       "endDate": "2026-11-01",
       "filename": "weeklies/20261026-20261101周新闻.html",
       "title": "AI圈热点周报 第65期",
-      "summary": "2026年10月的AI圈精彩内容，包含最新的技术突破和工具发布。",
+      "summary": "扬州投运城市级算电协同平台，按电价与碳排调度 AI 任务；2026 人工智能+大会在北京举办，聚焦物理 AI、开源数据与场景共创；OpenAI 公布数学、计算机科学和物理学三项 AI 辅助发现",
       "newsCount": 5,
       "toolCount": 1,
       "techCount": 4,
       "published": true,
-      "blackboardImage": null
+      "blackboardImage": null,
+      "highlights": [
+        "扬州投运城市级算电协同平台，按电价与碳排调度 AI 任务",
+        "2026 人工智能+大会在北京举办，聚焦物理 AI、开源数据与场景共创",
+        "OpenAI 公布数学、计算机科学和物理学三项 AI 辅助发现"
+      ]
     }
   ],
   "settings": {

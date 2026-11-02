@@ -60,15 +60,16 @@ description: 根据 Markdown 新闻文档生成 HTML 周报，扫描更新配置
             <div class="summary">
                 <span class="tag">标签1</span>
                 <span class="tag">标签2</span>
-                新闻简介内容...
+                <p>新闻简介内容...</p>
             </div>
             <div class="news-source">
-                <span class="source-label">来源</span>来源网站（YYYY-MM-DD）
+                <span class="source-label">来源</span><a href="https://example.com" target="_blank" rel="noopener noreferrer">来源网站（YYYY-MM-DD）</a>
             </div>
             <div class="analysis">
                 <h3>对普通人的价值分析</h3>
-                <p><strong>提效：</strong> 提效内容...<br><strong>赚钱：</strong> 赚钱内容...</p>
-                <p class="warning"><strong>⚠️ 辩证思考：</strong> 辩证内容...</p>
+                <p><strong>提效：</strong>提效内容...</p>
+                <p><strong>赚钱：</strong>赚钱内容...</p>
+                <p class="warning"><strong>⚠️ 辩证思考：</strong>辩证内容...</p>
             </div>
         </div>
 
@@ -84,7 +85,9 @@ description: 根据 Markdown 新闻文档生成 HTML 周报，扫描更新配置
                 <span class="tag">证据模式</span>
             </div>
             <div class="analysis">
-                <p>总结内容...</p>
+                <p><strong>趋势1：</strong>趋势内容...</p>
+                <p><strong>趋势2：</strong>趋势内容...</p>
+                <p><strong>一句话总结：</strong>总结内容...</p>
             </div>
         </div>
 
@@ -99,10 +102,11 @@ description: 根据 Markdown 新闻文档生成 HTML 周报，扫描更新配置
 1. **文件名格式**：`weeklies/YYYYMMDD-YYYYMMDD周新闻.html`
 2. **使用外部样式**：`<link rel="stylesheet" href="weekly.css">`
 3. **新闻序号**：使用 `<span class="news-index">N</span>`
-4. **标签格式**：`<span class="tag">标签文本</span>`
-5. **来源网站**：每张新闻卡片必须在简介和价值分析之间添加 `<div class="news-source">`，显示来源网站名称；有日期则使用 `来源网站（YYYY-MM-DD）`，多个来源用 `、` 分隔
-6. **辩证思考**：使用 `<p class="warning">` 包裹
-7. **总结卡片**：添加 `summary-card` 类
+4. **标签与简介格式**：标签使用 `<span class="tag">标签文本</span>`，简介正文在 `.summary` 内使用独立 `<p>` 标签包裹
+5. **来源网站**：每张新闻卡片必须在简介和价值分析之间添加 `<div class="news-source">`，显示来源网站名称；有日期则使用 `来源网站（YYYY-MM-DD）`，有链接时使用 `<a>` 包裹，多个来源用 `、` 分隔
+6. **价值分析分段**：「提效」与「赚钱」分别使用独立的 `<p>` 标签包裹（触发 `weekly.css` 中的段落虚线分隔样式），不要合并在同一个 `<p>` 中用 `<br>` 换行
+7. **辩证思考**：使用 `<p class="warning">` 包裹（触发琥珀色警示引述块样式）
+8. **总结卡片**：添加 `summary-card` 类（触发靛蓝渐变总结卡样式）
 
 ### 步骤 3：扫描文件夹并更新配置
 
@@ -111,22 +115,23 @@ description: 根据 Markdown 新闻文档生成 HTML 周报，扫描更新配置
 node update-config.js scan
 ```
 
-该命令会：
+该命令会自动完成：
 - 扫描 `weeklies/` 目录下所有符合命名规则的 HTML 文件
-- 自动提取新闻统计数据（newsCount, toolCount, techCount）
-- 更新 `weekly-config.json` 配置文件
-- 自动分配期数（第N期）
+- 自动提取新闻统计数据（`newsCount`, `toolCount`, `techCount`）
+- 自动提取当期前 3 条新闻 `<h2>` 标题生成 `highlights` 看点数组及 `summary` 摘要
+- 更新 `weekly-config.json` 配置文件并按日期自动分配期数（第N期）
+- 自动同步更新 `README.md` 中的「📊 当前状态」部分
 
-### 步骤 4：更新 README.md
+### 步骤 4：校验 README.md 状态
 
-更新 `README.md` 文件中的「📊 当前状态」部分：
+确认 `node update-config.js scan` 已自动更新 `README.md` 中的「📊 当前状态」部分（若自动更新被跳过则手动补齐）：
 
-1. **更新已发布周报列表**：
+1. **校验已发布周报列表**：
    - 最新的周报使用 🆕 标记
    - 其他按时间倒序排列
    - 包含期数、日期范围、统计数据
 
-2. **更新统计总计**：
+2. **校验统计总计**：
    - 总期数
    - 总新闻数
    - 总工具数

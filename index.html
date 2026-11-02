@@ -4,32 +4,32 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI圈热点周报 - 动态列表</title>
+    <title>AI 圈热点周报 — 科技情报周刊</title>
 
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;600;700&display=swap');
-
         :root {
-            --fs-bg-page: #f5f6f7;
-            --fs-bg-header: #ffffff;
-            --fs-surface: #ffffff;
-            --fs-surface-hover: #fcfcfc;
-            --fs-border: #dee0e3;
-            --fs-primary: #3370FF;
-            --fs-primary-hover: #548BF4;
-            --fs-primary-light: #e1eaff;
-            --fs-success: #24a148;
-            --fs-danger: #d92d20;
-            --fs-text-title: #1f2329;
-            --fs-text-body: #646a73;
-            --fs-text-meta: #8f959e;
-            --fs-shadow-sm: 0 1px 4px rgba(31, 35, 41, 0.05);
-            --fs-shadow-card: 0 2px 8px rgba(31, 35, 41, 0.08);
-            --fs-drawer-shadow: -4px 0 16px rgba(0,0,0,0.1);
-            --fs-radius-sm: 6px;
-            --fs-radius-md: 8px;
-            --fs-radius-lg: 12px;
-            --fs-header-height: 64px;
+            --ed-bg-page: #FAF8F5;
+            --ed-surface: #FFFFFF;
+            --ed-surface-hover: #FCFBF9;
+            --ed-surface-muted: #F2EFE9;
+            --ed-border: #E6E2DA;
+            --ed-border-strong: #D4CFC5;
+            --ed-ink: #141413;
+            --ed-text-body: #3F3F46;
+            --ed-text-meta: #71717A;
+            --ed-primary: #4F46E5;
+            --ed-primary-hover: #4338CA;
+            --ed-primary-soft: #EEF2FF;
+            --ed-primary-border: #C7D2FE;
+            --ed-emerald: #059669;
+            --ed-emerald-soft: #ECFDF5;
+            --ed-shadow-sm: 0 2px 8px rgba(20, 20, 19, 0.04);
+            --ed-shadow-card: 0 12px 28px -8px rgba(20, 20, 19, 0.08);
+            --ed-shadow-featured: 0 14px 34px -10px rgba(79, 70, 229, 0.10);
+            --ed-drawer-shadow: -12px 0 40px rgba(20, 20, 19, 0.14);
+            --ed-radius-sm: 8px;
+            --ed-radius-md: 12px;
+            --ed-radius-lg: 16px;
         }
 
         * {
@@ -39,286 +39,447 @@
         }
 
         body {
-            font-family: 'Noto Sans SC', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "PingFang SC", "Microsoft YaHei", sans-serif;
-            background-color: var(--fs-bg-page);
-            color: var(--fs-text-body);
+            font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Microsoft YaHei", sans-serif;
+            background-color: var(--ed-bg-page);
+            color: var(--ed-text-body);
             min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Feishu Style Top Navigation */
-        .top-nav {
-            height: var(--fs-header-height);
-            background: var(--fs-bg-header);
-            border-bottom: 1px solid var(--fs-border);
-            display: flex;
-            align-items: center;
-            padding: 0 24px;
+        /* Editorial Top Navigation & Masthead */
+        .masthead-wrapper {
+            background: rgba(250, 248, 245, 0.88);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--ed-border);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
-        .top-nav h1 {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--fs-text-title);
-            margin: 0;
-            letter-spacing: 0.5px;
+        .masthead {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 20px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 24px;
         }
 
-        .top-nav .subtitle {
-            margin-left: 12px;
-            padding-left: 12px;
-            border-left: 1px solid var(--fs-border);
-            font-size: 14px;
-            color: var(--fs-text-meta);
+        .brand-group {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .brand-kicker {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--ed-primary);
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+        }
+
+        .brand-kicker::before {
+            content: "";
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--ed-primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+        }
+
+        .brand-title-row {
+            display: flex;
+            align-items: baseline;
+            gap: 14px;
+            flex-wrap: wrap;
+        }
+
+        .brand-title-row h1 {
+            font-family: "Noto Serif SC", "Songti SC", "STSong", serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--ed-ink);
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+        }
+
+        .brand-subtitle {
+            font-size: 13.5px;
+            color: var(--ed-text-meta);
+            padding-left: 14px;
+            border-left: 1px solid var(--ed-border-strong);
         }
 
         .stats-bar {
-            background: var(--fs-surface);
-            border-bottom: 1px solid var(--fs-border);
-            padding: 16px 24px;
             display: flex;
-            gap: 40px;
+            gap: 28px;
             align-items: center;
         }
 
         .stat-item {
             display: flex;
             flex-direction: column;
+            align-items: flex-end;
         }
 
         .stat-number {
-            font-size: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 20px;
             font-weight: 600;
-            color: var(--fs-text-title);
+            color: var(--ed-ink);
             line-height: 1.2;
         }
 
         .stat-label {
-            font-size: 12px;
-            color: var(--fs-text-meta);
+            font-size: 11.5px;
+            color: var(--ed-text-meta);
+            margin-top: 2px;
         }
 
-        .controls {
-            padding: 24px 24px 0;
+        /* Main Container */
+        .page-shell {
+            max-width: 1360px;
+            margin: 0 auto;
+            padding: 28px 28px 64px;
+        }
+
+        /* Featured Latest Weekly Hero Card */
+        .featured-section {
+            margin-bottom: 26px;
+        }
+
+        .featured-card {
+            background: var(--ed-surface);
+            border: 1px solid var(--ed-border-strong);
+            border-radius: var(--ed-radius-lg);
+            padding: 26px 30px;
+            box-shadow: var(--ed-shadow-featured);
             display: flex;
-            gap: 16px;
+            justify-content: space-between;
+            align-items: center;
+            gap: 28px;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
+
+        .featured-card::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 4px;
+            background: var(--ed-primary);
+        }
+
+        .featured-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--ed-primary);
+            box-shadow: 0 18px 38px -10px rgba(79, 70, 229, 0.16);
+        }
+
+        .featured-body {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .featured-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            flex-wrap: wrap;
+        }
+
+        .featured-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            background: var(--ed-primary-soft);
+            color: var(--ed-primary);
+            border: 1px solid var(--ed-primary-border);
+            padding: 3px 10px;
+            border-radius: 999px;
+        }
+
+        .featured-date {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12.5px;
+            color: var(--ed-text-meta);
+        }
+
+        .featured-headline {
+            font-family: "Noto Serif SC", "Songti SC", serif;
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--ed-ink);
+            line-height: 1.38;
+            margin-bottom: 10px;
+        }
+
+        .featured-highlights {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 18px;
+            list-style: none;
+            font-size: 13.5px;
+            color: var(--ed-text-body);
+            line-height: 1.6;
+        }
+
+        .featured-highlights li {
+            display: inline-flex;
+            align-items: baseline;
+            gap: 6px;
+        }
+
+        .featured-highlights li::before {
+            content: "◆";
+            font-size: 9px;
+            color: var(--ed-primary);
+        }
+
+        .featured-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 14px;
+            flex-shrink: 0;
+        }
+
+        .featured-metrics {
+            display: flex;
+            gap: 14px;
+            font-size: 12px;
+            color: var(--ed-text-meta);
+        }
+
+        .featured-metrics strong {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
+            color: var(--ed-ink);
+            margin-right: 2px;
+        }
+
+        .featured-cta {
+            background: var(--ed-ink);
+            color: #FFFFFF;
+            border: none;
+            border-radius: var(--ed-radius-sm);
+            padding: 10px 18px;
+            font-size: 13px;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: background 0.15s ease;
+        }
+
+        .featured-card:hover .featured-cta {
+            background: var(--ed-primary);
+        }
+
+        /* Controls Bar */
+        .controls {
+            display: flex;
+            gap: 12px;
             flex-wrap: wrap;
             align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
+            margin-bottom: 22px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--ed-border);
         }
 
         .search-box {
             position: relative;
-            flex: 1;
-            min-width: 240px;
-            max-width: 320px;
+            flex: 0 1 280px;
+            min-width: 220px;
         }
 
         .search-input {
             width: 100%;
-            height: 32px;
-            padding: 4px 12px 4px 32px;
-            border: 1px solid var(--fs-border);
-            border-radius: var(--fs-radius-sm);
-            font-size: 14px;
-            background: var(--fs-surface);
-            color: var(--fs-text-title);
+            height: 36px;
+            padding: 6px 12px 6px 34px;
+            border: 1px solid var(--ed-border-strong);
+            border-radius: var(--ed-radius-sm);
+            font-size: 13.5px;
+            background: var(--ed-surface);
+            color: var(--ed-ink);
             transition: all 0.2s ease;
         }
 
         .search-input:focus {
             outline: none;
-            border-color: var(--fs-primary);
-            box-shadow: 0 0 0 2px rgba(51, 112, 255, 0.2);
+            border-color: var(--ed-primary);
+            box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.12);
         }
 
         .search-input::placeholder {
-            color: var(--fs-text-meta);
+            color: var(--ed-text-meta);
         }
 
         .search-icon {
             position: absolute;
-            left: 10px;
+            left: 11px;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--fs-text-meta);
-            font-size: 14px;
+            color: var(--ed-text-meta);
+            font-size: 13px;
+            pointer-events: none;
         }
 
         .filter-buttons {
             display: flex;
-            gap: 8px;
+            gap: 6px;
             overflow-x: auto;
+            flex: 1;
             flex-wrap: nowrap;
-            padding-bottom: 4px;
+            padding: 2px 0;
+            scrollbar-width: none;
+        }
+
+        .filter-buttons::-webkit-scrollbar {
+            display: none;
         }
 
         .filter-btn {
             height: 32px;
-            padding: 0 16px;
-            border: 1px solid var(--fs-border);
-            border-radius: var(--fs-radius-sm);
-            background: var(--fs-surface);
-            color: var(--fs-text-body);
+            padding: 0 13px;
+            border: 1px solid transparent;
+            border-radius: 999px;
+            background: var(--ed-surface-muted);
+            color: var(--ed-text-body);
             cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 14px;
+            transition: all 0.15s ease;
+            font-size: 12.5px;
+            font-weight: 500;
             white-space: nowrap;
         }
 
         .filter-btn:hover {
-            border-color: var(--fs-primary);
-            color: var(--fs-primary);
+            background: #E8E4DC;
+            color: var(--ed-ink);
         }
 
         .filter-btn.active {
-            background: var(--fs-primary-light);
-            border-color: var(--fs-primary);
-            color: var(--fs-primary);
-            font-weight: 500;
+            background: var(--ed-ink);
+            color: #FFFFFF;
+            font-weight: 600;
+        }
+
+        .toolbar-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: auto;
         }
 
         .refresh-btn {
-            height: 32px;
-            padding: 0 16px;
-            border: 1px solid var(--fs-border);
-            border-radius: var(--fs-radius-sm);
-            background: var(--fs-surface);
-            color: var(--fs-text-body);
+            height: 34px;
+            padding: 0 13px;
+            border: 1px solid var(--ed-border-strong);
+            border-radius: var(--ed-radius-sm);
+            background: var(--ed-surface);
+            color: var(--ed-text-body);
             cursor: pointer;
-            transition: all 0.2s ease;
-            font-size: 14px;
-            display: flex;
+            transition: all 0.15s ease;
+            font-size: 12.5px;
+            font-weight: 500;
+            display: inline-flex;
             align-items: center;
-            gap: 6px;
+            gap: 5px;
         }
 
         .refresh-btn:hover {
-            color: var(--fs-primary);
-            background: var(--fs-surface-hover);
-            border-color: var(--fs-primary);
+            color: var(--ed-primary);
+            border-color: var(--ed-primary);
+            background: var(--ed-primary-soft);
         }
 
         .layout-switcher {
             display: flex;
-            gap: 4px;
-            background: var(--fs-surface);
-            padding: 4px;
-            border-radius: var(--fs-radius-sm);
-            border: 1px solid var(--fs-border);
-            margin-left: auto;
+            gap: 2px;
+            background: var(--ed-surface);
+            padding: 3px;
+            border-radius: var(--ed-radius-sm);
+            border: 1px solid var(--ed-border-strong);
         }
 
         .layout-btn {
-            width: 24px;
-            height: 24px;
+            width: 26px;
+            height: 26px;
             display: flex;
             justify-content: center;
             align-items: center;
             background: transparent;
             border: none;
-            border-radius: 4px;
-            color: var(--fs-text-meta);
+            border-radius: 5px;
+            color: var(--ed-text-meta);
             cursor: pointer;
-            transition: all 0.2s ease;
+            transition: all 0.15s ease;
         }
 
         .layout-btn:hover {
-            color: var(--fs-text-title);
-            background: var(--fs-bg-page);
+            color: var(--ed-ink);
+            background: var(--ed-surface-muted);
         }
 
         .layout-btn.active {
-            color: var(--fs-primary);
-            background: var(--fs-primary-light);
+            color: var(--ed-primary);
+            background: var(--ed-primary-soft);
         }
 
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 24px;
-        }
-
-        /* DEFAULT (Medium Grid) */
+        /* Grid Layouts */
         .weekly-list {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
             gap: 20px;
-            align-items: start;
+            align-items: stretch;
         }
 
-        /* SMALL / COMPACT Grid */
         .weekly-list.layout-small {
-            grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-            gap: 16px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 14px;
         }
 
-        /* LARGE / DETAIL Grid */
         .weekly-list.layout-large {
-            grid-template-columns: repeat(auto-fill, minmax(600px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(560px, 1fr));
             gap: 24px;
         }
 
+        /* Editorial Issue Card */
         .weekly-card {
-            background: var(--fs-surface);
-            border: 1px solid var(--fs-border);
-            border-radius: var(--fs-radius-md);
-            padding: 20px;
-            box-shadow: var(--fs-shadow-sm);
-            transition: all 0.2s ease;
+            background: var(--ed-surface);
+            border: 1px solid var(--ed-border);
+            border-radius: var(--ed-radius-md);
+            padding: 22px 24px;
+            box-shadow: var(--ed-shadow-sm);
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
             display: flex;
             flex-direction: column;
             cursor: pointer;
-            min-height: 180px;
-        }
-
-        /* Small layout card overrides */
-        .weekly-list.layout-small .weekly-card {
-            min-height: auto;
-            padding: 16px;
-        }
-        .weekly-list.layout-small .weekly-title {
-            font-size: 16px;
-            margin: 0 0 8px 0;
-        }
-        .weekly-list.layout-small .card-preview-image {
-            height: 100px;
-            margin-bottom: 12px;
-        }
-        .weekly-list.layout-small .weekly-summary,
-        .weekly-list.layout-small .weekly-stats {
-            display: none;
-        }
-
-        /* Large layout card overrides */
-        .weekly-list.layout-large .weekly-card {
-            min-height: 220px;
-            padding: 24px;
-        }
-        .weekly-list.layout-large .weekly-title {
-            font-size: 20px;
-            margin-bottom: 16px;
-        }
-        .weekly-list.layout-large .weekly-summary {
-            font-size: 15px;
-            -webkit-line-clamp: 5;
-            margin-bottom: 24px;
-        }
-        .weekly-list.layout-large .card-preview-image {
-            height: 200px;
+            position: relative;
         }
 
         .weekly-card:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--fs-shadow-card);
-            border-color: var(--fs-primary);
+            transform: translateY(-3px);
+            box-shadow: var(--ed-shadow-card);
+            border-color: var(--ed-primary);
         }
 
         .weekly-card.unpublished {
             opacity: 0.6;
+            cursor: not-allowed;
         }
 
         .card-header {
@@ -326,45 +487,96 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 12px;
+            gap: 8px;
+        }
+
+        .issue-badge {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11.5px;
+            font-weight: 600;
+            color: var(--ed-primary);
+            background: var(--ed-primary-soft);
+            padding: 2px 9px;
+            border-radius: 6px;
+            letter-spacing: 0.3px;
         }
 
         .date-badge {
-            color: var(--fs-text-meta);
-            font-size: 13px;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--ed-text-meta);
+            font-size: 12px;
+            margin-left: auto;
         }
 
         .status-badge {
-            font-size: 12px;
-            padding: 2px 6px;
-            border-radius: 4px;
-            background: var(--fs-primary-light);
-            color: var(--fs-primary);
-            font-weight: 500;
+            font-size: 11px;
+            padding: 2px 7px;
+            border-radius: 99px;
+            background: var(--ed-emerald-soft);
+            color: var(--ed-emerald);
+            font-weight: 600;
         }
 
         .unpublished .status-badge {
-            background: var(--fs-bg-page);
-            color: var(--fs-text-meta);
-            border: 1px solid var(--fs-border);
+            background: var(--ed-surface-muted);
+            color: var(--ed-text-meta);
         }
 
         .weekly-title {
             margin: 0 0 12px 0;
-            color: var(--fs-text-title);
-            font-size: 18px;
-            font-weight: 600;
-            line-height: 1.4;
+            color: var(--ed-ink);
+            font-family: "Noto Serif SC", "Songti SC", serif;
+            font-size: 18.5px;
+            font-weight: 700;
+            line-height: 1.38;
+        }
+
+        .card-preview-image {
+            width: 100%;
+            height: 148px;
+            object-fit: cover;
+            border-radius: var(--ed-radius-sm);
+            border: 1px solid var(--ed-border);
+            margin-bottom: 14px;
+        }
+
+        /* Bullet list of top headlines */
+        .weekly-highlights {
+            list-style: none;
+            margin: 0 0 18px 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 7px;
+            flex: 1;
+        }
+
+        .weekly-highlights li {
+            font-size: 13.5px;
+            line-height: 1.52;
+            color: var(--ed-text-body);
             display: -webkit-box;
-            -webkit-line-clamp: 2;
+            -webkit-line-clamp: 1;
             -webkit-box-orient: vertical;
             overflow: hidden;
+            position: relative;
+            padding-left: 13px;
+        }
+
+        .weekly-highlights li::before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            top: 0;
+            color: var(--ed-primary);
+            font-weight: 700;
         }
 
         .weekly-summary {
-            color: var(--fs-text-body);
-            font-size: 14px;
+            color: var(--ed-text-body);
+            font-size: 13.5px;
             line-height: 1.6;
-            margin-bottom: 16px;
+            margin-bottom: 18px;
             display: -webkit-box;
             -webkit-line-clamp: 3;
             -webkit-box-orient: vertical;
@@ -372,94 +584,159 @@
             flex: 1;
         }
 
-        .card-preview-image {
-            width: 100%;
-            height: 140px;
-            object-fit: cover;
-            border-radius: var(--fs-radius-sm);
-            border: 1px solid var(--fs-border);
-            margin-bottom: 16px;
-        }
-
         .weekly-stats {
             display: flex;
+            align-items: center;
             gap: 16px;
-            padding-top: 16px;
-            border-top: 1px solid var(--fs-border);
+            padding-top: 14px;
+            border-top: 1px dashed var(--ed-border);
+            margin-top: auto;
         }
 
         .stat {
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            display: inline-flex;
+            align-items: baseline;
+            gap: 4px;
         }
 
         .stat-num {
-            font-size: 16px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 14px;
             font-weight: 600;
-            color: var(--fs-text-title);
+            color: var(--ed-ink);
         }
 
         .stat-text {
-            font-size: 12px;
-            color: var(--fs-text-meta);
+            font-size: 11.5px;
+            color: var(--ed-text-meta);
         }
 
-        .loading, .no-results, .error {
+        .card-read-more {
+            margin-left: auto;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--ed-text-meta);
+            transition: color 0.15s ease, transform 0.15s ease;
+        }
+
+        .weekly-card:hover .card-read-more {
+            color: var(--ed-primary);
+            transform: translateX(2px);
+        }
+
+        /* Layout size overrides */
+        .weekly-list.layout-small .weekly-card {
+            padding: 16px 18px;
+        }
+
+        .weekly-list.layout-small .weekly-title {
+            font-size: 16px;
+            margin-bottom: 6px;
+        }
+
+        .weekly-list.layout-small .weekly-highlights,
+        .weekly-list.layout-small .weekly-summary,
+        .weekly-list.layout-small .weekly-stats {
+            display: none;
+        }
+
+        .weekly-list.layout-large .weekly-card {
+            padding: 26px 28px;
+        }
+
+        .weekly-list.layout-large .weekly-title {
+            font-size: 21px;
+        }
+
+        .weekly-list.layout-large .weekly-highlights li {
+            -webkit-line-clamp: 2;
+            font-size: 14.5px;
+        }
+
+        .loading,
+        .no-results,
+        .error {
             text-align: center;
-            padding: 60px 0;
-            color: var(--fs-text-meta);
+            padding: 72px 20px;
+            color: var(--ed-text-meta);
             font-size: 14px;
             grid-column: 1 / -1;
+            background: var(--ed-surface);
+            border: 1px dashed var(--ed-border-strong);
+            border-radius: var(--ed-radius-md);
         }
 
-        /* Drawer styles */
+        /* Drawer Component */
         .drawer-overlay {
             position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(31, 35, 41, 0.4);
+            inset: 0;
+            background: rgba(20, 20, 19, 0.42);
+            backdrop-filter: blur(3px);
+            -webkit-backdrop-filter: blur(3px);
             opacity: 0;
             visibility: hidden;
-            transition: all 0.2s ease;
+            transition: all 0.25s ease;
             z-index: 1000;
         }
-        
+
         .drawer-overlay.active {
             opacity: 1;
             visibility: visible;
         }
-        
+
         .drawer {
             position: fixed;
-            top: 0; right: -860px;
-            width: 860px;
+            top: 0;
+            right: -900px;
+            width: 880px;
             max-width: 100vw;
             height: 100vh;
-            background: var(--fs-bg-page);
-            box-shadow: var(--fs-drawer-shadow);
+            background: var(--ed-bg-page);
+            box-shadow: var(--ed-drawer-shadow);
             transition: right 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
             z-index: 1001;
             display: flex;
             flex-direction: column;
+            border-left: 1px solid var(--ed-border-strong);
         }
-        
+
         .drawer.active {
             right: 0;
         }
-        
+
         .drawer-header {
-            padding: 16px 24px;
-            background: var(--fs-surface);
-            border-bottom: 1px solid var(--fs-border);
+            padding: 14px 24px;
+            background: var(--ed-surface);
+            border-bottom: 1px solid var(--ed-border);
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 16px;
         }
-        
-        .drawer-header h2 {
-            font-size: 18px;
+
+        .drawer-title-group {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            min-width: 0;
+        }
+
+        .drawer-kicker {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 11px;
             font-weight: 600;
-            color: var(--fs-text-title);
+            color: var(--ed-primary);
+            background: var(--ed-primary-soft);
+            padding: 3px 8px;
+            border-radius: 5px;
+            flex-shrink: 0;
+        }
+
+        .drawer-header h2 {
+            font-family: "Noto Serif SC", "Songti SC", serif;
+            font-size: 17px;
+            font-weight: 700;
+            color: var(--ed-ink);
             margin: 0;
             white-space: nowrap;
             overflow: hidden;
@@ -469,85 +746,129 @@
         .drawer-actions {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 8px;
             flex-shrink: 0;
         }
 
         .drawer-btn {
-            background: none;
-            border: 1px solid var(--fs-border);
-            font-size: 14px;
-            color: var(--fs-text-body);
+            background: var(--ed-surface);
+            border: 1px solid var(--ed-border-strong);
+            font-size: 12.5px;
+            font-weight: 500;
+            color: var(--ed-text-body);
             cursor: pointer;
-            padding: 4px 12px;
-            border-radius: var(--fs-radius-sm);
-            transition: all 0.2s ease;
+            padding: 0 11px;
+            border-radius: var(--ed-radius-sm);
+            transition: all 0.15s ease;
             height: 32px;
             display: inline-flex;
             align-items: center;
+            gap: 4px;
         }
 
-        .drawer-btn:hover {
-            background: var(--fs-surface-hover);
-            color: var(--fs-text-title);
-            border-color: #bbbfc4;
+        .drawer-btn:hover:not(:disabled) {
+            background: var(--ed-surface-muted);
+            color: var(--ed-ink);
+            border-color: var(--ed-ink);
         }
-        
+
+        .drawer-btn:disabled {
+            opacity: 0.4;
+            cursor: not-allowed;
+        }
+
         .drawer-close {
             background: none;
-            border: none;
-            font-size: 24px;
+            border: 1px solid transparent;
+            font-size: 20px;
             line-height: 1;
-            color: var(--fs-text-meta);
+            color: var(--ed-text-meta);
             cursor: pointer;
             width: 32px;
             height: 32px;
-            border-radius: var(--fs-radius-sm);
+            border-radius: var(--ed-radius-sm);
             display: flex;
             justify-content: center;
             align-items: center;
-            transition: all 0.2s ease;
+            transition: all 0.15s ease;
         }
-        
+
         .drawer-close:hover {
-            color: var(--fs-text-title);
-            background: var(--fs-surface-hover);
+            color: var(--ed-ink);
+            background: var(--ed-surface-muted);
         }
-        
+
         .drawer-content {
             flex: 1;
             overflow: hidden;
-            background: var(--fs-surface);
+            background: var(--ed-bg-page);
             position: relative;
         }
-        
+
         .drawer-content iframe {
             width: 100%;
             height: 100%;
             border: none;
-            background: var(--fs-bg-page);
+            background: var(--ed-bg-page);
         }
 
-        /* Iframe loader */
         .iframe-loader {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            color: var(--fs-text-meta);
-            font-size: 14px;
+            color: var(--ed-text-meta);
+            font-size: 13.5px;
             pointer-events: none;
         }
 
         @media (max-width: 768px) {
-            .top-nav { padding: 0 16px; height: 56px; }
-            .stats-bar { gap: 20px; padding: 12px 16px; overflow-x: auto; }
-            .controls { padding: 16px 16px 0; }
-            .search-box { max-width: none; flex: 1 1 100%; }
-            .layout-switcher { margin-left: 0; width: 100%; justify-content: flex-end; }
-            .weekly-list { grid-template-columns: 1fr; }
-            .weekly-list.layout-small { grid-template-columns: repeat(2, 1fr); gap: 12px; }
-            .drawer { width: 100vw; }
+            .masthead {
+                padding: 16px;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 14px;
+            }
+            .brand-subtitle {
+                display: none;
+            }
+            .stats-bar {
+                width: 100%;
+                justify-content: space-between;
+                padding-top: 12px;
+                border-top: 1px solid var(--ed-border);
+            }
+            .stat-item {
+                align-items: flex-start;
+            }
+            .page-shell {
+                padding: 18px 16px 48px;
+            }
+            .featured-card {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 20px;
+                gap: 18px;
+            }
+            .featured-right {
+                width: 100%;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .search-box {
+                flex: 1 1 100%;
+            }
+            .weekly-list {
+                grid-template-columns: 1fr;
+            }
+            .weekly-list.layout-small {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
+            }
+            .drawer {
+                width: 100vw;
+            }
         }
     </style>
     <script>
@@ -557,54 +878,67 @@
 </head>
 
 <body>
-    <div class="top-nav">
-        <h1>AI 圈热点周报</h1>
-        <span class="subtitle">动态列表 (Feishu Style)</span>
-    </div>
+    <header class="masthead-wrapper">
+        <div class="masthead">
+            <div class="brand-group">
+                <span class="brand-kicker">AI WEEKLY INTELLIGENCE</span>
+                <div class="brand-title-row">
+                    <h1>AI 圈热点周报</h1>
+                    <span class="brand-subtitle">追踪每周值得关注的模型突破、工具演进与落地实践</span>
+                </div>
+            </div>
 
-    <div class="stats-bar">
-        <div class="stat-item">
-            <span class="stat-number" id="totalWeeks">-</span>
-            <span class="stat-label">总期数</span>
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-number" id="totalWeeks">-</span>
+                    <span class="stat-label">累计期数</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="totalNews">-</span>
+                    <span class="stat-label">精选资讯</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="latestDate">-</span>
+                    <span class="stat-label">最近更新</span>
+                </div>
+            </div>
         </div>
-        <div class="stat-item">
-            <span class="stat-number" id="totalNews">-</span>
-            <span class="stat-label">新闻总数</span>
-        </div>
-        <div class="stat-item">
-            <span class="stat-number" id="latestDate">-</span>
-            <span class="stat-label">最新更新</span>
-        </div>
-    </div>
+    </header>
 
-    <div class="controls">
-        <div class="search-box">
-            <span class="search-icon">🔍</span>
-            <input type="text" class="search-input" placeholder="搜索周报标题或日期..." id="searchInput">
-        </div>
-        <div class="filter-buttons" id="filterButtons">
-            <button class="filter-btn active" data-month="all">全部</button>
-        </div>
-        <button class="refresh-btn" onclick="loadWeeklies()">
-            <span>🔄</span> 刷新
-        </button>
+    <main class="page-shell">
+        <!-- Featured Latest Weekly Issue -->
+        <section class="featured-section" id="featuredSection" style="display: none;"></section>
 
-        <div class="layout-switcher" id="layoutSwitcher">
-           <button class="layout-btn" data-layout="large" title="宽体视图">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6z"/></svg>
-            </button>
-            <button class="layout-btn active" data-layout="medium" title="标准网格视图">
-                <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 0h7v7h-7v-7z"/></svg>
-            </button>
-            <button class="layout-btn" data-layout="small" title="紧凑视图">
-               <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M3 3h5v5H3V3zm7 0h5v5h-5V3zm7 0h5v5h-5V3zM3 10h5v5H3v-5zm7 0h5v5h-5v-5zm7 0h5v5h-5v-5zM3 17h5v5H3v-5zm7 0h5v5h-5v-5zm7 0h5v5h-5v-5z"/></svg>
-            </button>
-        </div>
-    </div>
+        <!-- Search & Filter Controls -->
+        <div class="controls">
+            <div class="search-box">
+                <span class="search-icon">🔍</span>
+                <input type="text" class="search-input" placeholder="搜索周报期数、标题、模型或关键词..." id="searchInput">
+            </div>
+            <div class="filter-buttons" id="filterButtons">
+                <button class="filter-btn active" data-month="all">全部</button>
+            </div>
+            <div class="toolbar-actions">
+                <button class="refresh-btn" onclick="loadWeeklies()">
+                    <span>↻</span> 刷新
+                </button>
 
-    <div class="container">
+                <div class="layout-switcher" id="layoutSwitcher">
+                    <button class="layout-btn" data-layout="large" title="宽体视图">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M4 4h16v16H4V4zm2 2v12h12V6H6z"/></svg>
+                    </button>
+                    <button class="layout-btn active" data-layout="medium" title="标准网格视图">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M4 4h7v7H4V4zm9 0h7v7h-7V4zM4 13h7v7H4v-7zm9 0h7v7h-7v-7z"/></svg>
+                    </button>
+                    <button class="layout-btn" data-layout="small" title="紧凑视图">
+                        <svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor"><path d="M3 3h5v5H3V3zm7 0h5v5h-5V3zm7 0h5v5h-5V3zM3 10h5v5H3v-5zm7 0h5v5h-5v-5zm7 0h5v5h-5v-5zM3 17h5v5H3v-5zm7 0h5v5h-5v-5zm7 0h5v5h-5v-5z"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <div class="loading" id="loading">
-            加载中...
+            正在加载周报档案...
         </div>
 
         <div class="weekly-list" id="weeklyList" style="display: none;">
@@ -612,26 +946,31 @@
         </div>
 
         <div class="no-results" id="noResults" style="display: none;">
-            未找到匹配的周报内容
+            未找到匹配的周报内容，请尝试其他关键词或切换月份
         </div>
 
         <div class="error" id="errorMessage" style="display: none;">
             加载失败，请检查配置文件是否存在或网络连接
         </div>
-    </div>
+    </main>
 
     <!-- Drawer Component -->
     <div class="drawer-overlay" id="drawerOverlay" onclick="closeDrawer()"></div>
     <div class="drawer" id="drawer">
         <div class="drawer-header">
-            <h2 id="drawerTitle">周报预览</h2>
+            <div class="drawer-title-group">
+                <span class="drawer-kicker" id="drawerKicker">READER</span>
+                <h2 id="drawerTitle">周报预览</h2>
+            </div>
             <div class="drawer-actions">
-                <button class="drawer-btn" id="drawerOpenNew" onclick="openInNewTab()">新窗口打开</button>
-                <button class="drawer-close" onclick="closeDrawer()">×</button>
+                <button class="drawer-btn" id="drawerPrevBtn" onclick="navigateDrawer(1)" title="上一期">← 上一期</button>
+                <button class="drawer-btn" id="drawerNextBtn" onclick="navigateDrawer(-1)" title="下一期">下一期 →</button>
+                <button class="drawer-btn" id="drawerOpenNew" onclick="openInNewTab()">新窗口打开 ↗</button>
+                <button class="drawer-close" onclick="closeDrawer()" title="关闭 (Esc)">×</button>
             </div>
         </div>
         <div class="drawer-content">
-            <div class="iframe-loader" id="iframeLoader">加载中...</div>
+            <div class="iframe-loader" id="iframeLoader">正在加载周报内容...</div>
             <iframe id="drawerIframe" onload="iframeLoaded()"></iframe>
         </div>
     </div>
@@ -639,42 +978,39 @@
     <script>
         // 全局变量
         let weeklyData = [];
+        let sortedDisplayList = [];
         let currentFilter = 'all';
         let currentDrawerUrl = '';
+        let currentDrawerIndex = -1;
 
-        // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', function () {
-            console.log("🚀 News List Loaded - Feishu Style drawer + Layouts update");
             loadWeeklies();
             setupEventListeners();
             setupLayoutSwitcher();
         });
 
-        // 设置事件监听器
         function setupEventListeners() {
             const searchInput = document.getElementById('searchInput');
             searchInput.addEventListener('input', filterWeeklies);
-            
-            // 按下 Esc 键关闭抽屉
-            document.addEventListener('keydown', function(e) {
+
+            document.addEventListener('keydown', function (e) {
                 if (e.key === 'Escape') {
                     closeDrawer();
                 }
             });
         }
 
-        // Layout Switcher Logic
         function setupLayoutSwitcher() {
             const layoutBtns = document.querySelectorAll('.layout-btn');
             const weeklyList = document.getElementById('weeklyList');
-            
+
             layoutBtns.forEach(btn => {
-                btn.addEventListener('click', function() {
+                btn.addEventListener('click', function () {
                     layoutBtns.forEach(b => b.classList.remove('active'));
                     this.classList.add('active');
-                    
+
                     const layout = this.dataset.layout;
-                    weeklyList.className = 'weekly-list'; // clear all size classes
+                    weeklyList.className = 'weekly-list';
                     if (layout !== 'medium') {
                         weeklyList.classList.add('layout-' + layout);
                     }
@@ -682,7 +1018,6 @@
             });
         }
 
-        // 加载周报数据
         async function loadWeeklies() {
             const loading = document.getElementById('loading');
             const weeklyList = document.getElementById('weeklyList');
@@ -699,11 +1034,10 @@
                 }
 
                 const data = await response.json();
-                weeklyData = data.weeklies || [];
-
-                weeklyData.sort((a, b) => new Date(a.date) - new Date(b.date));
+                weeklyData = (data.weeklies || []).slice().sort((a, b) => new Date(a.date) - new Date(b.date));
 
                 generateFilterButtons();
+                renderFeaturedBanner();
                 generateWeeklyCards();
                 updateStats();
 
@@ -721,12 +1055,58 @@
             }
         }
 
-        // 生成筛选按钮
+        function renderFeaturedBanner() {
+            const featuredSection = document.getElementById('featuredSection');
+            const published = weeklyData
+                .map((w, idx) => ({ ...w, issueNumber: idx + 1 }))
+                .filter(w => w.published);
+
+            if (published.length === 0) {
+                featuredSection.style.display = 'none';
+                return;
+            }
+
+            const latest = published[published.length - 1];
+            const startDate = formatDate(latest.date, 'short');
+            const endDate = formatDate(latest.endDate, 'short');
+            const titleWithIssue = `AI圈热点周报 第${latest.issueNumber}期`;
+            const highlights = Array.isArray(latest.highlights) && latest.highlights.length > 0
+                ? latest.highlights
+                : [latest.summary];
+
+            const headlineText = highlights[0] || titleWithIssue;
+            const listHtml = highlights
+                .map(item => `<li>${escapeHtml(item)}</li>`)
+                .join('');
+
+            featuredSection.innerHTML = `
+                <div class="featured-card" onclick="openDrawer('${latest.filename}', '${titleWithIssue}', true, ${ latest.issueNumber })">
+                    <div class="featured-body">
+                        <div class="featured-meta">
+                            <span class="featured-badge">LATEST · ISSUE #${String(latest.issueNumber).padStart(2, '0')}</span>
+                            <span class="featured-date">${startDate} — ${endDate}</span>
+                        </div>
+                        <div class="featured-headline">${escapeHtml(headlineText)}</div>
+                        <ul class="featured-highlights">${listHtml}</ul>
+                    </div>
+                    <div class="featured-right">
+                        <div class="featured-metrics">
+                            <span><strong>${latest.newsCount || '-'}</strong>新闻</span>
+                            <span><strong>${latest.toolCount || '-'}</strong>工具</span>
+                            <span><strong>${latest.techCount || '-'}</strong>突破</span>
+                        </div>
+                        <span class="featured-cta">阅读最新一期 →</span>
+                    </div>
+                </div>
+            `;
+            featuredSection.style.display = 'block';
+        }
+
         function generateFilterButtons() {
             const filterButtons = document.getElementById('filterButtons');
             const months = [...new Set(weeklyData.map(item => item.date.substring(0, 7)))];
 
-            let buttonsHTML = '<button class="filter-btn active" data-month="all">全部</button>';
+            let buttonsHTML = `<button class="filter-btn active" data-month="all">全部 (${weeklyData.length})</button>`;
             months.sort().reverse().forEach(month => {
                 const year = month.substring(0, 4);
                 const monthNum = month.substring(5, 7);
@@ -746,25 +1126,48 @@
             });
         }
 
-        // Drawer 功能
-        function openDrawer(filename, title, isPublished) {
+        function openDrawer(filename, title, isPublished, issueNumber) {
             if (!isPublished) return;
-            
+
             currentDrawerUrl = filename;
+            currentDrawerIndex = sortedDisplayList.findIndex(w => w.filename === filename);
+
+            const issueBadge = issueNumber || (currentDrawerIndex >= 0 ? sortedDisplayList[currentDrawerIndex].issueNumber : '');
+            document.getElementById('drawerKicker').innerText = issueBadge ? `ISSUE #${String(issueBadge).padStart(2, '0')}` : 'READER';
             document.getElementById('drawerTitle').innerText = title;
             document.getElementById('iframeLoader').style.display = 'block';
             document.getElementById('drawerIframe').src = filename;
-            
+
+            updateDrawerNavButtons();
+
             document.getElementById('drawerOverlay').classList.add('active');
             document.getElementById('drawer').classList.add('active');
-            document.body.style.overflow = 'hidden'; // 防止背景滚动
+            document.body.style.overflow = 'hidden';
+        }
+
+        function updateDrawerNavButtons() {
+            const prevBtn = document.getElementById('drawerPrevBtn');
+            const nextBtn = document.getElementById('drawerNextBtn');
+            if (!prevBtn || !nextBtn) return;
+
+            // sortedDisplayList is newest-first: index + 1 is older (上一期), index - 1 is newer (下一期)
+            prevBtn.disabled = currentDrawerIndex < 0 || currentDrawerIndex >= sortedDisplayList.length - 1;
+            nextBtn.disabled = currentDrawerIndex <= 0;
+        }
+
+        function navigateDrawer(delta) {
+            const nextIndex = currentDrawerIndex + delta;
+            if (nextIndex < 0 || nextIndex >= sortedDisplayList.length) return;
+            const target = sortedDisplayList[nextIndex];
+            if (!target || !target.published) return;
+            openDrawer(target.filename, `AI圈热点周报 第${target.issueNumber}期`, target.published, target.issueNumber);
         }
 
         function closeDrawer() {
             document.getElementById('drawerOverlay').classList.remove('active');
             document.getElementById('drawer').classList.remove('active');
             document.body.style.overflow = '';
-            
+
             setTimeout(() => {
                 document.getElementById('drawerIframe').src = 'about:blank';
             }, 300);
@@ -772,6 +1175,14 @@
 
         function iframeLoaded() {
             document.getElementById('iframeLoader').style.display = 'none';
+            try {
+                const iframeDoc = document.getElementById('drawerIframe').contentDocument;
+                if (iframeDoc && iframeDoc.documentElement) {
+                    iframeDoc.documentElement.classList.add('drawer-mode');
+                }
+            } catch (e) {
+                // Ignore cross-origin restrictions if any
+            }
         }
 
         function openInNewTab() {
@@ -780,44 +1191,59 @@
             }
         }
 
-        // 生成周报卡片
+        function escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;');
+        }
+
         function generateWeeklyCards() {
             const weeklyList = document.getElementById('weeklyList');
 
-            const weeklyWithIssues = weeklyData.map((weekly, index) => {
-                return {
-                    ...weekly,
-                    issueNumber: index + 1
-                };
-            });
+            const weeklyWithIssues = weeklyData.map((weekly, index) => ({
+                ...weekly,
+                issueNumber: index + 1
+            }));
 
-            const sortedForDisplay = weeklyWithIssues.sort((a, b) => new Date(b.date) - new Date(a.date));
+            sortedDisplayList = weeklyWithIssues.sort((a, b) => new Date(b.date) - new Date(a.date));
 
-            const cardsHTML = sortedForDisplay.map((weekly) => {
+            const cardsHTML = sortedDisplayList.map((weekly) => {
                 const startDate = formatDate(weekly.date, 'short');
-                const endDate = formatDate(weekly.endDate, 'short');
+                const endDate = formatDate(weekly.endDate, 'short').slice(5);
                 const unpublishedClass = weekly.published ? '' : ' unpublished';
-                const statusHtml = weekly.published ? 
-                    '<span class="status-badge">已发布</span>' : 
-                    '<span class="status-badge">待发布</span>';
+                const statusHtml = weekly.published
+                    ? '<span class="status-badge">已发布</span>'
+                    : '<span class="status-badge">待发布</span>';
 
-                const titleWithIssue = `AI圈热点周报 第${weekly.issueNumber}期`;
+                const titleWithIssue = `AI 圈热点周报 第${weekly.issueNumber}期`;
+                const issueCode = `ISSUE #${String(weekly.issueNumber).padStart(2, '0')}`;
 
-                const extraContent = weekly.blackboardImage ?
-                    `<img src="${weekly.blackboardImage}" class="card-preview-image" alt="AI Weekly Blackboard">` : '';
+                const extraContent = weekly.blackboardImage
+                    ? `<img src="${weekly.blackboardImage}" class="card-preview-image" alt="AI Weekly Blackboard" loading="lazy">`
+                    : '';
 
-                // Add onclick to card directly
+                const highlights = Array.isArray(weekly.highlights) && weekly.highlights.length > 0
+                    ? weekly.highlights
+                    : [];
+
+                const bodyContent = highlights.length > 0
+                    ? `<ul class="weekly-highlights">${highlights.map(h => `<li>${escapeHtml(h)}</li>`).join('')}</ul>`
+                    : `<div class="weekly-summary">${escapeHtml(weekly.summary)}</div>`;
+
                 return `
-                    <div class="weekly-card${unpublishedClass}" onclick="openDrawer('${weekly.filename}', '${titleWithIssue}', ${weekly.published})">
+                    <div class="weekly-card${unpublishedClass}" data-date="${weekly.date}" onclick="openDrawer('${weekly.filename}', '${titleWithIssue}', ${weekly.published}, ${weekly.issueNumber})">
                         <div class="card-header">
+                            <span class="issue-badge">${issueCode}</span>
                             <span class="date-badge">${startDate} - ${endDate}</span>
                             ${statusHtml}
                         </div>
-                        
+
                         <h2 class="weekly-title">${titleWithIssue}</h2>
                         ${extraContent}
-                        <div class="weekly-summary">${weekly.summary}</div>
-                        
+                        ${bodyContent}
+
                         <div class="weekly-stats">
                             <div class="stat">
                                 <span class="stat-num">${weekly.newsCount || '-'}</span>
@@ -831,6 +1257,7 @@
                                 <span class="stat-num">${weekly.techCount || '-'}</span>
                                 <span class="stat-text">突破</span>
                             </div>
+                            <span class="card-read-more">阅读 →</span>
                         </div>
                     </div>
                 `;
@@ -840,26 +1267,26 @@
         }
 
         function filterWeeklies() {
-            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const searchTerm = document.getElementById('searchInput').value.trim().toLowerCase();
             const weeklyCards = document.querySelectorAll('.weekly-card');
             const noResults = document.getElementById('noResults');
             const weeklyList = document.getElementById('weeklyList');
+            const featuredSection = document.getElementById('featuredSection');
             let visibleCount = 0;
 
+            // Hide featured banner when actively filtering or searching
+            if (featuredSection) {
+                featuredSection.style.display = (searchTerm === '' && currentFilter === 'all' && weeklyData.length > 0) ? 'block' : 'none';
+            }
+
             weeklyCards.forEach((card, index) => {
-                const title = card.querySelector('.weekly-title').textContent.toLowerCase();
-                const summary = card.querySelector('.weekly-summary').textContent.toLowerCase();
-                const dateText = card.querySelector('.date-badge').textContent.toLowerCase();
-                
-                // Original file uses data-date for filtering by month
-                const dataDateRaw = weeklyData.sort((a, b) => new Date(b.date) - new Date(a.date))[index].date;
+                const item = sortedDisplayList[index];
+                const cardText = card.textContent.toLowerCase();
+                const summaryText = (item && item.summary ? item.summary : '').toLowerCase();
+                const dataDateRaw = item ? item.date : (card.dataset.date || '');
 
-                const matchesSearch = title.includes(searchTerm) ||
-                    summary.includes(searchTerm) ||
-                    dateText.includes(searchTerm);
-
-                const matchesFilter = currentFilter === 'all' ||
-                    dataDateRaw.startsWith(currentFilter);
+                const matchesSearch = !searchTerm || cardText.includes(searchTerm) || summaryText.includes(searchTerm);
+                const matchesFilter = currentFilter === 'all' || dataDateRaw.startsWith(currentFilter);
 
                 if (matchesSearch && matchesFilter) {
                     card.style.display = 'flex';
@@ -884,8 +1311,9 @@
                 return total + (weekly.newsCount || 0);
             }, 0);
 
-            const latestDate = weeklyData.length > 0 ?
-                formatDate(weeklyData[weeklyData.length - 1].endDate, 'short') : '-';
+            const latestDate = weeklyData.length > 0
+                ? formatDate(weeklyData[weeklyData.length - 1].endDate, 'short')
+                : '-';
 
             document.getElementById('totalWeeks').textContent = weeklyData.length;
             document.getElementById('totalNews').textContent = totalNewsCount;

@@ -33,6 +33,7 @@ description: 根据 Markdown 新闻文档生成 HTML 周报，扫描更新配置
    - 新闻简介（**100-300字**，建议 180-220 字，包含背景+关键信息+影响）
    - 价值分析（提效/赚钱）
    - 辩证思考（可选）
+   - 每期至少 **10 条**新闻；不足 10 条时不得生成、提交或发布
 3. **总结部分**：文章末尾的趋势分析
 
 ### 步骤 2：生成 HTML 文件
@@ -224,6 +225,7 @@ node update-config.js scan
 - [ ] 文件名格式正确：`YYYYMMDD-YYYYMMDD周新闻.html`
 - [ ] 使用 `<link rel="stylesheet" href="weekly.css">`
 - [ ] 所有新闻卡片格式正确
+- [ ] 新闻卡片不少于 10 条（总结卡片不计入）
 - [ ] 每张新闻卡片都显示来源网站
 - [ ] `node update-config.js scan` 已执行
 - [ ] `weekly-config.json` 已更新
